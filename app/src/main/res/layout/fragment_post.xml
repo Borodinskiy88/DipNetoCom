@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:padding="@dimen/common_spacing_16"
+tools:context=".PostFragment">
+
+
+        <ImageView
+            android:id="@+id/user_avatar"
+            android:layout_width="@dimen/posts_avatar_size_48"
+            android:layout_height="@dimen/icon_button_min_size_48"
+            android:background="@drawable/background_line"
+            android:scaleType="fitCenter"
+            android:src="@drawable/account_circle_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_spacing_16"
+            android:text="@string/anonymous"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/user_avatar"
+            app:layout_constraintStart_toEndOf="@id/user_avatar"
+            app:layout_constraintTop_toTopOf="@id/user_avatar" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login"
+            style="@style/Widget.AppTheme.IconButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/input_24"
+            android:contentDescription="@string/login"
+            app:layout_constraintBottom_toBottomOf="@id/user_avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/user_avatar" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="login, user_avatar, user_name" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggle_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/common_spacing_16">
+
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/button_posts"
+            android:backgroundTint="@color/PRIMARY_50"
+            android:textColor="@color/PRIMARY_600"
+            android:layout_width="@dimen/toggle_button_190"
+            android:layout_height="wrap_content"
+            android:text="@string/posts"
+            />
+
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/button_events"
+            android:backgroundTint="@color/PRIMARY_50"
+            android:textColor="@color/PRIMARY_600"
+            android:layout_width="@dimen/toggle_button_190"
+            android:layout_height="wrap_content"
+            android:text="@string/events"
+            />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/common_spacing_16"
+        app:layout_constraintTop_toBottomOf="@id/toggle_button"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/posts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/card_post" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/common_spacing_16"
+        android:layout_marginBottom="@dimen/common_spacing_16"
+        app:srcCompat="@drawable/create_24"
+        android:importantForAccessibility="no" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

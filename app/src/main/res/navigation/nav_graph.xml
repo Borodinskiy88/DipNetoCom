@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/postFragment">
+
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.example.dipnetocom.PostFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_post" />
+    <fragment
+        android:id="@+id/eventFragment"
+        android:name="com.example.dipnetocom.EventFragment"
+        android:label="fragment_event"
+        tools:layout="@layout/fragment_event" />
+    <fragment
+        android:id="@+id/newPostFragment"
+        android:name="com.example.dipnetocom.NewPostFragment"
+        android:label="fragment_new_post"
+        tools:layout="@layout/fragment_new_post" />
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.dipnetocom.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" />
+    <fragment
+        android:id="@+id/imageFragment"
+        android:name="com.example.dipnetocom.ImageFragment"
+        android:label="fragment_image"
+        tools:layout="@layout/fragment_image" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.dipnetocom.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/wallFragment"
+        android:name="com.example.dipnetocom.WallFragment"
+        android:label="fragment_wall"
+        tools:layout="@layout/fragment_wall" />
+</navigation>

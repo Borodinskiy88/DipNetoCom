@@ -4,4 +4,17 @@
     <string name="button">Button</string>
     <string name="secondary_color">Secondary color</string>
     <string name="email_icon">email icon</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="avatar">Avatar</string>
+    <string name="like">Like</string>
+    <string name="share">Share</string>
+    <string name="coordinates">Coordinates</string>
+    <string name="viewing">Viewing</string>
+    <string name="menu">Menu</string>
+    <string name="attachment">Attachment</string>
+    <string name="anonymous">Anonymous</string>
+    <string name="login">Login</string>
+    <string name="posts">Posts</string>
+    <string name="events">Events</string>
 </resources>

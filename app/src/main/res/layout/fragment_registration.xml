@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/common_spacing"
+    tools:context=".RegistrationFragment">
+
+    <FrameLayout
+        android:id="@+id/registrationContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_spacing"
+        app:layout_constraintBottom_toTopOf="@+id/nameRegLayout">
+
+        <ImageView
+            android:id="@+id/previewAvatar"
+            android:layout_width="@dimen/common_spacing"
+            android:layout_height="@dimen/common_spacing"
+            android:layout_gravity="center"
+            android:contentDescription="@string/preview_avatar"
+            tools:src="@tools:sample/avatars" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/clearButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:text="@string/clear" />
+    </FrameLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameRegLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_spacing"
+        app:layout_constraintBottom_toTopOf="@id/loginRegLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/PRIMARY_50"
+            android:hint="@string/name"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/loginRegLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_spacing"
+        app:layout_constraintBottom_toTopOf="@id/passwordRegLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/loginReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordRegLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_spacing"
+        app:endIconMode="password_toggle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/repeatPasswordRegLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_spacing"
+        app:endIconMode="password_toggle"
+        app:layout_constraintTop_toBottomOf="@id/passwordRegLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/repeatPasswordReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/repeat_password"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/registrationButton"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:layout_height="wrap_content"
+        android:text="registration_button"
+        app:layout_constraintEnd_toEndOf="@id/repeatPasswordRegLayout"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repeatPasswordRegLayout" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/avatarButton"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:text="clear"
+        app:icon="@drawable/clear_24"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@id/repeatPasswordRegLayout"
+        app:layout_constraintTop_toBottomOf="@id/repeatPasswordRegLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
