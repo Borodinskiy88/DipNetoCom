@@ -31,6 +31,10 @@
         <item name="android:minHeight">48dp</item>
     </style>
 
+    <style name="fab_square" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
 
 
 </resources>

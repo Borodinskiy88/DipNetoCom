@@ -17,4 +17,34 @@
     <string name="login">Login</string>
     <string name="posts">Posts</string>
     <string name="events">Events</string>
+    <string name="clear">Clear</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="registration">Registration</string>
+    <string name="sign_in_with_password">Sign in with password</string>
+    <string name="log_in_with_a_password">Log in with a password</string>
+    <string name="back">Back</string>
+    <string name="enter_the_password">Enter the password</string>
+    <string name="edit">Edit</string>
+    <string name="dash">-</string>
+    <string name="jobs">Jobs</string>
+    <string name="empty_jobs">Empty jobs</string>
+    <string name="add_jobs">Add jobs</string>
+    <string name="create">Create</string>
+    <string name="job_name">Job Name</string>
+    <string name="job_position">Job position</string>
+    <string name="job_start">Job start</string>
+    <string name="job_finish">Job finish</string>
+    <string name="edit_create_events">Edit/Create event</string>
+    <string name="edit_create_posts">Edit/Create post</string>
+    <string name="edit_create_jobs">Edit/Create job</string>
+    <string name="image">Image</string>
+    <string name="users_wall">Wall of User</string>
+    <string name="video">Video</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

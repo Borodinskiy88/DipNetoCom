@@ -7,4 +7,5 @@
     <dimen name="icon_button_padding_12">12dp</dimen>
     <dimen name="icon_button_min_size_48">48dp</dimen>
     <dimen name="toggle_button_190">190dp</dimen>
+    <dimen name="fab_margin_24">24dp</dimen>
 </resources>

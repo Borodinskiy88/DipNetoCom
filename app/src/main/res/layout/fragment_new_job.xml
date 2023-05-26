@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/common_spacing_16"
-    tools:context=".RegistrationFragment">
+    tools:context=".NewJobFragment">
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -20,8 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/PRIMARY_50"
-            android:hint="@string/name"
-            android:inputType="textPersonName" />
+            android:hint="@string/job_name"
+            android:inputType="textCapSentences" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -36,17 +36,17 @@
             android:background="@color/PRIMARY_50"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/login"
-            android:inputType="textPersonName" />
+            android:hint="@string/job_position"
+            android:inputType="textCapSentences" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/job_start_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/calendar_24"
         android:layout_margin="@dimen/common_spacing_16"
-        app:endIconMode="password_toggle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:background="@color/PRIMARY_50"
             android:layout_height="wrap_content"
-            android:hint="@string/password"
+            android:hint="@string/job_start"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,8 +63,9 @@
         android:id="@+id/job_finish_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/calendar_24"
         android:layout_margin="@dimen/common_spacing_16"
-        app:endIconMode="password_toggle"
         app:layout_constraintTop_toBottomOf="@id/job_start_layout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -72,23 +73,23 @@
             android:layout_width="match_parent"
             android:background="@color/PRIMARY_50"
             android:layout_height="wrap_content"
-            android:hint="@string/repeat_password"
+            android:hint="@string/job_finish"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/registration_button"
+        android:id="@+id/create_button"
         android:layout_width="wrap_content"
         android:layout_marginTop="@dimen/common_spacing_16"
         android:layout_height="wrap_content"
-        app:icon="@drawable/registration_24"
-        android:text="@string/registration"
+        app:icon="@drawable/create_24"
+        android:text="@string/create"
         app:layout_constraintEnd_toEndOf="@id/job_finish_layout"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/job_finish_layout" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/clear"
+        android:id="@+id/clear_button"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

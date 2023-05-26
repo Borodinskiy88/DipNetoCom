@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WallFragment">
+    android:background="@color/black"
+    tools:context=".VideoFragment">
 
-    <TextView
-        android:id="@+id/wall_cards"
+    <ImageView
+        android:id="@+id/fullscreen_video"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_spacing_16"
-        android:layout_marginTop="@dimen/common_spacing_16"
-        android:layout_marginEnd="@dimen/common_spacing_16"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:scaleType="center"
+        android:background="@drawable/background_line"
+        tools:src="@tools:sample/avatars[11]"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

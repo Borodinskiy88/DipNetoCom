@@ -6,17 +6,18 @@
     android:layout_height="match_parent">
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:padding="@dimen/common_spacing_16"
-tools:context=".PostFragment">
-
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/checkbox_padding_start_8"
+        tools:context=".PostFragment">
 
         <ImageView
             android:id="@+id/user_avatar"
             android:layout_width="@dimen/posts_avatar_size_48"
             android:layout_height="@dimen/icon_button_min_size_48"
+            android:layout_marginStart="@dimen/checkbox_padding_start_8"
+            android:layout_marginTop="@dimen/checkbox_padding_start_8"
             android:background="@drawable/background_line"
             android:scaleType="fitCenter"
             android:src="@drawable/account_circle_24"
@@ -28,9 +29,9 @@ tools:context=".PostFragment">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/common_spacing_16"
-            android:text="@string/anonymous"
             android:ellipsize="end"
             android:singleLine="true"
+            android:text="@string/anonymous"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/user_avatar"
@@ -42,8 +43,8 @@ tools:context=".PostFragment">
             style="@style/Widget.AppTheme.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:icon="@drawable/input_24"
             android:contentDescription="@string/login"
+            app:icon="@drawable/input_24"
             app:layout_constraintBottom_toBottomOf="@id/user_avatar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/user_avatar" />
@@ -55,53 +56,51 @@ tools:context=".PostFragment">
             app:barrierDirection="bottom"
             app:constraint_referenced_ids="login, user_avatar, user_name" />
 
-    <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/toggle_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/common_spacing_16">
-
-        <Button
-            style="?attr/materialButtonOutlinedStyle"
-            android:id="@+id/button_posts"
-            android:backgroundTint="@color/PRIMARY_50"
-            android:textColor="@color/PRIMARY_600"
-            android:layout_width="@dimen/toggle_button_190"
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggle_button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/posts"
-            />
+            android:layout_marginTop="@dimen/common_spacing_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header">
 
-        <Button
-            style="?attr/materialButtonOutlinedStyle"
-            android:id="@+id/button_events"
-            android:backgroundTint="@color/PRIMARY_50"
-            android:textColor="@color/PRIMARY_600"
-            android:layout_width="@dimen/toggle_button_190"
-            android:layout_height="wrap_content"
-            android:text="@string/events"
-            />
-    </com.google.android.material.button.MaterialButtonToggleGroup>
+            <Button
+                android:id="@+id/button_posts"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="@dimen/toggle_button_190"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/PRIMARY_50"
+                android:text="@string/posts"
+                android:textColor="@color/PRIMARY_600" />
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefresh"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/common_spacing_16"
-        app:layout_constraintTop_toBottomOf="@id/toggle_button"
-        app:layout_constraintStart_toStartOf="parent">
+            <Button
+                android:id="@+id/button_events"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="@dimen/toggle_button_190"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/PRIMARY_50"
+                android:text="@string/events"
+                android:textColor="@color/PRIMARY_600" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/posts"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/card_post" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/common_spacing_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toggle_button">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/posts"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/card_post" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -110,7 +109,8 @@ tools:context=".PostFragment">
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/common_spacing_16"
         android:layout_marginBottom="@dimen/common_spacing_16"
-        app:srcCompat="@drawable/create_24"
-        android:importantForAccessibility="no" />
+        android:importantForAccessibility="no"
+        app:shapeAppearanceOverlay="@style/fab_square"
+        app:srcCompat="@drawable/create_24" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

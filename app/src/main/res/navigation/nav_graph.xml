@@ -8,36 +8,118 @@
     <fragment
         android:id="@+id/postFragment"
         android:name="com.example.dipnetocom.PostFragment"
-        android:label="fragment_post"
-        tools:layout="@layout/fragment_post" />
+        android:label="@string/posts"
+        tools:layout="@layout/fragment_post">
+        <action
+            android:id="@+id/action_postFragment_to_eventFragment"
+            app:destination="@id/eventFragment" />
+        <action
+            android:id="@+id/action_postFragment_to_jobsFragment"
+            app:destination="@id/jobsFragment" />
+        <action
+            android:id="@+id/action_postFragment_to_wallFragment"
+            app:destination="@id/wallFragment" />
+        <action
+            android:id="@+id/action_postFragment_to_imageFragment"
+            app:destination="@id/imageFragment" />
+        <action
+            android:id="@+id/action_postFragment_to_videoFragment"
+            app:destination="@id/videoFragment" />
+        <action
+            android:id="@+id/action_postFragment_to_newPostFragment"
+            app:destination="@id/newPostFragment" />
+        <action
+            android:id="@+id/action_postFragment_to_newPostFragment2"
+            app:destination="@id/newPostFragment" />
+        <action
+            android:id="@+id/action_postFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_postFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/eventFragment"
         android:name="com.example.dipnetocom.EventFragment"
-        android:label="fragment_event"
-        tools:layout="@layout/fragment_event" />
+        android:label="@string/events"
+        tools:layout="@layout/fragment_event">
+        <action
+            android:id="@+id/action_eventFragment_to_postFragment"
+            app:destination="@id/postFragment" />
+        <action
+            android:id="@+id/action_eventFragment_to_jobsFragment"
+            app:destination="@id/jobsFragment" />
+        <action
+            android:id="@+id/action_eventFragment_to_wallFragment"
+            app:destination="@id/wallFragment" />
+        <action
+            android:id="@+id/action_eventFragment_to_imageFragment"
+            app:destination="@id/imageFragment" />
+        <action
+            android:id="@+id/action_eventFragment_to_videoFragment"
+            app:destination="@id/videoFragment" />
+        <action
+            android:id="@+id/action_eventFragment_to_newEventFragment"
+            app:destination="@id/newEventFragment" />
+        <action
+            android:id="@+id/action_eventFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_eventFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/newPostFragment"
         android:name="com.example.dipnetocom.NewPostFragment"
-        android:label="fragment_new_post"
+        android:label="@string/edit_create_posts"
         tools:layout="@layout/fragment_new_post" />
     <fragment
         android:id="@+id/registrationFragment"
         android:name="com.example.dipnetocom.RegistrationFragment"
-        android:label="fragment_registration"
+        android:label="@string/registration"
         tools:layout="@layout/fragment_registration" />
     <fragment
         android:id="@+id/imageFragment"
         android:name="com.example.dipnetocom.ImageFragment"
-        android:label="fragment_image"
+        android:label="@string/image"
         tools:layout="@layout/fragment_image" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.dipnetocom.LoginFragment"
-        android:label="fragment_login"
+        android:label="@string/login"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/wallFragment"
         android:name="com.example.dipnetocom.WallFragment"
-        android:label="fragment_wall"
+        android:label="@string/users_wall"
         tools:layout="@layout/fragment_wall" />
+    <fragment
+        android:id="@+id/jobsFragment"
+        android:name="com.example.dipnetocom.JobsFragment"
+        android:label="@string/jobs">
+        <action
+            android:id="@+id/action_jobsFragment_to_newJobFragment"
+            app:destination="@id/newJobFragment" />
+        <action
+            android:id="@+id/action_jobsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_jobsFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newEventFragment"
+        android:name="com.example.dipnetocom.NewEventFragment"
+        android:label="@string/edit_create_events"
+        tools:layout="@layout/fragment_new_event" />
+    <fragment
+        android:id="@+id/newJobFragment"
+        android:name="com.example.dipnetocom.NewJobFragment"
+        android:label="@string/edit_create_jobs"
+        tools:layout="@layout/fragment_new_job" />
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="com.example.dipnetocom.VideoFragment"
+        android:label="@string/video"
+        tools:layout="@layout/fragment_video" />
 </navigation>
