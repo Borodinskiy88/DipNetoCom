@@ -89,7 +89,6 @@
         android:layout_marginEnd="@dimen/fab_margin_24"
         android:layout_marginBottom="@dimen/fab_margin_24"
         android:importantForAccessibility="no"
-        app:shapeAppearanceOverlay="@style/fab_square"
         app:srcCompat="@drawable/check_24" />
 
 

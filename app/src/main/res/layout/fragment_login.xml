@@ -50,18 +50,18 @@
         android:text="@string/enter_the_password"
         app:icon="@drawable/login_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/back"
+        app:layout_constraintStart_toEndOf="@id/clear"
         app:layout_constraintTop_toBottomOf="@+id/password_log_layout" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/back"
+        android:id="@+id/clear"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing_16"
         android:layout_marginTop="@dimen/common_spacing_16"
-        android:text="@string/back"
-        app:icon="@drawable/back_24"
+        android:text="@string/clear"
+        app:icon="@drawable/clear_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password_log_layout" />
 

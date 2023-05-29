@@ -9,7 +9,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/checkbox_padding_start_8"
         tools:context=".PostFragment">
 
         <ImageView
@@ -56,41 +55,16 @@
             app:barrierDirection="bottom"
             app:constraint_referenced_ids="login, user_avatar, user_name" />
 
-        <com.google.android.material.button.MaterialButtonToggleGroup
-            android:id="@+id/toggle_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/common_spacing_16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/header">
-
-            <Button
-                android:id="@+id/button_posts"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="@dimen/toggle_button_190"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/PRIMARY_50"
-                android:text="@string/posts"
-                android:textColor="@color/PRIMARY_600" />
-
-            <Button
-                android:id="@+id/button_events"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="@dimen/toggle_button_190"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/PRIMARY_50"
-                android:text="@string/events"
-                android:textColor="@color/PRIMARY_600" />
-        </com.google.android.material.button.MaterialButtonToggleGroup>
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefresh"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/common_spacing_16"
+            android:layout_marginBottom="@dimen/checkbox_padding_start_8"
+            app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toggle_button">
+            app:layout_constraintTop_toBottomOf="@id/header">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/posts"
@@ -100,7 +74,19 @@
                 tools:listitem="@layout/card_post" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_blue"
+            app:itemTextAppearanceActive="@style/BottomNavigationView.Active"
+            app:itemTextAppearanceInactive="@style/BottomNavigationView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_navigation_menu" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -108,9 +94,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/common_spacing_16"
-        android:layout_marginBottom="@dimen/common_spacing_16"
+        android:layout_marginBottom="28dp"
         android:importantForAccessibility="no"
-        app:shapeAppearanceOverlay="@style/fab_square"
         app:srcCompat="@drawable/create_24" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
