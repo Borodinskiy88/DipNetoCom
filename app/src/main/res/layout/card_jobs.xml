@@ -12,15 +12,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_line"
-        android:padding="@dimen/common_spacing_16">
+        android:paddingStart="@dimen/checkbox_padding_start_8"
+        android:paddingEnd="@dimen/checkbox_padding_start_8">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/menu"
+            style="@style/Widget.AppTheme.IconButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/common_spacing_16"
+            android:contentDescription="@string/menu"
+            app:icon="@drawable/menu_vert_24"
+            app:iconGravity="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/job_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/checkbox_padding_start_8"
+            android:layout_marginTop="@dimen/checkbox_padding_start_8"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:layout_marginStart="@dimen/checkbox_padding_start_8"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@tools:sample/lorem" />
@@ -29,8 +43,8 @@
             android:id="@+id/job_position"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:layout_margin="@dimen/checkbox_padding_start_8"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/job_name"
             tools:text="@tools:sample/lorem" />
@@ -40,8 +54,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/checkbox_padding_start_8"
-            app:layout_constraintTop_toBottomOf="@id/job_position"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/job_position"
             tools:text="@tools:sample/date/ddmmyy" />
 
         <TextView
@@ -49,18 +63,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/checkbox_padding_start_8"
-            app:layout_constraintTop_toBottomOf="@id/job_position"
+            android:text="@string/dash"
             app:layout_constraintStart_toEndOf="@id/job_start"
-            android:text="@string/dash" />
+            app:layout_constraintTop_toBottomOf="@id/job_position" />
 
         <TextView
             android:id="@+id/job_finish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/checkbox_padding_start_8"
-            app:layout_constraintTop_toBottomOf="@id/job_position"
+            app:layout_constraintBottom_toBottomOf="@id/job_start"
             app:layout_constraintStart_toEndOf="@id/dash"
+            app:layout_constraintTop_toTopOf="@id/job_start"
             tools:text="@tools:sample/date/ddmmyy" />
+
+        <TextView
+            android:id="@+id/link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/checkbox_padding_start_8"
+            android:autoLink="web"
+            tools:text="@tools:sample/lorem"
+            android:textColor="@color/PRIMARY_600"
+            android:paddingBottom="@dimen/checkbox_padding_start_8"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/job_finish" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

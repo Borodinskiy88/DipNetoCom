@@ -5,18 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/common_spacing_16"
-    tools:context=".RegistrationFragment">
+    tools:context=".activity.auth.RegistrationFragment">
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/job_name_layout"
+        android:id="@+id/name_reg_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing_16"
-        app:layout_constraintBottom_toTopOf="@id/job_position_layout">
+        app:layout_constraintBottom_toTopOf="@id/login_reg_layout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_job_name"
+            android:id="@+id/name_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/PRIMARY_50"
@@ -25,14 +25,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/job_position_layout"
+        android:id="@+id/login_reg_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing_16"
-        app:layout_constraintBottom_toTopOf="@id/job_start_layout">
+        app:layout_constraintBottom_toTopOf="@id/password_reg_layout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_job_position"
+            android:id="@+id/login_reg"
             android:background="@color/PRIMARY_50"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/job_start_layout"
+        android:id="@+id/password_reg_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing_16"
@@ -51,7 +51,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_job_start"
+            android:id="@+id/password_reg"
             android:layout_width="match_parent"
             android:background="@color/PRIMARY_50"
             android:layout_height="wrap_content"
@@ -60,15 +60,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/job_finish_layout"
+        android:id="@+id/repeat_password_reg_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing_16"
         app:endIconMode="password_toggle"
-        app:layout_constraintTop_toBottomOf="@id/job_start_layout">
+        app:layout_constraintTop_toBottomOf="@id/password_reg_layout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/job_finish_reg"
+            android:id="@+id/repeat_password_reg"
             android:layout_width="match_parent"
             android:background="@color/PRIMARY_50"
             android:layout_height="wrap_content"
@@ -83,9 +83,9 @@
         android:layout_height="wrap_content"
         app:icon="@drawable/registration_24"
         android:text="@string/registration"
-        app:layout_constraintEnd_toEndOf="@id/job_finish_layout"
+        app:layout_constraintEnd_toEndOf="@id/repeat_password_reg_layout"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/job_finish_layout" />
+        app:layout_constraintTop_toBottomOf="@id/repeat_password_reg_layout" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/clear"
@@ -96,8 +96,21 @@
         android:text="@string/clear"
         app:icon="@drawable/clear_24"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="@id/job_finish_layout"
-        app:layout_constraintTop_toBottomOf="@id/job_finish_layout" />
+        app:layout_constraintStart_toStartOf="@id/repeat_password_reg_layout"
+        app:layout_constraintTop_toBottomOf="@id/repeat_password_reg_layout" />
+
+    <TextView
+        android:id="@+id/login_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing_16"
+        android:textColor="@color/PRIMARY_600"
+        android:textSize="18sp"
+        android:autoLink="all"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clear"
+        android:text="@string/login_line" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/common_spacing_16"
-    tools:context=".NewJobFragment">
+    tools:context=".activity.edit.NewJobFragment">
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -69,7 +69,7 @@
         app:layout_constraintTop_toBottomOf="@id/job_start_layout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/job_finish_reg"
+            android:id="@+id/edit_job_finish"
             android:layout_width="match_parent"
             android:background="@color/PRIMARY_50"
             android:layout_height="wrap_content"

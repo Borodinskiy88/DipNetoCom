@@ -2,45 +2,53 @@
     <string name="app_name">DipNetoCom</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- icon -->
-    <string name="avatar">Avatar</string>
-    <string name="like">Like</string>
-    <string name="share">Share</string>
-    <string name="coordinates">Coordinates</string>
-    <string name="viewing">Viewing</string>
-    <string name="menu">Menu</string>
     <string name="attachment">Attachment</string>
+    <string name="avatar">Avatar</string>
+    <string name="coordinates">Coordinates</string>
+    <string name="like">Like</string>
+    <string name="menu">Menu</string>
+    <string name="share">Share</string>
+    <string name="viewing">Viewing</string>
     <!-- login/reg -->
+    <string name="anonymous">Anonymous</string>
+    <string name="enter_the_password">Enter the password</string>
     <string name="login">Login</string>
+    <string name="log_in">Log in</string>
+    <string name="login_line">Already registered? <u>Log in</u></string>
+    <string name="log_in_with_a_password">Log in with a password</string>
+    <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="repeat_password">Repeat password</string>
     <string name="registration">Registration</string>
+    <string name="registration_line"><u>Registration</u></string>
     <string name="sign_in_with_password">Sign in with password</string>
-    <string name="log_in_with_a_password">Log in with a password</string>
-    <string name="enter_the_password">Enter the password</string>
-    <string name="anonymous">Anonymous</string>
-    <string name="name">Name</string>
     <!-- fragments -->
-    <string name="posts">Posts</string>
-    <string name="events">Events</string>
-    <string name="jobs">Jobs</string>
-    <string name="image">Image</string>
-    <string name="users_wall">Wall of User</string>
-    <string name="video">Video</string>
     <string name="edit_create_events">Edit/Create event</string>
     <string name="edit_create_posts">Edit/Create post</string>
     <string name="edit_create_jobs">Edit/Create job</string>
+    <string name="events">Events</string>
+    <string name="image">Image</string>
+    <string name="jobs">Jobs</string>
+    <string name="posts">Posts</string>
+    <string name="users_wall">Wall of User</string>
+    <string name="video">Video</string>
     <!-- jobs -->
+    <string name="add_jobs">Add jobs</string>
+    <string name="empty_jobs">Empty jobs</string>
     <string name="job_name">Job Name</string>
     <string name="job_position">Job position</string>
     <string name="job_start">Job start</string>
     <string name="job_finish">Job finish</string>
-    <string name="empty_jobs">Empty jobs</string>
-    <string name="add_jobs">Add jobs</string>
     <!-- actions -->
     <string name="back">Back</string>
     <string name="edit">Edit</string>
     <string name="create">Create</string>
     <string name="clear">Clear</string>
+    <string name="remove">Remove</string>
+    <!-- adapter -->
+    <string name="unknown_item_type">Unknown item type</string>
+    <string name="unknown_view_type">Unknown view type</string>
     <!-- other -->
     <string name="dash">-</string>
+
 </resources>

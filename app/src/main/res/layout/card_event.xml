@@ -26,13 +26,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/attachment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/attachment"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/content" />
 
         <LinearLayout
             android:id="@+id/author_info"
@@ -157,12 +150,23 @@
             app:layout_constraintTop_toBottomOf="@id/header2"
             tools:text="@tools:sample/lorem[50]/random" />
 
+        <TextView
+            android:id="@+id/link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:textColor="@color/PRIMARY_600"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content"
+            android:text="@string/login_line" />
+
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/footer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="content" />
+            app:constraint_referenced_ids="link" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/like"
@@ -194,6 +198,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/checkbox_padding_start_8"
             android:contentDescription="@string/coordinates"
+            android:visibility="gone"
             app:icon="@drawable/locate_24"
             app:layout_constraintStart_toEndOf="@id/share"
             app:layout_constraintTop_toBottomOf="@id/footer" />
