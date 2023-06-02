@@ -6,17 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.dipnetocom.databinding.FragmentNewJobBinding
+import com.example.dipnetocom.utils.StringArg
 
 class NewJobFragment : Fragment() {
 
-    private lateinit var binding: FragmentNewJobBinding
+    companion object {
+        var Bundle.textArg: String? by StringArg
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentNewJobBinding.inflate(inflater, container, false)
+        val binding = FragmentNewJobBinding.inflate(inflater, container, false)
 
         with(binding) {
             clearButton.setOnClickListener {

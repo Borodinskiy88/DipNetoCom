@@ -15,18 +15,18 @@ import com.example.dipnetocom.dto.Job
 import com.example.dipnetocom.utils.ReformatValues.reformatDate
 import com.example.dipnetocom.utils.ReformatValues.reformatWebLink
 
-interface Listener {
+interface OnInteractionListenerJob {
     fun onEdit(job: Job)
     fun onRemove(job: Job)
 }
 
 class JobAdapter(
-    private val listener: Listener
+    private val onInteractionListener: OnInteractionListenerJob
 ) : ListAdapter<Job, JobViewHolder>(JobDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = CardJobsBinding.inflate(inflater, parent, false)
-        return JobViewHolder(binding, listener)
+        return JobViewHolder(binding, onInteractionListener)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -38,7 +38,7 @@ class JobAdapter(
 
 class JobViewHolder(
     private val binding: CardJobsBinding,
-    private val listener: Listener
+    private val onInteractionListenerJob: OnInteractionListenerJob
 ) : RecyclerView.ViewHolder(binding.root) {
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -58,12 +58,12 @@ class JobViewHolder(
                     setOnMenuItemClickListener { item ->
                         when (item.itemId) {
                             R.id.remove -> {
-                                listener.onRemove(job)
+                                onInteractionListenerJob.onRemove(job)
                                 true
                             }
 
                             R.id.edit -> {
-                                listener.onEdit(job)
+                                onInteractionListenerJob.onEdit(job)
                                 true
                             }
 

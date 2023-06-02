@@ -58,7 +58,7 @@
             app:constraint_referenced_ids="login, user_avatar, user_name" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipeRefresh"
+            android:id="@+id/swipe_refresh"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/common_spacing_16"
@@ -68,7 +68,7 @@
             app:layout_constraintTop_toBottomOf="@id/header">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/events"
+                android:id="@+id/list_events"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -80,8 +80,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_blue"
-            app:itemIconTint="@drawable/bottom_nav_icon_events"
-            app:itemTextColor="@drawable/bottom_nav_icon_events"
+            app:itemIconTint="@drawable/bottom_nav_icon"
+            app:itemTextColor="@drawable/bottom_nav_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/bottom_navigation_menu" />

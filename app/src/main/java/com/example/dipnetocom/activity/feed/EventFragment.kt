@@ -7,39 +7,63 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.dipnetocom.R
+import com.example.dipnetocom.adapter.EventAdapter
+import com.example.dipnetocom.adapter.OnInteractionListenerEvent
 import com.example.dipnetocom.databinding.FragmentEventBinding
+import com.example.dipnetocom.dto.Event
 
 class EventFragment : Fragment() {
-
-    private lateinit var binding: FragmentEventBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentEventBinding.inflate(inflater, container, false)
+        val binding = FragmentEventBinding.inflate(inflater, container, false)
+
+        val adapter = EventAdapter(object : OnInteractionListenerEvent {
+            override fun onLike(event: Event) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onEdit(event: Event) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onRemove(event: Event) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onShare(event: Event) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onCoordinates(lat: Double, long: Double) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
+        binding.listEvents.adapter = adapter
 
         binding.login.setOnClickListener {
             findNavController().navigate(R.id.action_eventFragment_to_loginFragment)
         }
 
+        binding.bottomNavigation.menu.findItem(R.id.events_menu).isChecked = true
+
         binding.bottomNavigation.setOnItemSelectedListener { item ->
-            //TODO Неактивная кнопка не меняет цвет
+
             when (item.itemId) {
                 R.id.posts_menu -> {
-                    findNavController().navigate(R.id.postFragment)
+                    findNavController().navigate(R.id.action_eventFragment_to_postFragment)
                 }
 
                 R.id.events_menu -> {
-                    findNavController().navigate(R.id.eventFragment)
+                    return@setOnItemSelectedListener true
                 }
             }
             return@setOnItemSelectedListener true
-        }
-
-        binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_postFragment_to_newPostFragment)
         }
 
         binding.fab.setOnClickListener {
@@ -47,6 +71,7 @@ class EventFragment : Fragment() {
         }
 
 
+        binding.swipeRefresh.setOnRefreshListener(adapter::refresh)
 
         return binding.root
     }

@@ -4,22 +4,20 @@ import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.isVisible
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
-import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.example.dipnetocom.R
 import com.example.dipnetocom.databinding.CardPostBinding
 import com.example.dipnetocom.dto.FeedItem
 import com.example.dipnetocom.dto.Post
 import com.example.dipnetocom.utils.ReformatValues.reformatCount
 import com.example.dipnetocom.utils.ReformatValues.reformatWebLink
+import com.example.dipnetocom.view.load
+import com.example.dipnetocom.view.loadCircleCrop
 
 interface OnInteractionListenerPost {
     fun onLike(post: Post)
@@ -91,7 +89,7 @@ class PostViewHolder(
             content.text = post.content
 
             like.isChecked = post.likedByMe
-            like.text = reformatCount(post.likes)
+            like.text = reformatCount(post.likeOwnerIds.size)
             like.setOnClickListener {
                 onInteractionListener.onLike(post)
             }
@@ -137,18 +135,6 @@ class PostViewHolder(
     }
 }
 
-fun ImageView.loadCircleCrop(url: String, vararg transforms: BitmapTransformation = emptyArray()) =
-    load(url, CircleCrop(), *transforms)
-
-
-fun ImageView.load(url: String, vararg transforms: BitmapTransformation = emptyArray()) =
-    Glide.with(this)
-        .load(url)
-        .error(R.drawable.error_24)
-        .placeholder(R.drawable.load_24)
-        .timeout(10_000)
-        .transform(*transforms)
-        .into(this)
 
 
 class PostDiffCallback : DiffUtil.ItemCallback<FeedItem>() {

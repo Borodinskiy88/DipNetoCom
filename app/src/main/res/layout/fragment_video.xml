@@ -14,7 +14,6 @@
         android:layout_gravity="center"
         android:scaleType="center"
         android:contentDescription="@string/video"
-        android:background="@drawable/background_line"
         tools:src="@tools:sample/avatars[11]"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -1,8 +1,10 @@
 package com.example.dipnetocom.dto
 
+import com.example.dipnetocom.enumeration.EventType
+
 data class Event(
-    override val id: Long,
-    val authorId: Long,
+    override val id: Int,
+    val authorId: Int,
     val author: String,
     val authorAvatar: String? = null,
     val authorJob: String? = null,
@@ -10,10 +12,10 @@ data class Event(
     val datetime: String,
     val published: String,
     val coords: Coordinates? = null,
-    val type: String,
+    val type: EventType,
     val likedByMe: Boolean = false,
     val participatedByMe: Boolean = false,
     val link: String? = null,
     val ownedByMe: Boolean = false,
-    val likes: Int = 0,
+    val likeOwnerIds: List<Int> = emptyList(),
 ) : FeedItem()

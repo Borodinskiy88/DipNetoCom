@@ -15,6 +15,7 @@ import com.example.dipnetocom.dto.Event
 import com.example.dipnetocom.dto.FeedItem
 import com.example.dipnetocom.utils.ReformatValues.reformatCount
 import com.example.dipnetocom.utils.ReformatValues.reformatWebLink
+import com.example.dipnetocom.view.loadCircleCrop
 
 interface OnInteractionListenerEvent {
     fun onLike(event: Event)
@@ -74,10 +75,10 @@ class EventViewHolder(
             content.text = event.content
 
             eventCalendarText.text = event.datetime
-            eventTypeText.text = event.type
+            eventTypeText.text = event.type.toString()
 
             like.isChecked = event.likedByMe
-            like.text = reformatCount(event.likes)
+            like.text = reformatCount(event.likeOwnerIds.size)
             like.setOnClickListener {
                 onInteractionListener.onLike(event)
             }

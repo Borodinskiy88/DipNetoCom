@@ -1,5 +1,5 @@
 package com.example.dipnetocom.dto
 
 sealed class FeedItem {
-    abstract val id: Long
+    abstract val id: Int
 }

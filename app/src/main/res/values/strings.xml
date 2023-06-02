@@ -16,6 +16,7 @@
     <string name="log_in">Log in</string>
     <string name="login_line">Already registered? <u>Log in</u></string>
     <string name="log_in_with_a_password">Log in with a password</string>
+    <string name="log_in_to_account">Log in to account</string>
     <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="repeat_password">Repeat password</string>

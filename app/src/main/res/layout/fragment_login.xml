@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing_16"
-        android:text="@string/enter_the_password"
+        android:text="@string/log_in_to_account"
         app:icon="@drawable/login_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/clear"
