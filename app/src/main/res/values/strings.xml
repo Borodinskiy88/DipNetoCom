@@ -11,13 +11,18 @@
     <string name="viewing">Viewing</string>
     <!-- login/reg -->
     <string name="anonymous">Anonymous</string>
+    <string name="empty_field">It is necessary to fill in all fields</string>
     <string name="enter_the_password">Enter the password</string>
+    <string name="error_loading">Something went wrong. Try again later</string>
+    <string name="invalid_login_or_password">Invalid login or password</string>
+    <string name="is_blank">Login or password is blank</string>
     <string name="login">Login</string>
     <string name="log_in">Log in</string>
     <string name="login_line">Already registered? <u>Log in</u></string>
     <string name="log_in_with_a_password">Log in with a password</string>
     <string name="log_in_to_account">Log in to account</string>
     <string name="name">Name</string>
+    <string name="match_passwords">Passwords must match</string>
     <string name="password">Password</string>
     <string name="repeat_password">Repeat password</string>
     <string name="registration">Registration</string>

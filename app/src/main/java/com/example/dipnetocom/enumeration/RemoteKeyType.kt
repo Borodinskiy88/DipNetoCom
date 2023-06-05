@@ -1,5 +1,5 @@
 package com.example.dipnetocom.enumeration
 
-enum class EventType {
-    OFFLINE, ONLINE
+enum class RemoteKeyType {
+    AFTER, BEFORE
 }
