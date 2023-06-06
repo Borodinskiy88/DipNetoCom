@@ -24,7 +24,7 @@ interface OnInteractionListenerPost {
     fun onEdit(post: Post)
     fun onRemove(post: Post)
     fun onShare(post: Post)
-    fun onAttachment(url: String)
+    fun onAttachment(post: Post)
     fun onCoordinates(lat: Double, long: Double)
 }
 
@@ -76,7 +76,7 @@ class PostViewHolder(
                 attachment.visibility = View.VISIBLE
                 post.attachment?.url?.let { url ->
                     attachment.load(url)
-                    attachment.setOnClickListener { onInteractionListener.onAttachment(url) }
+                    attachment.setOnClickListener { onInteractionListener.onAttachment(post) }
                 }
             } else {
                 attachment.visibility = View.GONE

@@ -21,16 +21,15 @@ class NewJobFragment : Fragment() {
     ): View? {
         val binding = FragmentNewJobBinding.inflate(inflater, container, false)
 
-        with(binding) {
+        binding.apply {
             clearButton.setOnClickListener {
                 editJobName.text?.clear()
                 editJobPosition.text?.clear()
                 editJobStart.text?.clear()
                 editJobFinish.text?.clear()
             }
-        }
 
-        with(binding) {
+
             createButton.setOnClickListener {
                 val jobName = editJobName.text?.toString()
                 val jobPosition = editJobPosition.text?.toString()

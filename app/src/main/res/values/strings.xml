@@ -11,6 +11,7 @@
     <string name="viewing">Viewing</string>
     <!-- login/reg -->
     <string name="anonymous">Anonymous</string>
+    <string name="continue_as_a_guest">Continue as a guest</string>
     <string name="empty_field">It is necessary to fill in all fields</string>
     <string name="enter_the_password">Enter the password</string>
     <string name="error_loading">Something went wrong. Try again later</string>
@@ -18,12 +19,14 @@
     <string name="is_blank">Login or password is blank</string>
     <string name="login">Login</string>
     <string name="log_in">Log in</string>
+    <string name="login_exit">You are login exit</string>
     <string name="login_line">Already registered? <u>Log in</u></string>
     <string name="log_in_with_a_password">Log in with a password</string>
     <string name="log_in_to_account">Log in to account</string>
     <string name="name">Name</string>
     <string name="match_passwords">Passwords must match</string>
     <string name="password">Password</string>
+    <string name="please_log_in_to_your_account">Please log in to your account</string>
     <string name="repeat_password">Repeat password</string>
     <string name="registration">Registration</string>
     <string name="registration_line"><u>Registration</u></string>
@@ -47,10 +50,12 @@
     <string name="job_finish">Job finish</string>
     <!-- actions -->
     <string name="back">Back</string>
-    <string name="edit">Edit</string>
+    <string name="chooser_share_post">Share post</string>
     <string name="create">Create</string>
     <string name="clear">Clear</string>
+    <string name="edit">Edit</string>
     <string name="remove">Remove</string>
+    <string name="retry_loading">Retry</string>
     <!-- adapter -->
     <string name="unknown_item_type">Unknown item type</string>
     <string name="unknown_view_type">Unknown view type</string>

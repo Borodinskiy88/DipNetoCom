@@ -52,6 +52,7 @@ class AppAuth @Inject constructor(
         sendPushToken()
     }
 
+    //TODO
     @Synchronized
     fun removeAuth() {
         _authState.value = null

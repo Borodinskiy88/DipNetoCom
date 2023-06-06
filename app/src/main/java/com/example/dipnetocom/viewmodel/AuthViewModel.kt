@@ -18,6 +18,7 @@ class AuthViewModel @Inject constructor(
         .authState
         .asLiveData(Dispatchers.Default)
 
+    //TODO
     val authorized: Boolean
         get() = data.value != null
 

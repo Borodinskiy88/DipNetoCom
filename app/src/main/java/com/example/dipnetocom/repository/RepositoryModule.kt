@@ -9,27 +9,25 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 interface RepositoryModule {
-    //TODO
 
     @Singleton
     @Binds
     fun bindsAuthRepository(authRepository: AuthRepositoryImpl): AuthRepository
 
-//    @Singleton
-//    @Binds
-//    fun bindsEventRepository(eventRepository: EventRepositoryImpl): EventRepository
+//        @Singleton
+//        @Binds
+//        fun bindsJobRepository(jobRepository: JobRepositoryImpl): JobRepository
 //
-//    @Singleton
-//    @Binds
-//    fun bindsJobRepository(jobRepository: JobRepositoryImpl): JobRepository
-//
-//    @Singleton
-//    @Binds
-//    fun bindsPostRepository(postRepository: PostRepositoryImpl): PostRepository
-//
-//
-//    @Singleton
-//    @Binds
-//    fun bindsUserRepository(userRepository: UserRepositoryImpl): UserRepository
+//        @Singleton
+//        @Binds
+//        fun bindsEventRepository(eventRepository: EventRepositoryImpl): EventRepository
+
+    @Singleton
+    @Binds
+    fun bindsPostRepository(postRepository: PostRepositoryImpl): PostRepository
+
+//        @Singleton
+//        @Binds
+//        fun bindsUserRepository(userRepository: UserRepositoryImpl): UserRepository
 
 }

@@ -18,4 +18,5 @@ data class Event(
     val link: String? = null,
     val ownedByMe: Boolean = false,
     val likeOwnerIds: List<Int> = emptyList(),
+    val users: Map<Int, User>
 ) : FeedItem()

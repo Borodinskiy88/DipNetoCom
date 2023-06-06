@@ -11,8 +11,10 @@ data class Post(
     val published: String,
     val coords: Coordinates? = null,
     val link: String? = null,
+    val mentionIds: List<Int> = emptyList(),
     val mentionedMe: Boolean = false,
     val likedByMe: Boolean = false,
     val likeOwnerIds: List<Int> = emptyList(),
     val ownedByMe: Boolean = false,
+    val users: Map<Int, UserPreview>
 ) : FeedItem()

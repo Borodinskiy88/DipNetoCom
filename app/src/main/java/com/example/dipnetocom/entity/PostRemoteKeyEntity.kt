@@ -1,5 +1,12 @@
 package com.example.dipnetocom.entity
 
-class PostRemoteKeyEntity {
-    //TODO
-}
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.example.dipnetocom.enumeration.RemoteKeyType
+
+@Entity
+data class PostRemoteKeyEntity(
+    @PrimaryKey
+    val type: RemoteKeyType,
+    val id: Int,
+)
