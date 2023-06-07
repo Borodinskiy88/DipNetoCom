@@ -142,12 +142,9 @@ class PostViewModel @Inject constructor(
         edited.value = post
     }
 
-    fun changeContent(content: String) {
+    fun changeContent(content: String, link: String?) {
         val text = content.trim()
-        if (edited.value?.content == text) {
-            return
-        }
-        edited.value = edited.value?.copy(content = text)
+        edited.value = edited.value?.copy(content = text, link = link)
     }
 
     fun likeById(id: Int) {

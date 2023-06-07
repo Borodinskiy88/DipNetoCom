@@ -32,12 +32,14 @@
     <string name="registration_line"><u>Registration</u></string>
     <string name="sign_in_with_password">Sign in with password</string>
     <!-- fragments -->
+    <string name="add_post">Add post</string>
     <string name="edit_create_events">Edit/Create event</string>
     <string name="edit_create_posts">Edit/Create post</string>
     <string name="edit_create_jobs">Edit/Create job</string>
     <string name="events">Events</string>
     <string name="image">Image</string>
     <string name="jobs">Jobs</string>
+    <string name="photo_error">Photo error</string>
     <string name="posts">Posts</string>
     <string name="users_wall">Wall of User</string>
     <string name="video">Video</string>
@@ -49,6 +51,7 @@
     <string name="job_start">Job start</string>
     <string name="job_finish">Job finish</string>
     <!-- actions -->
+    <string name="add_link">Add link</string>
     <string name="back">Back</string>
     <string name="chooser_share_post">Share post</string>
     <string name="create">Create</string>

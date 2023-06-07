@@ -13,6 +13,7 @@ import com.example.dipnetocom.R
 import com.example.dipnetocom.databinding.CardEventBinding
 import com.example.dipnetocom.dto.Event
 import com.example.dipnetocom.dto.FeedItem
+import com.example.dipnetocom.utils.ReformatValues
 import com.example.dipnetocom.utils.ReformatValues.reformatCount
 import com.example.dipnetocom.utils.ReformatValues.reformatWebLink
 import com.example.dipnetocom.view.loadCircleCrop
@@ -71,7 +72,8 @@ class EventViewHolder(
 
             author.text = event.author
             job.text = event.authorJob
-            published.text = event.published
+
+            published.text = ReformatValues.reformatDateTime(event.published)
             content.text = event.content
 
             eventCalendarText.text = event.datetime

@@ -15,6 +15,7 @@ import com.example.dipnetocom.databinding.CardPostBinding
 import com.example.dipnetocom.dto.FeedItem
 import com.example.dipnetocom.dto.Post
 import com.example.dipnetocom.utils.ReformatValues.reformatCount
+import com.example.dipnetocom.utils.ReformatValues.reformatDateTime
 import com.example.dipnetocom.utils.ReformatValues.reformatWebLink
 import com.example.dipnetocom.view.load
 import com.example.dipnetocom.view.loadCircleCrop
@@ -82,10 +83,10 @@ class PostViewHolder(
                 attachment.visibility = View.GONE
             }
 
-
             author.text = post.author
             job.text = post.authorJob
-            published.text = post.published
+
+            published.text = reformatDateTime(post.published)
             content.text = post.content
 
             like.isChecked = post.likedByMe

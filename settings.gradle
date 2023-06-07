@@ -10,6 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+
+        //ImagePicker
+        maven { url "https://jitpack.io" }
     }
 }
 rootProject.name = "DipNetoCom"
