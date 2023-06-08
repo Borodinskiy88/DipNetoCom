@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.map
 import com.example.dipnetocom.auth.AppAuth
+import com.example.dipnetocom.dto.Coordinates
 import com.example.dipnetocom.dto.FeedItem
 import com.example.dipnetocom.dto.Post
 import com.example.dipnetocom.enumeration.AttachmentType
@@ -177,6 +178,19 @@ class PostViewModel @Inject constructor(
             } catch (e: Exception) {
                 _state.value = FeedModelState(error = true)
             }
+        }
+    }
+
+    //TODO
+    fun addCoordinates(coords: Coordinates) {
+        viewModelScope.launch {
+            edited.value = edited.value?.copy(coords = coords)
+        }
+    }
+
+    fun clearCoordinates() {
+        viewModelScope.launch {
+            edited.value = edited.value?.copy(coords = null)
         }
     }
 }

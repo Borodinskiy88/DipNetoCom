@@ -4,6 +4,7 @@ import com.example.dipnetocom.enumeration.EventType
 
 data class Event(
     override val id: Int,
+    val attachment: Attachment? = null,
     val authorId: Int,
     val author: String,
     val authorAvatar: String? = null,
@@ -18,5 +19,5 @@ data class Event(
     val link: String? = null,
     val ownedByMe: Boolean = false,
     val likeOwnerIds: List<Int> = emptyList(),
-    val users: Map<Int, User>
+    val users: Map<Int, UserPreview>
 ) : FeedItem()

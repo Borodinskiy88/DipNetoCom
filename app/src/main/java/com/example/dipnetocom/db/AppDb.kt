@@ -11,6 +11,8 @@ import com.example.dipnetocom.dao.PostRemoteKeyDao
 import com.example.dipnetocom.dao.WallDao
 import com.example.dipnetocom.dao.WallRemoteKeyDao
 import com.example.dipnetocom.entity.CoordinatesConverter
+import com.example.dipnetocom.entity.EventEntity
+import com.example.dipnetocom.entity.EventRemoteKeyEntity
 import com.example.dipnetocom.entity.ListIntConverter
 import com.example.dipnetocom.entity.MapUsersPrevConverter
 import com.example.dipnetocom.entity.PostEntity
@@ -21,7 +23,7 @@ import com.example.dipnetocom.entity.PostRemoteKeyEntity
     entities = [
         PostEntity::class, PostRemoteKeyEntity::class,
 //        WallEntity::class, WallRemoteKeyEntity::class,
-//        EventEntity::class, EventRemoteKeyEntity::class,
+        EventEntity::class, EventRemoteKeyEntity::class,
 //        JobEntity::class
 
     ],

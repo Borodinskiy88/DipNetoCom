@@ -18,6 +18,7 @@ import com.example.dipnetocom.adapter.PostAdapter
 import com.example.dipnetocom.databinding.FragmentPostBinding
 import com.example.dipnetocom.dto.Post
 import com.example.dipnetocom.viewmodel.PostViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -38,30 +39,38 @@ class PostFragment : Fragment() {
 
         val adapter = PostAdapter(object : OnInteractionListenerPost {
             override fun onLike(post: Post) {
-//                if (token == null) {
-//                    MaterialAlertDialogBuilder(context!!)
-//                        .setTitle(R.string.log_in_to_account)
-//                        .setMessage(R.string.please_log_in_to_your_account)
-//                        .setNegativeButton(R.string.continue_as_a_guest) { dialog, _ ->
-//                            dialog.cancel()
-//                        }
-//                        .setPositiveButton(R.string.login) { _, _ ->
-//                            findNavController().navigate(R.id.action_postFragment_to_loginFragment)
-//                            Snackbar.make(binding.root, R.string.login_exit, Snackbar.LENGTH_LONG)
-//                                .show()
-//                        }
-//                        .show()
-//                } else {
-                if (!post.likedByMe) {
-                    viewModel.likeById(post.id)
+                if (token == null) {
+                    MaterialAlertDialogBuilder(context!!)
+                        .setTitle(R.string.log_in_to_account)
+                        .setMessage(R.string.please_log_in_to_your_account)
+                        .setNegativeButton(R.string.continue_as_a_guest) { dialog, _ ->
+                            dialog.cancel()
+                        }
+                        .setPositiveButton(R.string.login) { _, _ ->
+                            findNavController().navigate(R.id.action_postFragment_to_loginFragment)
+                            Snackbar.make(binding.root, R.string.login_exit, Snackbar.LENGTH_LONG)
+                                .show()
+                        }
+                        .show()
                 } else {
-                    viewModel.dislikeById(post.id)
+                    if (!post.likedByMe) {
+                        viewModel.likeById(post.id)
+                    } else {
+                        viewModel.dislikeById(post.id)
+                    }
                 }
-//                           }
             }
 
             override fun onEdit(post: Post) {
                 viewModel.edit(post)
+                val text = post.content
+                val link = post.link
+                val attachment = post.attachment?.url
+                val bundle = Bundle()
+                bundle.putString("editedText", text)
+                bundle.putString("editedLink", link)
+                bundle.putString("attachmentUrl", attachment)
+                findNavController().navigate(R.id.action_postFragment_to_newPostFragment, bundle)
             }
 
             override fun onRemove(post: Post) {

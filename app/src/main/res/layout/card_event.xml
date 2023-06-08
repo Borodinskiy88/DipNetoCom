@@ -156,7 +156,9 @@
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:textColorLink="@color/PRIMARY_600"
-            android:visibility="gone"
+            android:visibility="visible"
+            android:drawablePadding="@dimen/checkbox_padding_start_8"
+            app:drawableStartCompat="@drawable/link_pink_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/content"
             android:text="@string/login_line" />

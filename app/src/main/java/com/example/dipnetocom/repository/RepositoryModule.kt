@@ -17,10 +17,10 @@ interface RepositoryModule {
 //        @Singleton
 //        @Binds
 //        fun bindsJobRepository(jobRepository: JobRepositoryImpl): JobRepository
-//
-//        @Singleton
-//        @Binds
-//        fun bindsEventRepository(eventRepository: EventRepositoryImpl): EventRepository
+
+    @Singleton
+    @Binds
+    fun bindsEventRepository(eventRepository: EventRepositoryImpl): EventRepository
 
     @Singleton
     @Binds

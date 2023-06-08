@@ -13,8 +13,8 @@ import com.example.dipnetocom.R
 import com.example.dipnetocom.databinding.CardEventBinding
 import com.example.dipnetocom.dto.Event
 import com.example.dipnetocom.dto.FeedItem
-import com.example.dipnetocom.utils.ReformatValues
 import com.example.dipnetocom.utils.ReformatValues.reformatCount
+import com.example.dipnetocom.utils.ReformatValues.reformatDateTime
 import com.example.dipnetocom.utils.ReformatValues.reformatWebLink
 import com.example.dipnetocom.view.loadCircleCrop
 
@@ -23,6 +23,7 @@ interface OnInteractionListenerEvent {
     fun onEdit(event: Event)
     fun onRemove(event: Event)
     fun onShare(event: Event)
+    fun onAttachment(event: Event)
     fun onCoordinates(lat: Double, long: Double)
 }
 
@@ -73,10 +74,10 @@ class EventViewHolder(
             author.text = event.author
             job.text = event.authorJob
 
-            published.text = ReformatValues.reformatDateTime(event.published)
+            published.text = reformatDateTime(event.published)
             content.text = event.content
 
-            eventCalendarText.text = event.datetime
+            eventCalendarText.text = reformatDateTime(event.datetime)
             eventTypeText.text = event.type.toString()
 
             like.isChecked = event.likedByMe

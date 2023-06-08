@@ -5,6 +5,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toFile
+import androidx.core.net.toUri
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -14,6 +15,7 @@ import com.example.dipnetocom.R
 import com.example.dipnetocom.databinding.FragmentNewPostBinding
 import com.example.dipnetocom.enumeration.AttachmentType
 import com.example.dipnetocom.utils.AndroidUtils
+import com.example.dipnetocom.utils.ReformatValues.reformatWebLink
 import com.example.dipnetocom.utils.StringArg
 import com.example.dipnetocom.viewmodel.PostViewModel
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -55,15 +57,21 @@ class NewPostFragment : Fragment() {
                 }
             }
 
-        arguments?.textArg
-            ?.let(binding.editText::setText)
+        arguments?.textArg?.let(binding.editText::setText)
 
+        binding.apply {
+            editText.setText(arguments?.getString("editedText"))
+            editLink.setText(arguments?.getString("editedLink"))
+//            arguments?.getString("attachmentUrl")?.let { photoPreview.load(it) }
+        }
 
+        val imageUrl = arguments?.getString("attachmentUrl")
 
         binding.fab.setOnClickListener {
+            val link = reformatWebLink(binding.editLink.text.toString())
             viewModel.changeContent(
                 binding.editText.text.toString(),
-                binding.editLink.text.toString()
+                link?.ifEmpty { null }
             )
             viewModel.save()
             AndroidUtils.hideKeyboard(requireView())
@@ -96,7 +104,8 @@ class NewPostFragment : Fragment() {
                 return@observe
             }
             binding.previewContainer.isVisible = true
-            binding.photoPreview.setImageURI(media.uri)
+            //           binding.photoPreview.setImageURI(media.uri)
+            binding.photoPreview.setImageURI(imageUrl?.toUri())
         }
 
         viewModel.postCreated.observe(viewLifecycleOwner) {

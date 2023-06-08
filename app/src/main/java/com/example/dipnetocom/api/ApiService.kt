@@ -1,5 +1,6 @@
 package com.example.dipnetocom.api
 
+import com.example.dipnetocom.dto.Event
 import com.example.dipnetocom.dto.Media
 import com.example.dipnetocom.dto.Post
 import com.example.dipnetocom.dto.PushToken
@@ -37,10 +38,41 @@ interface ApiService {
         @Field("name") name: String
     ): Response<AuthModel>
 
+    //Events
+    @GET("events")
+    suspend fun getAllEvents(): Response<List<Event>>
+
+    @POST("events")
+    suspend fun saveEvents(@Body event: Event): Response<Event>
+
+    @GET("events/latest")
+    suspend fun getEventsLatest(@Query("count") count: Int): Response<List<Event>>
+
+    @GET("events/{event_id}/before")
+    suspend fun getEventsBefore(
+        @Path("event_id") id: Int,
+        @Query("count") count: Int
+    ): Response<List<Event>>
+
+    @GET("events/{event_id}/after")
+    suspend fun getEventsAfter(
+        @Path("event_id") id: Int,
+        @Query("count") count: Int
+    ): Response<List<Event>>
+
+    @DELETE("events/{event_id}")
+    suspend fun deleteEvent(@Path("event_id") id: Int): Response<Unit>
+
+    @POST("events/{event_id}/likes")
+    suspend fun likeEventById(@Path("event_id") id: Int): Response<Event>
+
+    @DELETE("events/{event_id}/likes")
+    suspend fun dislikeEventById(@Path("event_id") id: Int): Response<Event>
+
     // Posts
 
     @GET("posts")
-    suspend fun getAll(): Response<List<Post>>
+    suspend fun getAllPosts(): Response<List<Post>>
 
     @POST("posts")
     suspend fun save(@Body post: Post): Response<Post>

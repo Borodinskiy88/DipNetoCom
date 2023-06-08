@@ -51,7 +51,7 @@ class PostRepositoryImpl @Inject constructor(
 
     override suspend fun getAll() {
         try {
-            val response = apiService.getAll()
+            val response = apiService.getAllPosts()
             if (!response.isSuccessful) {
                 throw ApiError(response.code(), response.message())
             }
@@ -64,8 +64,8 @@ class PostRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getById(id: Int): Post? =
-        postDao.getPostById(id)?.toDto()
+    override suspend fun getById(id: Int): Post =
+        postDao.getPostById(id).toDto()
 
     override suspend fun save(post: Post) {
         try {
@@ -83,7 +83,6 @@ class PostRepositoryImpl @Inject constructor(
         }
     }
 
-    //TODO
     override suspend fun likeById(id: Int) {
         try {
             val response = apiService.likePostById(id)
