@@ -65,11 +65,11 @@ class EventFragment : Fragment() {
                 viewModel.editEvent(event)
                 val text = event.content
                 val link = event.link
-                val attachment = event.attachment?.url
+                val dateTime = event.datetime
                 val bundle = Bundle()
                 bundle.putString("editedText", text)
                 bundle.putString("editedLink", link)
-                bundle.putString("attachmentUrl", attachment)
+                bundle.putString("editDate", dateTime)
                 findNavController().navigate(R.id.action_eventFragment_to_newEventFragment, bundle)
             }
 

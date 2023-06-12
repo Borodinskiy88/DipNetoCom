@@ -41,6 +41,7 @@
     <string name="jobs">Jobs</string>
     <string name="photo_error">Photo error</string>
     <string name="posts">Posts</string>
+    <string name="type_event">Type event</string>
     <string name="users_wall">Wall of User</string>
     <string name="video">Video</string>
     <!-- jobs -->
@@ -51,12 +52,17 @@
     <string name="job_start">Job start</string>
     <string name="job_finish">Job finish</string>
     <!-- actions -->
+    <string name="add_date">Add date</string>
+    <string name="add_event">Add event</string>
     <string name="add_link">Add link</string>
+    <string name="add_note">Add note</string>
     <string name="back">Back</string>
     <string name="chooser_share_post">Share post</string>
     <string name="create">Create</string>
     <string name="clear">Clear</string>
     <string name="edit">Edit</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
     <string name="remove">Remove</string>
     <string name="retry_loading">Retry</string>
     <!-- adapter -->
@@ -64,5 +70,6 @@
     <string name="unknown_view_type">Unknown view type</string>
     <!-- other -->
     <string name="dash">-</string>
+
 
 </resources>

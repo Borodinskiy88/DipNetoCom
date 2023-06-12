@@ -25,7 +25,6 @@
                 android:layout_height="match_parent"
                 android:drawableStart="@drawable/create_24"
                 android:drawablePadding="@dimen/checkbox_padding_start_8"
-                android:background="@drawable/background_line"
                 android:hint="@string/add_post"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
@@ -41,7 +40,6 @@
                 android:layout_marginTop="@dimen/common_spacing_16"
                 android:autoLink="web"
                 android:textColorLink="@color/PRIMARY_600"
-                android:background="@drawable/background_blue"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
                 tools:text="@tools:sample/lorem[3]" />

@@ -130,9 +130,10 @@ class EventViewModel @Inject constructor(
         editedEvent.value = event
     }
 
-    fun changeEventContent(content: String, link: String?) {
+    fun changeEventContent(datetime: String, type: EventType, content: String, link: String?) {
         val text = content.trim()
-        editedEvent.value = editedEvent.value?.copy(content = text, link = link)
+        editedEvent.value =
+            editedEvent.value?.copy(datetime = datetime, type = type, content = text, link = link)
     }
 
     fun likeEventById(id: Int) {

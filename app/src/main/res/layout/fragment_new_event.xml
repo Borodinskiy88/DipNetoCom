@@ -14,51 +14,90 @@
         android:layout_marginEnd="@dimen/checkbox_padding_start_8"
         android:paddingBottom="?actionBarSize">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_line"
             android:orientation="vertical">
 
-            <TextView
+            <EditText
                 android:id="@+id/edit_event_calendar_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/checkbox_padding_start_8"
+                android:inputType="date"
                 android:layout_marginTop="@dimen/common_spacing_16"
                 android:drawablePadding="@dimen/checkbox_padding_start_8"
+                android:hint="@string/add_date"
+                app:drawableLeftCompat="@drawable/calendar_pink_24"
                 app:layout_constraintStart_toEndOf="parent"
-                tools:text="@tools:sample/date/ddmmyy"
-                app:drawableLeftCompat="@drawable/calendar_pink_24" />
+                tools:text="@tools:sample/date/ddmmyy" />
 
             <TextView
-                android:id="@+id/edit_event_type_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:drawableLeftCompat="@drawable/gps_fixed_pink_24"
                 android:layout_marginStart="@dimen/checkbox_padding_start_8"
                 android:layout_marginTop="@dimen/common_spacing_16"
                 android:drawablePadding="@dimen/checkbox_padding_start_8"
-                app:layout_constraintStart_toEndOf="@id/event_type"
-                app:layout_constraintTop_toTopOf="@id/event_type"
-                tools:text="@tools:sample/lorem" />
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:text="@string/type_event" />
+
+            <RadioGroup
+                android:id="@+id/edit_event_type_group"
+                android:checkedButton="@+id/online"
+                android:layout_marginStart="@dimen/checkbox_padding_start_8"
+                android:drawablePadding="@dimen/checkbox_padding_start_8"
+                app:drawableLeftCompat="@drawable/gps_fixed_pink_24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/online"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/online" />
+
+                <RadioButton
+                    android:id="@+id/offline"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/offline" />
+            </RadioGroup>
 
 
             <EditText
                 android:id="@+id/edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@android:color/transparent"
                 android:layout_marginTop="@dimen/common_spacing_16"
+                app:drawableLeftCompat="@drawable/create_pink_24"
+                android:drawablePadding="@dimen/checkbox_padding_start_8"
                 android:gravity="start|top"
+                android:hint="@string/add_note"
                 android:inputType="textMultiLine"
                 tools:text="@tools:sample/lorem[50]" />
 
+            <EditText
+                android:id="@+id/edit_link"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/common_spacing_16"
+                android:autoLink="web"
+                android:drawableStart="@drawable/link_pink_24"
+                android:drawablePadding="@dimen/checkbox_padding_start_8"
+                android:gravity="start|top"
+                android:hint="@string/add_link"
+                android:inputType="textMultiLine"
+                android:textColorLink="@color/PRIMARY_600"
+                tools:text="@tools:sample/lorem[3]" />
+
             <FrameLayout
                 android:id="@+id/preview_container"
-                android:layout_marginTop="@dimen/common_spacing_16"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_spacing_16">
 
                 <ImageView
                     android:id="@+id/photo_preview"
@@ -116,6 +155,12 @@
         android:layout_marginBottom="@dimen/fab_margin_24"
         android:importantForAccessibility="no"
         app:srcCompat="@drawable/check_24" />
+
+    <TextView
+        android:id="@+id/edit_event_type_text"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

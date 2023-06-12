@@ -5,7 +5,6 @@ import android.view.*
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toFile
-import androidx.core.net.toUri
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -57,15 +56,13 @@ class NewPostFragment : Fragment() {
                 }
             }
 
-        arguments?.textArg?.let(binding.editText::setText)
-
         binding.apply {
             editText.setText(arguments?.getString("editedText"))
             editLink.setText(arguments?.getString("editedLink"))
 //            arguments?.getString("attachmentUrl")?.let { photoPreview.load(it) }
         }
 
-        val imageUrl = arguments?.getString("attachmentUrl")
+//        val imageUrl = arguments?.getString("attachmentUrl")
 
         binding.fab.setOnClickListener {
             val link = reformatWebLink(binding.editLink.text.toString())
@@ -104,8 +101,8 @@ class NewPostFragment : Fragment() {
                 return@observe
             }
             binding.previewContainer.isVisible = true
-            //           binding.photoPreview.setImageURI(media.uri)
-            binding.photoPreview.setImageURI(imageUrl?.toUri())
+            binding.photoPreview.setImageURI(media.uri)
+            //           binding.photoPreview.setImageURI(imageUrl?.toUri())
         }
 
         viewModel.postCreated.observe(viewLifecycleOwner) {
