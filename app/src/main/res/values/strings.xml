@@ -33,9 +33,10 @@
     <string name="sign_in_with_password">Sign in with password</string>
     <!-- fragments -->
     <string name="add_post">Add post</string>
-    <string name="edit_create_events">Edit/Create event</string>
-    <string name="edit_create_posts">Edit/Create post</string>
-    <string name="edit_create_jobs">Edit/Create job</string>
+    <string name="create_events">Create event</string>
+    <string name="create_posts">Create post</string>
+    <string name="create_jobs">Create job</string>
+    <string name="empty_datetime">You need to select the date and time</string>
     <string name="events">Events</string>
     <string name="image">Image</string>
     <string name="jobs">Jobs</string>
@@ -70,6 +71,8 @@
     <string name="unknown_view_type">Unknown view type</string>
     <!-- other -->
     <string name="dash">-</string>
+    <string name="sample_date">01.01.2000</string>
+    <string name="sample_time">00:00</string>
 
 
 </resources>

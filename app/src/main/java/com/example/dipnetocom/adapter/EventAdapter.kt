@@ -2,6 +2,7 @@ package com.example.dipnetocom.adapter
 
 import android.os.Build
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.PopupMenu
@@ -16,6 +17,7 @@ import com.example.dipnetocom.dto.FeedItem
 import com.example.dipnetocom.utils.ReformatValues.reformatCount
 import com.example.dipnetocom.utils.ReformatValues.reformatDateTime
 import com.example.dipnetocom.utils.ReformatValues.reformatWebLink
+import com.example.dipnetocom.view.load
 import com.example.dipnetocom.view.loadCircleCrop
 
 interface OnInteractionListenerEvent {
@@ -69,6 +71,17 @@ class EventViewHolder(
 
             event.authorAvatar?.let { avatar.loadCircleCrop(it) }
                 ?: avatar.setImageResource(R.drawable.account_circle_24)
+
+            //TODO проверить
+            if (event.attachment != null) {
+                attachment.visibility = View.VISIBLE
+                event.attachment?.url?.let { url ->
+                    attachment.load(url)
+                    attachment.setOnClickListener { onInteractionListener.onAttachment(event) }
+                }
+            } else {
+                attachment.visibility = View.GONE
+            }
 
 
             author.text = event.author

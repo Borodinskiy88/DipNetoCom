@@ -69,7 +69,7 @@ class PostFragment : Fragment() {
                 val bundle = Bundle()
                 bundle.putString("editedText", text)
                 bundle.putString("editedLink", link)
-                bundle.putString("attachmentUrl", attachment)
+//                bundle.putString("attachmentUrl", attachment)
                 findNavController().navigate(R.id.action_postFragment_to_newPostFragment, bundle)
             }
 

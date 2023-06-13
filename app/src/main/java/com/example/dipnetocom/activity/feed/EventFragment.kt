@@ -65,11 +65,11 @@ class EventFragment : Fragment() {
                 viewModel.editEvent(event)
                 val text = event.content
                 val link = event.link
-                val dateTime = event.datetime
+//                val dateTime = event.datetime
                 val bundle = Bundle()
                 bundle.putString("editedText", text)
                 bundle.putString("editedLink", link)
-                bundle.putString("editDate", dateTime)
+//                bundle.putString("editDate", dateTime)
                 findNavController().navigate(R.id.action_eventFragment_to_newEventFragment, bundle)
             }
 
@@ -128,6 +128,8 @@ class EventFragment : Fragment() {
                     .show()
             }
         }
+
+
 
         binding.login.setOnClickListener {
             findNavController().navigate(R.id.action_eventFragment_to_loginFragment)

@@ -27,6 +27,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
+        <ImageView
+            android:id="@+id/attachment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/attachment_size_200"
+            android:layout_marginTop="@dimen/common_spacing_16"
+            android:contentDescription="@string/attachment"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/footer" />
+
         <LinearLayout
             android:id="@+id/author_info"
             android:layout_width="0dp"
@@ -180,7 +189,7 @@
             android:contentDescription="@string/like"
             app:icon="@drawable/sl_like_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/footer" />
+            app:layout_constraintTop_toBottomOf="@id/attachment" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/share"
@@ -191,7 +200,7 @@
             android:contentDescription="@string/share"
             app:icon="@drawable/share_24"
             app:layout_constraintStart_toEndOf="@id/like"
-            app:layout_constraintTop_toBottomOf="@id/footer" />
+            app:layout_constraintTop_toBottomOf="@id/attachment" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/coordinates"
@@ -203,7 +212,7 @@
             android:visibility="gone"
             app:icon="@drawable/locate_24"
             app:layout_constraintStart_toEndOf="@id/share"
-            app:layout_constraintTop_toBottomOf="@id/footer" />
+            app:layout_constraintTop_toBottomOf="@id/attachment" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/viewing"
@@ -214,7 +223,7 @@
             android:contentDescription="@string/viewing"
             app:icon="@drawable/visibility_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/footer" />
+            app:layout_constraintTop_toBottomOf="@id/attachment" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

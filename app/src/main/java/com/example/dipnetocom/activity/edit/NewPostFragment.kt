@@ -56,9 +56,12 @@ class NewPostFragment : Fragment() {
                 }
             }
 
+//TODO
         binding.apply {
             editText.setText(arguments?.getString("editedText"))
             editLink.setText(arguments?.getString("editedLink"))
+//            val urlImages = arguments?.textArg.toString()
+//            binding.photoPreview.load(urlImages)
 //            arguments?.getString("attachmentUrl")?.let { photoPreview.load(it) }
         }
 
@@ -96,6 +99,11 @@ class NewPostFragment : Fragment() {
         }
 
         viewModel.media.observe(viewLifecycleOwner) { media ->
+//            val urlImages = arguments?.textArg.toString()
+//            if (urlImages.isNotBlank()) {
+//                binding.previewContainer.isVisible = true
+//                binding.photoPreview.load(urlImages)
+//            }
             if (media == null) {
                 binding.previewContainer.isGone = true
                 return@observe
