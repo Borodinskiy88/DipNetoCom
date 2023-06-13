@@ -24,17 +24,67 @@
             android:contentDescription="@string/avatar"
             app:layout_constraintBottom_toBottomOf="@id/header1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-             />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/play_music"
+            style="@style/Widget.AppTheme.PlayPauseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:checkable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/footer" />
+
+        <TextView
+            android:id="@+id/music_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/play_music"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/play_music"
+            app:layout_constraintTop_toTopOf="@id/play_music" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/music_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="play_music, music_title" />
+
+        <VideoView
+            android:id="@+id/video_attachment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/attachment_size_200"
+            app:layout_constraintTop_toBottomOf="@id/play_music" />
+
+        <VideoView
+            android:id="@+id/play_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:accessibilityTraversalAfter="@id/video_attachment"
+            android:background="@android:color/transparent"
+            android:src="@drawable/play_48"
+            app:layout_constraintBottom_toBottomOf="@id/video_attachment"
+            app:layout_constraintEnd_toEndOf="@id/video_attachment"
+            app:layout_constraintStart_toStartOf="@id/video_attachment"
+            app:layout_constraintTop_toTopOf="@id/video_attachment" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/video_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:constraint_referenced_ids="play_video, video_attachment" />
 
         <ImageView
-            android:id="@+id/attachment"
+            android:id="@+id/image_attachment"
             android:layout_width="match_parent"
             android:layout_height="@dimen/attachment_size_200"
             android:layout_marginTop="@dimen/common_spacing_16"
             android:contentDescription="@string/attachment"
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/footer" />
+            app:layout_constraintTop_toBottomOf="@id/video_attachment" />
 
         <LinearLayout
             android:id="@+id/author_info"
@@ -145,7 +195,7 @@
             app:icon="@drawable/sl_like_24"
             tools:text="@tools:sample/us_zipcodes"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/attachment" />
+            app:layout_constraintTop_toBottomOf="@id/image_attachment" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/share"
@@ -156,7 +206,7 @@
             android:contentDescription="@string/share"
             app:icon="@drawable/share_24"
             app:layout_constraintStart_toEndOf="@id/like"
-            app:layout_constraintTop_toBottomOf="@id/attachment" />
+            app:layout_constraintTop_toBottomOf="@id/image_attachment" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/coordinates"
@@ -168,7 +218,7 @@
             android:contentDescription="@string/coordinates"
             app:icon="@drawable/locate_24"
             app:layout_constraintStart_toEndOf="@id/share"
-            app:layout_constraintTop_toBottomOf="@id/attachment" />
+            app:layout_constraintTop_toBottomOf="@id/image_attachment" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/viewing"
@@ -179,7 +229,7 @@
             android:contentDescription="@string/viewing"
             app:icon="@drawable/visibility_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/attachment" />
+            app:layout_constraintTop_toBottomOf="@id/image_attachment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

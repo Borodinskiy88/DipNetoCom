@@ -88,12 +88,19 @@
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_blue"
+            android:background="@color/PRIMARY_50"
             app:itemIconTint="@drawable/bottom_nav_icon"
             app:itemTextColor="@drawable/bottom_nav_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/bottom_navigation_menu" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+            android:layout_marginTop="8dp"
+            android:background="@color/PRIMARY_600" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

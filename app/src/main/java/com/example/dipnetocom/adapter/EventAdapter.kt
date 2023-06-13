@@ -1,5 +1,6 @@
 package com.example.dipnetocom.adapter
 
+import android.net.Uri
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.example.dipnetocom.R
 import com.example.dipnetocom.databinding.CardEventBinding
 import com.example.dipnetocom.dto.Event
 import com.example.dipnetocom.dto.FeedItem
+import com.example.dipnetocom.enumeration.AttachmentType
 import com.example.dipnetocom.utils.ReformatValues.reformatCount
 import com.example.dipnetocom.utils.ReformatValues.reformatDateTime
 import com.example.dipnetocom.utils.ReformatValues.reformatWebLink
@@ -25,8 +27,10 @@ interface OnInteractionListenerEvent {
     fun onEdit(event: Event)
     fun onRemove(event: Event)
     fun onShare(event: Event)
-    fun onAttachment(event: Event)
+    fun onImage(event: Event)
     fun onCoordinates(lat: Double, long: Double)
+    fun onAudio(event: Event)
+    fun onVideo(event: Event)
 }
 
 class EventAdapter(
@@ -72,15 +76,42 @@ class EventViewHolder(
             event.authorAvatar?.let { avatar.loadCircleCrop(it) }
                 ?: avatar.setImageResource(R.drawable.account_circle_24)
 
-            //TODO проверить
+            imageAttachment.visibility = View.GONE
+            musicGroup.visibility = View.GONE
+            videoGroup.visibility = View.GONE
             if (event.attachment != null) {
-                attachment.visibility = View.VISIBLE
-                event.attachment?.url?.let { url ->
-                    attachment.load(url)
-                    attachment.setOnClickListener { onInteractionListener.onAttachment(event) }
+                when (event.attachment?.type) {
+                    AttachmentType.AUDIO -> {
+                        musicGroup.visibility = View.VISIBLE
+                        playMusic.setOnClickListener { onInteractionListener.onAudio(event) }
+                        musicTitle.text = reformatWebLink(event.attachment.url)
+                    }
+
+                    AttachmentType.IMAGE -> {
+                        imageAttachment.visibility = View.VISIBLE
+                        event.attachment?.url?.let { url ->
+                            imageAttachment.load(url)
+                            imageAttachment.setOnClickListener { onInteractionListener.onImage(event) }
+                        }
+
+                    }
+
+                    AttachmentType.VIDEO -> {
+                        videoGroup.visibility = View.VISIBLE
+                        event.attachment?.url?.let { url ->
+                            videoAttachment.setOnClickListener { onInteractionListener.onVideo(event) }
+                            val uri = Uri.parse(url)
+                            videoAttachment.setVideoURI(uri)
+                            videoAttachment.setOnPreparedListener { mp ->
+                                mp?.setVolume(0F, 0F)
+                                mp?.isLooping = true
+                                videoAttachment.start()
+                            }
+                        }
+                    }
+
+                    else -> Unit
                 }
-            } else {
-                attachment.visibility = View.GONE
             }
 
 

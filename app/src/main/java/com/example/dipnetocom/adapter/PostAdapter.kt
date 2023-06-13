@@ -1,5 +1,6 @@
 package com.example.dipnetocom.adapter
 
+import android.net.Uri
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.example.dipnetocom.R
 import com.example.dipnetocom.databinding.CardPostBinding
 import com.example.dipnetocom.dto.FeedItem
 import com.example.dipnetocom.dto.Post
+import com.example.dipnetocom.enumeration.AttachmentType
 import com.example.dipnetocom.utils.ReformatValues.reformatCount
 import com.example.dipnetocom.utils.ReformatValues.reformatDateTime
 import com.example.dipnetocom.utils.ReformatValues.reformatWebLink
@@ -25,8 +27,10 @@ interface OnInteractionListenerPost {
     fun onEdit(post: Post)
     fun onRemove(post: Post)
     fun onShare(post: Post)
-    fun onAttachment(post: Post)
+    fun onImage(post: Post)
     fun onCoordinates(lat: Double, long: Double)
+    fun onAudio(post: Post)
+    fun onVideo(post: Post)
 }
 
 class PostAdapter(
@@ -72,15 +76,42 @@ class PostViewHolder(
             post.authorAvatar?.let { avatar.loadCircleCrop(it) }
                 ?: avatar.setImageResource(R.drawable.account_circle_24)
 
-            //TODO проверить
+            imageAttachment.visibility = View.GONE
+            musicGroup.visibility = View.GONE
+            videoGroup.visibility = View.GONE
             if (post.attachment != null) {
-                attachment.visibility = View.VISIBLE
-                post.attachment?.url?.let { url ->
-                    attachment.load(url)
-                    attachment.setOnClickListener { onInteractionListener.onAttachment(post) }
+                when (post.attachment?.type) {
+                    AttachmentType.AUDIO -> {
+                        musicGroup.visibility = View.VISIBLE
+                        playMusic.setOnClickListener { onInteractionListener.onAudio(post) }
+                        musicTitle.text = reformatWebLink(post.attachment.url)
+                    }
+
+                    AttachmentType.IMAGE -> {
+                        imageAttachment.visibility = View.VISIBLE
+                        post.attachment?.url?.let { url ->
+                            imageAttachment.load(url)
+                            imageAttachment.setOnClickListener { onInteractionListener.onImage(post) }
+                        }
+
+                    }
+
+                    AttachmentType.VIDEO -> {
+                        videoGroup.visibility = View.VISIBLE
+                        post.attachment?.url?.let { url ->
+                            videoAttachment.setOnClickListener { onInteractionListener.onVideo(post) }
+                            val uri = Uri.parse(url)
+                            videoAttachment.setVideoURI(uri)
+                            videoAttachment.setOnPreparedListener { mp ->
+                                mp?.setVolume(0F, 0F)
+                                mp?.isLooping = true
+                                videoAttachment.start()
+                            }
+                        }
+                    }
+
+                    else -> Unit
                 }
-            } else {
-                attachment.visibility = View.GONE
             }
 
             author.text = post.author

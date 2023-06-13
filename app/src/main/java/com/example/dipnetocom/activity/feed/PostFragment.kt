@@ -12,11 +12,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.dipnetocom.R
+import com.example.dipnetocom.activity.MediaLifecycleObserver
 import com.example.dipnetocom.activity.edit.NewPostFragment.Companion.textArg
 import com.example.dipnetocom.adapter.OnInteractionListenerPost
 import com.example.dipnetocom.adapter.PostAdapter
 import com.example.dipnetocom.databinding.FragmentPostBinding
 import com.example.dipnetocom.dto.Post
+import com.example.dipnetocom.enumeration.AttachmentType
 import com.example.dipnetocom.viewmodel.PostViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -26,6 +28,8 @@ import kotlinx.coroutines.launch
 class PostFragment : Fragment() {
 
     private val viewModel: PostViewModel by activityViewModels()
+
+    private val mediaObserver = MediaLifecycleObserver()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -65,7 +69,7 @@ class PostFragment : Fragment() {
                 viewModel.edit(post)
                 val text = post.content
                 val link = post.link
-                val attachment = post.attachment?.url
+//                val attachment = post.attachment?.url
                 val bundle = Bundle()
                 bundle.putString("editedText", text)
                 bundle.putString("editedLink", link)
@@ -89,7 +93,7 @@ class PostFragment : Fragment() {
                 startActivity(shareIntent)
             }
 
-            override fun onAttachment(post: Post) {
+            override fun onImage(post: Post) {
                 if (post.attachment != null) {
                     findNavController().navigate(
                         R.id.action_postFragment_to_imageFragment,
@@ -100,6 +104,21 @@ class PostFragment : Fragment() {
 
             override fun onCoordinates(lat: Double, long: Double) {
                 TODO("Not yet implemented")
+            }
+
+            override fun onAudio(post: Post) {
+                if (post.attachment?.type == AttachmentType.AUDIO) {
+                    post.attachment?.url?.let { mediaObserver.playPause(it) }
+                }
+            }
+
+            override fun onVideo(post: Post) {
+                if (post.attachment != null) {
+                    findNavController().navigate(
+                        R.id.action_postFragment_to_videoFragment,
+                        Bundle().apply { textArg = post.attachment.url }
+                    )
+                }
             }
 
         })

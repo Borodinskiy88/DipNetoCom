@@ -45,5 +45,12 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="Widget.AppTheme.PlayPauseButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="iconTint">@color/PRIMARY_600</item>
+        <item name="icon">@drawable/sl_play_48</item>
+        <item name="android:minWidth">@dimen/fab_margin_24</item>
+        <item name="android:minHeight">@dimen/fab_margin_24</item>
+    </style>
+
 
 </resources>

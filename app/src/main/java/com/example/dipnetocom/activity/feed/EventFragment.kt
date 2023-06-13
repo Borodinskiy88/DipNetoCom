@@ -12,11 +12,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.dipnetocom.R
+import com.example.dipnetocom.activity.MediaLifecycleObserver
 import com.example.dipnetocom.activity.edit.NewPostFragment.Companion.textArg
 import com.example.dipnetocom.adapter.EventAdapter
 import com.example.dipnetocom.adapter.OnInteractionListenerEvent
 import com.example.dipnetocom.databinding.FragmentEventBinding
 import com.example.dipnetocom.dto.Event
+import com.example.dipnetocom.enumeration.AttachmentType
 import com.example.dipnetocom.viewmodel.EventViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -26,6 +28,8 @@ import kotlinx.coroutines.launch
 class EventFragment : Fragment() {
 
     private val viewModel: EventViewModel by activityViewModels()
+
+    private val mediaObserver = MediaLifecycleObserver()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -90,7 +94,7 @@ class EventFragment : Fragment() {
                 startActivity(shareIntent)
             }
 
-            override fun onAttachment(event: Event) {
+            override fun onImage(event: Event) {
                 if (event.attachment != null) {
                     findNavController().navigate(
                         R.id.action_eventFragment_to_imageFragment,
@@ -101,6 +105,21 @@ class EventFragment : Fragment() {
 
             override fun onCoordinates(lat: Double, long: Double) {
                 TODO("Not yet implemented")
+            }
+
+            override fun onAudio(event: Event) {
+                if (event.attachment?.type == AttachmentType.AUDIO) {
+                    event.attachment?.url?.let { mediaObserver.playPause(it) }
+                }
+            }
+
+            override fun onVideo(event: Event) {
+                if (event.attachment != null) {
+                    findNavController().navigate(
+                        R.id.action_eventFragment_to_videoFragment,
+                        Bundle().apply { textArg = event.attachment.url }
+                    )
+                }
             }
 
 

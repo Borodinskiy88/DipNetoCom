@@ -22,14 +22,13 @@ class ImageFragment : Fragment() {
     ): View {
         val binding = FragmentImageBinding.inflate(inflater, container, false)
 
-        val urlImages = arguments?.textArg.toString()
-        binding.fullscreenImage.load(urlImages)
+        val urlAttachment = arguments?.textArg.toString()
+        binding.fullscreenImage.load(urlAttachment)
 
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             findNavController().navigateUp()
         }
-
 
         return binding.root
     }
