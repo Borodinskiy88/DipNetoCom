@@ -26,7 +26,7 @@ data class PostEntity(
     val likedByMe: Boolean,
     @Embedded
     val attachment: Attachment? = null,
-    val ownedByMe: Boolean,
+    val ownedByMe: Boolean = false,
     val users: Map<Int, UserPreview> = emptyMap(),
 ) {
     fun toDto() = Post(

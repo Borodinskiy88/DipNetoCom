@@ -52,6 +52,8 @@ class JobViewHolder(
             link.isVisible = job.link != null
             link.text = job.link?.let { reformatWebLink(it) }
 
+            menu.isVisible = job.ownedByMe
+
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.options_menu)

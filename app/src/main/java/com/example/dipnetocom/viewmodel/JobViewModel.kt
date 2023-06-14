@@ -42,7 +42,7 @@ class JobViewModel @Inject constructor(
             repository.data
                 .map { job ->
                     job.map { job ->
-                        job.copy(ownedByMe = userId == authState?.id)
+                        job.copy(ownedByMe = authState?.id == userId)
                     }
                 }
         }.flowOn(Dispatchers.Default)
