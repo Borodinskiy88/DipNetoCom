@@ -100,7 +100,7 @@
         tools:layout="@layout/fragment_wall" />
     <fragment
         android:id="@+id/jobsFragment"
-        android:name="com.example.dipnetocom.activity.feed.JobsFragment"
+        android:name="com.example.dipnetocom.activity.feed.JobFragment"
         android:label="@string/jobs">
         <action
             android:id="@+id/action_jobsFragment_to_newJobFragment"

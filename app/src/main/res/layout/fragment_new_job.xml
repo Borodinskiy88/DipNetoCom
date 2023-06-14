@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/common_spacing_16"
+    android:background="@drawable/background_line"
     tools:context=".activity.edit.NewJobFragment">
 
 
@@ -77,6 +78,24 @@
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/job_link_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/add_link_24"
+        android:layout_margin="@dimen/common_spacing_16"
+        app:layout_constraintTop_toBottomOf="@id/job_finish_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_job_link"
+            android:layout_width="match_parent"
+            android:background="@color/PRIMARY_50"
+            android:layout_height="wrap_content"
+            android:hint="@string/link_to_job"
+            android:inputType="textWebEditText" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/create_button"
         android:layout_width="wrap_content"
@@ -84,9 +103,9 @@
         android:layout_height="wrap_content"
         app:icon="@drawable/create_24"
         android:text="@string/create"
-        app:layout_constraintEnd_toEndOf="@id/job_finish_layout"
+        app:layout_constraintEnd_toEndOf="@id/job_link_layout"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/job_finish_layout" />
+        app:layout_constraintTop_toBottomOf="@id/job_link_layout" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/clear_button"
@@ -97,8 +116,8 @@
         android:text="@string/clear"
         app:icon="@drawable/clear_24"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="@id/job_finish_layout"
-        app:layout_constraintTop_toBottomOf="@id/job_finish_layout" />
+        app:layout_constraintStart_toStartOf="@id/job_link_layout"
+        app:layout_constraintTop_toBottomOf="@id/job_link_layout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

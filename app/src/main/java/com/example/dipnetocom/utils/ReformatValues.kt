@@ -46,6 +46,13 @@ object ReformatValues {
         return parsedDate.format(formatter)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun reformatTime(date: String): String {
+        val parsedDate = LocalDateTime.parse(date, DateTimeFormatter.ISO_DATE_TIME)
+        val formatter = DateTimeFormatter.ofPattern("HH:mm")
+        return parsedDate.format(formatter)
+    }
+
     fun reformatDatePicker(date: Date): String {
         return SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date)
     }

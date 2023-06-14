@@ -1,5 +1,13 @@
-package com.example.dipnetocom.repository
+package com.example.dipnetocom.repository.module
 
+import com.example.dipnetocom.repository.AuthRepository
+import com.example.dipnetocom.repository.AuthRepositoryImpl
+import com.example.dipnetocom.repository.EventRepository
+import com.example.dipnetocom.repository.EventRepositoryImpl
+import com.example.dipnetocom.repository.JobRepository
+import com.example.dipnetocom.repository.JobRepositoryImpl
+import com.example.dipnetocom.repository.PostRepository
+import com.example.dipnetocom.repository.PostRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,9 +22,9 @@ interface RepositoryModule {
     @Binds
     fun bindsAuthRepository(authRepository: AuthRepositoryImpl): AuthRepository
 
-//        @Singleton
-//        @Binds
-//        fun bindsJobRepository(jobRepository: JobRepositoryImpl): JobRepository
+    @Singleton
+    @Binds
+    fun bindsJobRepository(jobRepository: JobRepositoryImpl): JobRepository
 
     @Singleton
     @Binds

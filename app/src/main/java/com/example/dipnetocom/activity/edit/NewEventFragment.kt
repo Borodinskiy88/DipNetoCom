@@ -21,7 +21,9 @@ import com.example.dipnetocom.databinding.FragmentNewEventBinding
 import com.example.dipnetocom.enumeration.AttachmentType
 import com.example.dipnetocom.enumeration.EventType
 import com.example.dipnetocom.utils.AndroidUtils
+import com.example.dipnetocom.utils.ReformatValues.reformatDate
 import com.example.dipnetocom.utils.ReformatValues.reformatDatePicker
+import com.example.dipnetocom.utils.ReformatValues.reformatTime
 import com.example.dipnetocom.utils.ReformatValues.reformatTimePicker
 import com.example.dipnetocom.utils.ReformatValues.reformatWebLink
 import com.example.dipnetocom.viewmodel.EventViewModel
@@ -65,8 +67,12 @@ class NewEventFragment : Fragment() {
         binding.apply {
             editText.setText(arguments?.getString("editedText"))
             editLink.setText(arguments?.getString("editedLink"))
-//            editEventCalendarText.text = arguments?.getString("editDate")
+            val dataTime = arguments?.getString("editDate")
+            editEventDate.text = reformatDate(dataTime.toString())
+            editEventTime.text = reformatTime(dataTime.toString())
         }
+
+//        val image = arguments?.getString("url")
 
         binding.editEventDate.setOnClickListener {
             val datePickerFragment =
@@ -145,6 +151,9 @@ class NewEventFragment : Fragment() {
         }
 
         viewModel.media.observe(viewLifecycleOwner) { media ->
+            //TODO
+//            binding.previewContainer.isVisible = true
+//            binding.photoPreview.setImageURI(image?.toUri())
             if (media == null) {
                 binding.previewContainer.isGone = true
                 return@observe

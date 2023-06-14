@@ -7,6 +7,7 @@
     tools:context=".activity.edit.NewEventFragment">
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/checkbox_padding_start_8"
@@ -24,43 +25,43 @@
             <Button
                 android:id="@+id/edit_event_date"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:hint="@string/sample_date"
-                app:iconTint="@color/SECONDARY_200"
-                app:icon="@drawable/calendar_pink_24"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/checkbox_padding_start_8"
+                android:hint="@string/sample_date"
+                android:textColor="@color/black"
+                app:icon="@drawable/calendar_pink_24"
+                app:iconTint="@color/SECONDARY_200"
                 app:layout_constraintStart_toEndOf="parent" />
 
             <Button
                 android:id="@+id/edit_event_time"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:hint="@string/sample_time"
-                app:iconTint="@color/SECONDARY_200"
-                app:icon="@drawable/time_24"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:hint="@string/sample_time"
+                android:textColor="@color/black"
+                app:icon="@drawable/time_24"
+                app:iconTint="@color/SECONDARY_200"
                 app:layout_constraintStart_toEndOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/checkbox_padding_start_8"
-                android:drawablePadding="@dimen/checkbox_padding_start_8"
                 android:layout_marginTop="@dimen/checkbox_padding_start_8"
+                android:drawablePadding="@dimen/checkbox_padding_start_8"
+                android:text="@string/type_event"
                 android:textSize="16sp"
-                android:textStyle="italic"
-                android:text="@string/type_event" />
+                android:textStyle="italic" />
 
             <RadioGroup
                 android:id="@+id/edit_event_type_group"
-                android:checkedButton="@+id/online"
-                android:layout_marginStart="@dimen/checkbox_padding_start_8"
-                android:drawablePadding="@dimen/checkbox_padding_start_8"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/checkbox_padding_start_8"
+                android:checkedButton="@+id/online"
+                android:drawablePadding="@dimen/checkbox_padding_start_8">
 
                 <RadioButton
                     android:id="@+id/online"
@@ -75,18 +76,20 @@
                     android:text="@string/offline" />
             </RadioGroup>
 
-
             <EditText
                 android:id="@+id/edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/common_spacing_16"
-                app:drawableLeftCompat="@drawable/create_pink_24"
                 android:drawablePadding="@dimen/checkbox_padding_start_8"
                 android:gravity="start|top"
                 android:hint="@string/add_note"
                 android:inputType="textMultiLine"
+                app:drawableLeftCompat="@drawable/create_pink_24"
+                app:layout_anchor="@+id/scrollView2"
+                app:layout_anchorGravity="center"
                 tools:text="@tools:sample/lorem[50]" />
+
 
             <EditText
                 android:id="@+id/edit_link"
@@ -164,12 +167,5 @@
         android:layout_marginBottom="@dimen/fab_margin_24"
         android:importantForAccessibility="no"
         app:srcCompat="@drawable/check_24" />
-
-    <TextView
-        android:id="@+id/edit_event_type_text"
-        android:visibility="invisible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

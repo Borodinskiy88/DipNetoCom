@@ -1,6 +1,7 @@
 package com.example.dipnetocom.api
 
 import com.example.dipnetocom.dto.Event
+import com.example.dipnetocom.dto.Job
 import com.example.dipnetocom.dto.Media
 import com.example.dipnetocom.dto.Post
 import com.example.dipnetocom.dto.PushToken
@@ -19,6 +20,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
+
     //Auth
     @POST("users/push-tokens")
     suspend fun saveToken(@Body pushToken: PushToken)
@@ -37,6 +39,16 @@ interface ApiService {
         @Field("password") password: String,
         @Field("name") name: String
     ): Response<AuthModel>
+
+    //Jobs
+    @GET("{job_id}/jobs")
+    suspend fun getJobsByUserId(@Path("id") id: Int): Response<List<Job>>
+
+    @POST("my/jobs")
+    suspend fun saveJob(@Body job: Job): Response<Job>
+
+    @DELETE("my/jobs/{job_id}")
+    suspend fun deleteJobById(@Path("id") id: Int): Response<Unit>
 
     //Events
     @GET("events")
@@ -70,7 +82,6 @@ interface ApiService {
     suspend fun dislikeEventById(@Path("event_id") id: Int): Response<Event>
 
     // Posts
-
     @GET("posts")
     suspend fun getAllPosts(): Response<List<Post>>
 
@@ -102,7 +113,6 @@ interface ApiService {
     suspend fun dislikePostById(@Path("post_id") id: Int): Response<Post>
 
     //Media
-
     @Multipart
     @POST("media")
     suspend fun uploadMedia(@Part part: MultipartBody.Part): Response<Media>

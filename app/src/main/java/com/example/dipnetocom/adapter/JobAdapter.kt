@@ -47,7 +47,7 @@ class JobViewHolder(
             jobName.text = job.name
             jobPosition.text = job.position
             jobStart.text = reformatDate(job.start)
-            jobFinish.text = job.finish?.let { reformatDate(it) } ?: ""
+            jobFinish.text = job.finish?.let { reformatDate(it) } ?: "..."
 
             link.isVisible = job.link != null
             link.text = job.link?.let { reformatWebLink(it) }

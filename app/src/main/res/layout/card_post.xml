@@ -58,12 +58,11 @@
             android:layout_height="@dimen/attachment_size_200"
             app:layout_constraintTop_toBottomOf="@id/play_music" />
 
-        <VideoView
+        <ImageView
             android:id="@+id/play_video"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:accessibilityTraversalAfter="@id/video_attachment"
-            android:background="@android:color/transparent"
             android:src="@drawable/play_48"
             app:layout_constraintBottom_toBottomOf="@id/video_attachment"
             app:layout_constraintEnd_toEndOf="@id/video_attachment"
@@ -72,8 +71,8 @@
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/video_group"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:visibility="gone"
             app:constraint_referenced_ids="play_video, video_attachment" />
 
