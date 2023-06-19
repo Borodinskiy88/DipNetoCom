@@ -1,5 +1,7 @@
 package com.example.dipnetocom.repository
 
+import com.example.dipnetocom.dto.User
+
 interface UserRepository {
-    //TODO
+    suspend fun getUserById(id: Int): User
 }

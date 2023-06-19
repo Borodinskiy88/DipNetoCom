@@ -5,6 +5,7 @@ import com.example.dipnetocom.dto.Job
 import com.example.dipnetocom.dto.Media
 import com.example.dipnetocom.dto.Post
 import com.example.dipnetocom.dto.PushToken
+import com.example.dipnetocom.dto.User
 import com.example.dipnetocom.model.AuthModel
 import okhttp3.MultipartBody
 import retrofit2.Response
@@ -42,13 +43,13 @@ interface ApiService {
 
     //Jobs
     @GET("{job_id}/jobs")
-    suspend fun getJobsByUserId(@Path("id") id: Int): Response<List<Job>>
+    suspend fun getJobsByUserId(@Path("job_id") id: Int): Response<List<Job>>
 
     @POST("my/jobs")
     suspend fun saveJob(@Body job: Job): Response<Job>
 
     @DELETE("my/jobs/{job_id}")
-    suspend fun deleteJobById(@Path("id") id: Int): Response<Unit>
+    suspend fun deleteJobById(@Path("job_id") id: Int): Response<Unit>
 
     //Events
     @GET("events")
@@ -116,5 +117,24 @@ interface ApiService {
     @Multipart
     @POST("media")
     suspend fun uploadMedia(@Part part: MultipartBody.Part): Response<Media>
+
+    //User
+    @GET("users/{id}")
+    suspend fun getUserById(@Path("id") id: Int): Response<User>
+
+    //Wall
+
+    @GET("{author_id}/wall/latest")
+    suspend fun wallGetLatest(
+        @Path("author_id") authorId: Int,
+        @Query("count") count: Int
+    ): Response<List<Post>>
+
+    @GET("{author_id}/wall/{post_id}/before")
+    suspend fun wallGetBefore(
+        @Path("author_id") authorId: Int,
+        @Path("post_id") postId: Int,
+        @Query("count") count: Int
+    ): Response<List<Post>>
 
 }

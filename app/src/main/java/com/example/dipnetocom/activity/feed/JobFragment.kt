@@ -39,6 +39,7 @@ class JobFragment : Fragment() {
     ): View? {
         val binding = FragmentJobsBinding.inflate(inflater, container, false)
 
+
         val adapter = JobAdapter(object : OnInteractionListenerJob {
             //TODO
             override fun onEdit(job: Job) {

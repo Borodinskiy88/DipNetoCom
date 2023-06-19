@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -14,12 +15,16 @@ import androidx.paging.LoadState
 import com.example.dipnetocom.R
 import com.example.dipnetocom.activity.MediaLifecycleObserver
 import com.example.dipnetocom.activity.edit.NewPostFragment.Companion.textArg
+import com.example.dipnetocom.activity.wall.UserFragment
 import com.example.dipnetocom.adapter.OnInteractionListenerPost
 import com.example.dipnetocom.adapter.PostAdapter
 import com.example.dipnetocom.databinding.FragmentPostBinding
 import com.example.dipnetocom.dto.Post
 import com.example.dipnetocom.enumeration.AttachmentType
+import com.example.dipnetocom.view.load
+import com.example.dipnetocom.viewmodel.AuthViewModel
 import com.example.dipnetocom.viewmodel.PostViewModel
+import com.example.dipnetocom.viewmodel.UserViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collectLatest
@@ -28,6 +33,8 @@ import kotlinx.coroutines.launch
 class PostFragment : Fragment() {
 
     private val viewModel: PostViewModel by activityViewModels()
+    private val authViewModel: AuthViewModel by activityViewModels()
+    private val userViewModel: UserViewModel by activityViewModels()
 
     private val mediaObserver = MediaLifecycleObserver()
     override fun onCreateView(
@@ -172,6 +179,33 @@ class PostFragment : Fragment() {
         }
 
         binding.swipeRefresh.setOnRefreshListener(adapter::refresh)
+
+        //TODO
+        authViewModel.data.observe(viewLifecycleOwner) { authModel ->
+            binding.apply {
+                if (authViewModel.authorized) {
+                    login.setIconResource(R.drawable.logout_24)
+                    login.setText(R.string.log_out)
+                } else {
+                    login.setIconResource(R.drawable.login_24)
+                    login.setText(R.string.log_in)
+                }
+            }
+            authModel?.let { userViewModel.getUserById(it.id) }
+        }
+
+        userViewModel.user.observe(viewLifecycleOwner) { user ->
+            binding.userName.text = user.name
+            user.avatar?.apply {
+                binding.userAvatar.load(this)
+            } ?: binding.userAvatar.setImageResource(R.drawable.account_circle_24)
+            binding.userAvatar.setOnClickListener {
+                findNavController().navigate(
+                    R.id.action_postFragment_to_userFragment,
+                    bundleOf(UserFragment.USER_ID to user.id)
+                )
+            }
+        }
 
         return binding.root
     }

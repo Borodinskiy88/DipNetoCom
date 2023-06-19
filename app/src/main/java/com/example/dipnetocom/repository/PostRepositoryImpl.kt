@@ -1,5 +1,6 @@
 package com.example.dipnetocom.repository
 
+import WallRemoteMediator
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
@@ -8,12 +9,15 @@ import androidx.paging.map
 import com.example.dipnetocom.api.ApiService
 import com.example.dipnetocom.dao.PostDao
 import com.example.dipnetocom.dao.PostRemoteKeyDao
+import com.example.dipnetocom.dao.WallDao
+import com.example.dipnetocom.dao.WallRemoteKeyDao
 import com.example.dipnetocom.db.AppDb
 import com.example.dipnetocom.dto.Attachment
 import com.example.dipnetocom.dto.FeedItem
 import com.example.dipnetocom.dto.Media
 import com.example.dipnetocom.dto.Post
 import com.example.dipnetocom.entity.PostEntity
+import com.example.dipnetocom.entity.WallEntity
 import com.example.dipnetocom.entity.toEntity
 import com.example.dipnetocom.error.ApiError
 import com.example.dipnetocom.error.NetworkError
@@ -29,8 +33,12 @@ class PostRepositoryImpl @Inject constructor(
     private val postDao: PostDao,
     private val apiService: ApiService,
     postRemoteKeyDao: PostRemoteKeyDao,
-    appDb: AppDb
-) : PostRepository {
+    private val appDb: AppDb,
+    private val wallDao: WallDao,
+    private val wallRemoteKeyDao: WallRemoteKeyDao,
+
+
+    ) : PostRepository {
 
     @OptIn(ExperimentalPagingApi::class)
     override val data: Flow<PagingData<FeedItem>> = Pager(
@@ -45,9 +53,19 @@ class PostRepositoryImpl @Inject constructor(
     ).flow
         .map { it.map(PostEntity::toDto) }
 
-    override fun userWall(id: Int): Flow<PagingData<FeedItem>> {
-        TODO("Not yet implemented")
-    }
+    @OptIn(ExperimentalPagingApi::class)
+    override fun userWall(id: Int): Flow<PagingData<FeedItem>> = Pager(
+        config = PagingConfig(pageSize = 10, enablePlaceholders = false),
+        remoteMediator = WallRemoteMediator(
+            service = apiService,
+            wallDao = wallDao,
+            appDb = appDb,
+            wallRemoteKeyDao = wallRemoteKeyDao,
+            authorId = id
+        ),
+        pagingSourceFactory = wallDao::getPagingSource,
+    ).flow
+        .map { it.map(WallEntity::toDto) }
 
     override suspend fun getAll() {
         try {

@@ -34,9 +34,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_job_position"
-            android:background="@color/PRIMARY_50"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/PRIMARY_50"
             android:hint="@string/job_position"
             android:inputType="textCapSentences" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -45,53 +45,53 @@
         android:id="@+id/job_start_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:endIconMode="custom"
-        app:endIconDrawable="@drawable/calendar_24"
         android:layout_margin="@dimen/common_spacing_16"
+        app:endIconDrawable="@drawable/calendar_24"
+        app:endIconMode="custom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_job_start"
             android:layout_width="match_parent"
-            android:background="@color/PRIMARY_50"
             android:layout_height="wrap_content"
+            android:background="@color/PRIMARY_50"
             android:hint="@string/job_start"
-            android:inputType="textPassword" />
+            android:inputType="date" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/job_finish_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:endIconMode="custom"
-        app:endIconDrawable="@drawable/calendar_24"
         android:layout_margin="@dimen/common_spacing_16"
+        app:endIconDrawable="@drawable/calendar_24"
+        app:endIconMode="custom"
         app:layout_constraintTop_toBottomOf="@id/job_start_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_job_finish"
             android:layout_width="match_parent"
-            android:background="@color/PRIMARY_50"
             android:layout_height="wrap_content"
+            android:background="@color/PRIMARY_50"
             android:hint="@string/job_finish"
-            android:inputType="textPassword" />
+            android:inputType="date" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/job_link_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:endIconMode="custom"
-        app:endIconDrawable="@drawable/add_link_24"
         android:layout_margin="@dimen/common_spacing_16"
+        app:endIconDrawable="@drawable/add_link_24"
+        app:endIconMode="custom"
         app:layout_constraintTop_toBottomOf="@id/job_finish_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_job_link"
             android:layout_width="match_parent"
-            android:background="@color/PRIMARY_50"
             android:layout_height="wrap_content"
+            android:background="@color/PRIMARY_50"
             android:hint="@string/link_to_job"
             android:inputType="textWebEditText" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -99,10 +99,10 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/create_button"
         android:layout_width="wrap_content"
-        android:layout_marginTop="@dimen/common_spacing_16"
         android:layout_height="wrap_content"
-        app:icon="@drawable/create_24"
+        android:layout_marginTop="@dimen/common_spacing_16"
         android:text="@string/create"
+        app:icon="@drawable/create_24"
         app:layout_constraintEnd_toEndOf="@id/job_link_layout"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/job_link_layout" />

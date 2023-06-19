@@ -19,6 +19,7 @@
     <string name="is_blank">Login or password is blank</string>
     <string name="login">Login</string>
     <string name="log_in">Log in</string>
+    <string name="log_out">Log out</string>
     <string name="login_exit">You are login exit</string>
     <string name="login_line">Already registered? <u>Log in</u></string>
     <string name="log_in_with_a_password">Log in with a password</string>
@@ -40,6 +41,7 @@
     <string name="events">Events</string>
     <string name="image">Image</string>
     <string name="jobs">Jobs</string>
+    <string name="my_wall">My Wall</string>
     <string name="photo_error">Photo error</string>
     <string name="posts">Posts</string>
     <string name="type_event">Type event</string>
@@ -52,6 +54,7 @@
     <string name="job_position">Job position</string>
     <string name="job_start">Job start</string>
     <string name="job_finish">Job finish</string>
+    <string name="link_to_job">Link to Job</string>
     <!-- actions -->
     <string name="add_date">Add date</string>
     <string name="add_event">Add event</string>
@@ -73,7 +76,5 @@
     <string name="dash">-</string>
     <string name="sample_date">01.01.2000</string>
     <string name="sample_time">00:00</string>
-    <string name="link_to_job">Link to Job</string>
-
 
 </resources>

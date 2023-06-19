@@ -18,12 +18,14 @@ import com.example.dipnetocom.entity.ListIntConverter
 import com.example.dipnetocom.entity.MapUsersPrevConverter
 import com.example.dipnetocom.entity.PostEntity
 import com.example.dipnetocom.entity.PostRemoteKeyEntity
+import com.example.dipnetocom.entity.WallEntity
+import com.example.dipnetocom.entity.WallRemoteKeyEntity
 
 @Database(
 
     entities = [
         PostEntity::class, PostRemoteKeyEntity::class,
-//        WallEntity::class, WallRemoteKeyEntity::class,
+        WallEntity::class, WallRemoteKeyEntity::class,
         EventEntity::class, EventRemoteKeyEntity::class,
         JobEntity::class
 

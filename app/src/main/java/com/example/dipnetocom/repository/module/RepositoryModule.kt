@@ -8,6 +8,8 @@ import com.example.dipnetocom.repository.JobRepository
 import com.example.dipnetocom.repository.JobRepositoryImpl
 import com.example.dipnetocom.repository.PostRepository
 import com.example.dipnetocom.repository.PostRepositoryImpl
+import com.example.dipnetocom.repository.UserRepository
+import com.example.dipnetocom.repository.UserRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -34,8 +36,8 @@ interface RepositoryModule {
     @Binds
     fun bindsPostRepository(postRepository: PostRepositoryImpl): PostRepository
 
-//        @Singleton
-//        @Binds
-//        fun bindsUserRepository(userRepository: UserRepositoryImpl): UserRepository
+    @Singleton
+    @Binds
+    fun bindsUserRepository(userRepository: UserRepositoryImpl): UserRepository
 
 }

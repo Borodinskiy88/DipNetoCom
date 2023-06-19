@@ -68,8 +68,10 @@ class NewEventFragment : Fragment() {
             editText.setText(arguments?.getString("editedText"))
             editLink.setText(arguments?.getString("editedLink"))
             val dataTime = arguments?.getString("editDate")
-            editEventDate.text = reformatDate(dataTime.toString())
-            editEventTime.text = reformatTime(dataTime.toString())
+            if (dataTime != null) {
+                editEventDate.text = reformatDate(dataTime.toString())
+                editEventTime.text = reformatTime(dataTime.toString())
+            } else null
         }
 
 //        val image = arguments?.getString("url")

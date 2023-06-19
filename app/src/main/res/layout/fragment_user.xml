@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/PRIMARY_50"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/user_wall_avatar"
+        android:layout_width="@dimen/icon_button_min_size_48"
+        android:layout_height="@dimen/icon_button_min_size_48"
+        android:layout_marginStart="@dimen/checkbox_padding_start_8"
+        android:background="@drawable/background_line"
+        android:layout_marginTop="@dimen/checkbox_padding_start_8"
+        android:scaleType="centerCrop"
+        android:src="@drawable/account_circle_24"
+        app:iconTint="@color/PRIMARY_900"
+        android:contentDescription="@string/avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/user_wall_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing_16"
+        android:textColor="@color/PRIMARY_900"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/user_wall_avatar"
+        app:layout_constraintStart_toEndOf="@id/user_wall_avatar"
+        app:layout_constraintTop_toTopOf="@id/user_wall_avatar"
+        app:layout_constraintBottom_toTopOf="@id/user_company"
+        tools:text="@string/name" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_job"
+        style="@style/Widget.AppTheme.IconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/user_wall_avatar"
+        app:layout_constraintBottom_toBottomOf="@id/user_wall_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/checkbox_padding_start_8"
+        android:padding="@dimen/checkbox_padding_start_8"
+        android:text="@string/jobs"
+        app:iconTint="@color/PRIMARY_900"
+        android:textColor="@color/PRIMARY_900"
+        app:icon="@drawable/work_history_24" />
+
+    <TextView
+        android:id="@+id/user_company"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/PRIMARY_900"
+        app:layout_constraintStart_toStartOf="@id/user_wall_name"
+        app:layout_constraintTop_toBottomOf="@id/user_wall_name"
+        tools:text="Apple" />
+
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/work_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="button_job, user_company" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="user_wall_avatar" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefresh"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/checkbox_padding_start_8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/checkbox_padding_start_8"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/fragment_user_wall" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/common_spacing_16"
+        android:layout_marginBottom="@dimen/common_spacing_16"
+        android:importantForAccessibility="no"
+        app:srcCompat="@drawable/create_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

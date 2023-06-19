@@ -48,6 +48,7 @@ class JobRepositoryImpl @Inject constructor(
 
             val body = response.body() ?: throw ApiError(response.code(), response.message())
             jobDao.insert(JobEntity.fromDto(body))
+
         } catch (e: IOException) {
             throw NetworkError
         } catch (e: Exception) {

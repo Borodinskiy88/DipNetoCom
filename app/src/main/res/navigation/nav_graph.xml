@@ -34,6 +34,12 @@
         <action
             android:id="@+id/action_postFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_postFragment_self"
+            app:destination="@id/postFragment" />
+        <action
+            android:id="@+id/action_postFragment_to_userFragment"
+            app:destination="@id/userFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventFragment"
@@ -64,6 +70,9 @@
         <action
             android:id="@+id/action_eventFragment_to_registrationFragment"
             app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_eventFragment_to_userFragment"
+            app:destination="@id/userFragment" />
     </fragment>
     <fragment
         android:id="@+id/newPostFragment"
@@ -127,4 +136,18 @@
         android:name="com.example.dipnetocom.activity.attachment.VideoFragment"
         android:label="@string/video"
         tools:layout="@layout/fragment_video" />
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.dipnetocom.activity.wall.UserFragment"
+        android:label="@string/my_wall">
+        <action
+            android:id="@+id/action_userFragment_to_newPostFragment"
+            app:destination="@id/newPostFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_videoFragment"
+            app:destination="@id/videoFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_imageFragment"
+            app:destination="@id/imageFragment" />
+    </fragment>
 </navigation>

@@ -3,6 +3,7 @@ package com.example.dipnetocom.utils
 import android.os.Build
 import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
+import java.time.Instant
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Date
@@ -60,5 +61,8 @@ object ReformatValues {
     fun reformatTimePicker(date: Date): String {
         return SimpleDateFormat("HH:mm", Locale.ROOT).format(date)
     }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun lastDate(datetime: String) = Instant.parse(datetime).toEpochMilli()
 
 }

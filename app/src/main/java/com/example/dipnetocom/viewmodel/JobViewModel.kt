@@ -1,5 +1,7 @@
 package com.example.dipnetocom.viewmodel
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +10,7 @@ import com.example.dipnetocom.auth.AppAuth
 import com.example.dipnetocom.dto.Job
 import com.example.dipnetocom.model.FeedModelState
 import com.example.dipnetocom.repository.JobRepository
+import com.example.dipnetocom.utils.ReformatValues.lastDate
 import com.example.dipnetocom.utils.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -90,10 +93,6 @@ class JobViewModel @Inject constructor(
         edited.value = job
     }
 
-    fun clearEdited() {
-        edited.value = empty
-    }
-
     fun changeContent(
         name: String,
         position: String,
@@ -120,7 +119,8 @@ class JobViewModel @Inject constructor(
             }
         }
     }
-//TODO
-//    fun getCurrentJob(list: List<Job>) =
-//        list.maxBy { dateToTimestamp(it.start) }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun lastJob(list: List<Job>) =
+        list.maxBy { lastDate(it.start) }
 }

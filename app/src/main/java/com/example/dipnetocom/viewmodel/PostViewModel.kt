@@ -56,6 +56,8 @@ class PostViewModel @Inject constructor(
     val state: LiveData<FeedModelState>
         get() = _state
 
+    fun wallData(userId: Int): Flow<PagingData<FeedItem>> = repository.userWall(userId)
+
     val data: Flow<PagingData<FeedItem>> = appAuth.authState
         .flatMapLatest { authState ->
             repository.data
