@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_checked="true" android:color="@color/PRIMARY_900" />
-    <item android:state_pressed="true" android:state_enabled="true" android:color="@color/PRIMARY_900" />
-    <item android:color="@color/PRIMARY_600" />
+    <item android:state_checked="false" android:color="@color/PRIMARY_600" />
 </selector>

@@ -158,6 +158,28 @@ class EventViewModel @Inject constructor(
         }
     }
 
+    fun joinById(id: Int) {
+        viewModelScope.launch {
+            try {
+                repository.joinById(id)
+                _stateEvent.value = FeedModelState()
+            } catch (e: Exception) {
+                _stateEvent.value = FeedModelState(error = true)
+            }
+        }
+    }
+
+    fun retireById(id: Int) {
+        viewModelScope.launch {
+            try {
+                repository.retireById(id)
+                _stateEvent.value = FeedModelState()
+            } catch (e: Exception) {
+                _stateEvent.value = FeedModelState(error = true)
+            }
+        }
+    }
+
     fun removeEventById(id: Int) {
         viewModelScope.launch {
             try {

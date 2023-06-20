@@ -15,6 +15,7 @@ data class Event(
     val coords: Coordinates? = null,
     val type: EventType,
     val likedByMe: Boolean = false,
+    val participantsIds: List<Int> = emptyList(),
     val participatedByMe: Boolean = false,
     val link: String? = null,
     val ownedByMe: Boolean = false,

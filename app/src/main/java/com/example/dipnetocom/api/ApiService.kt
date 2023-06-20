@@ -82,6 +82,12 @@ interface ApiService {
     @DELETE("events/{event_id}/likes")
     suspend fun dislikeEventById(@Path("event_id") id: Int): Response<Event>
 
+    @POST("events/{event_id}/participants")
+    suspend fun joinById(@Path("event_id") id: Int): Response<Event>
+
+    @DELETE("events/{event_id}/participants")
+    suspend fun retireById(@Path("event_id") id: Int): Response<Event>
+
     // Posts
     @GET("posts")
     suspend fun getAllPosts(): Response<List<Post>>

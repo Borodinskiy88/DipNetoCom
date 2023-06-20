@@ -148,6 +148,38 @@ class EventRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun joinById(id: Int) {
+        try {
+            val response = apiService.joinById(id)
+            if (!response.isSuccessful) {
+                throw ApiError(response.code(), response.message())
+            }
+            val body = response.body() ?: throw ApiError(response.code(), response.message())
+            eventDao.insert(EventEntity.fromDto(body))
+
+        } catch (e: IOException) {
+            throw NetworkError
+        } catch (e: Exception) {
+            throw UnknownError()
+        }
+    }
+
+    override suspend fun retireById(id: Int) {
+        try {
+            val response = apiService.retireById(id)
+            if (!response.isSuccessful) {
+                throw ApiError(response.code(), response.message())
+            }
+            val body = response.body() ?: throw ApiError(response.code(), response.message())
+            eventDao.insert(EventEntity.fromDto(body))
+
+        } catch (e: IOException) {
+            throw NetworkError
+        } catch (e: Exception) {
+            throw UnknownError()
+        }
+    }
+
     private suspend fun upload(media: MediaModel): Media {
         try {
             val part = MultipartBody.Part.createFormData(

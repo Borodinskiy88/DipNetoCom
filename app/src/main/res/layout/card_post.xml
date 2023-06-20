@@ -220,10 +220,11 @@
             app:layout_constraintTop_toBottomOf="@id/image_attachment" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/viewing"
+            android:id="@+id/join"
             style="@style/Widget.AppTheme.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="invisible"
             android:layout_marginTop="@dimen/checkbox_padding_start_8"
             android:contentDescription="@string/viewing"
             app:icon="@drawable/visibility_24"

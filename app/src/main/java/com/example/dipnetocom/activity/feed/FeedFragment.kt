@@ -32,7 +32,7 @@ class FeedFragment : Fragment() {
     ): View {
         val binding = FragmentFeedBinding.inflate(inflater, container, false)
 
-        // Фрагменты хранятся в savedInstanceState, поэтому необходима проверка
+        //TODO всегда null
         val save = savedInstanceState
         if (savedInstanceState == null) {
             loadFragment(POSTS_TAG) { PostFragment() }
@@ -55,7 +55,6 @@ class FeedFragment : Fragment() {
             }
         }
 
-        //TODO
         binding.login.setOnClickListener {
             findNavController().navigate(R.id.action_feedFragment_to_loginFragment)
         }
@@ -71,6 +70,7 @@ class FeedFragment : Fragment() {
                 }
             }
             authModel?.let { userViewModel.getUserById(it.id) }
+
         }
 
         userViewModel.user.observe(viewLifecycleOwner) { user ->
@@ -89,28 +89,19 @@ class FeedFragment : Fragment() {
         return binding.root
     }
 
-    /**
-     * Создаём фрагменты лениво и переиспользуем старые
-     */
     private fun loadFragment(tag: String, fragmentFactory: () -> Fragment) {
-        // Фрагмент, к которому мы хотим перейти. Его кешированная версия
         val cachedFragment = childFragmentManager.findFragmentByTag(tag)
-        // Фрагмент, который сейчас на экране
         val currentFragment = childFragmentManager.findFragmentById(R.id.container)
 
-        // При повторной навигации ничего не делаем
         if (currentFragment?.tag == tag) return
 
         childFragmentManager.commit {
             if (currentFragment != null) {
-                // Старый фрагмент не теряем, а откладываем
                 detach(currentFragment)
             }
             if (cachedFragment != null) {
-                // Цепляем старый
                 attach(cachedFragment)
             } else {
-                // Создаём новый и присваиваем ему тег
                 replace(R.id.container, fragmentFactory(), tag)
             }
         }

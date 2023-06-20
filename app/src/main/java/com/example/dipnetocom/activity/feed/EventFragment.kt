@@ -122,6 +122,28 @@ class EventFragment : Fragment() {
                 }
             }
 
+            override fun onJoin(event: Event) {
+                if (token == null) {
+                    MaterialAlertDialogBuilder(context!!)
+                        .setTitle(R.string.log_in_to_account)
+                        .setMessage(R.string.please_log_in_to_your_account)
+                        .setNegativeButton(R.string.continue_as_a_guest) { dialog, _ ->
+                            dialog.cancel()
+                        }
+                        .setPositiveButton(R.string.login) { _, _ ->
+                            findNavController().navigate(R.id.action_feedFragment_to_loginFragment)
+                            Snackbar.make(binding.root, R.string.login_exit, Snackbar.LENGTH_LONG)
+                                .show()
+                        }
+                        .show()
+                } else {
+                    if (!event.participatedByMe) {
+                        viewModel.joinById(event.id)
+                    } else {
+                        viewModel.retireById(event.id)
+                    }
+                }
+            }
 
         })
 

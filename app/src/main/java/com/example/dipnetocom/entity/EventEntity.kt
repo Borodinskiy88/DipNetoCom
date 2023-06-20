@@ -25,6 +25,7 @@ class EventEntity(
     @ColumnInfo(name = "event_type")
     val type: EventType,
     val likedByMe: Boolean = false,
+    val participantsIds: List<Int> = emptyList(),
     val participatedByMe: Boolean = false,
     val link: String? = null,
     val ownedByMe: Boolean = false,
@@ -45,6 +46,7 @@ class EventEntity(
         coords = coords,
         type = type,
         likedByMe = likedByMe,
+        participantsIds = participantsIds,
         participatedByMe = participatedByMe,
         link = link,
         ownedByMe = ownedByMe,
@@ -67,6 +69,7 @@ class EventEntity(
             coords = event.coords,
             type = event.type,
             likedByMe = event.likedByMe,
+            participantsIds = event.participantsIds,
             participatedByMe = event.participatedByMe,
             link = event.link,
             ownedByMe = event.ownedByMe,

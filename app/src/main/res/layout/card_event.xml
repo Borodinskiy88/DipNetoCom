@@ -264,14 +264,18 @@
             app:layout_constraintTop_toBottomOf="@id/image_attachment" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/viewing"
+            android:id="@+id/join"
             style="@style/Widget.AppTheme.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/checkbox_padding_start_8"
             android:contentDescription="@string/viewing"
-            app:icon="@drawable/visibility_24"
+            android:checkable="true"
+            android:layout_marginEnd="@dimen/checkbox_padding_start_8"
+            app:icon="@drawable/sl_participates_24"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/like"
+            app:layout_constraintBottom_toBottomOf="@id/like"
             app:layout_constraintTop_toBottomOf="@id/image_attachment" />
 
 

@@ -50,12 +50,12 @@
         android:id="@+id/postFragment"
         android:name="com.example.dipnetocom.activity.feed.PostFragment"
         android:label="@string/posts"
-        tools:layout="@layout/fragment_post"></fragment>
+        tools:layout="@layout/fragment_post" />
     <fragment
         android:id="@+id/eventFragment"
         android:name="com.example.dipnetocom.activity.feed.EventFragment"
         android:label="@string/events"
-        tools:layout="@layout/fragment_event"></fragment>
+        tools:layout="@layout/fragment_event" />
     <fragment
         android:id="@+id/newPostFragment"
         android:name="com.example.dipnetocom.activity.edit.NewPostFragment"

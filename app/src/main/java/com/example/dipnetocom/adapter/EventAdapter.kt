@@ -31,6 +31,7 @@ interface OnInteractionListenerEvent {
     fun onCoordinates(lat: Double, long: Double)
     fun onAudio(event: Event)
     fun onVideo(event: Event)
+    fun onJoin(event: Event)
 }
 
 class EventAdapter(
@@ -132,6 +133,12 @@ class EventViewHolder(
 
             share.setOnClickListener {
                 onInteractionListener.onShare(event)
+            }
+
+            join.isChecked = event.participatedByMe
+            join.text = reformatCount(event.participantsIds.size)
+            join.setOnClickListener {
+                onInteractionListener.onJoin(event)
             }
 
             link.isVisible = event.link != null
