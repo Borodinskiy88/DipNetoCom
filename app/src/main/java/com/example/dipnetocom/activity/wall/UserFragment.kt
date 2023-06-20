@@ -147,6 +147,10 @@ class UserFragment : Fragment() {
         })
         binding.listContainer.adapter = adapter
 
+        binding.fab.setOnClickListener {
+            findNavController().navigate(R.id.action_userFragment_to_newPostFragment)
+        }
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 postViewModel.wallData(userId).collectLatest { wall ->

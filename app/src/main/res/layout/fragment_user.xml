@@ -65,13 +65,6 @@
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="button_job, user_company" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="user_wall_avatar" />
-
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
@@ -79,14 +72,14 @@
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/checkbox_padding_start_8"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header">
+        app:layout_constraintTop_toBottomOf="@id/user_wall_avatar">
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/checkbox_padding_start_8"
+            android:paddingTop="@dimen/checkbox_padding_start_8"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/fragment_user_wall" />
 

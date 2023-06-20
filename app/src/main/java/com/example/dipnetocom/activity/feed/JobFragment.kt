@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -29,7 +30,6 @@ class JobFragment : Fragment() {
     }
 
     private val jobViewModel by activityViewModels<JobViewModel>()
-
     private val authViewModel by activityViewModels<AuthViewModel>()
 
     override fun onCreateView(
@@ -41,27 +41,22 @@ class JobFragment : Fragment() {
 
 
         val adapter = JobAdapter(object : OnInteractionListenerJob {
-            //TODO
+
             override fun onEdit(job: Job) {
-                val name = job.name
-                val position = job.position
-                val start = job.start
-                val finish = job.finish
-                val link = job.link
-                val bundle = Bundle()
-                bundle.putString("editedName", name)
-                bundle.putString("editedPosition", position)
-                bundle.putString("editedStart", start)
-                bundle.putString("editedFinish", finish)
-                bundle.putString("editedLink", link)
                 jobViewModel.edit(job)
-                findNavController().navigate(R.id.action_jobsFragment_to_newJobFragment)
+                val bundle = bundleOf(
+                    Pair("editedName", job.name),
+                    Pair("editedPosition", job.position),
+                    Pair("editedStart", job.start),
+                    Pair("editedFinish", job.finish),
+                    Pair("editedLink", job.link)
+                )
+                findNavController().navigate(R.id.action_jobsFragment_to_newJobFragment, bundle)
             }
 
             override fun onRemove(job: Job) {
                 jobViewModel.removeById(job.id)
             }
-
         })
 
         binding.fab.setOnClickListener {

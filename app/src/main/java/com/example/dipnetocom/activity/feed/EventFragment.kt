@@ -73,16 +73,13 @@ class EventFragment : Fragment() {
 
             override fun onEdit(event: Event) {
                 viewModel.editEvent(event)
-                val text = event.content
-                val link = event.link
-                val dateTime = event.datetime
-                //TODO
-                val image = event.attachment?.url
-                val bundle = Bundle()
-                bundle.putString("editedText", text)
-                bundle.putString("editedLink", link)
-                bundle.putString("editDate", dateTime)
-                bundle.putString("url", image)
+                val bundle = bundleOf(
+                    Pair("editedText", event.content),
+                    Pair("editedLink", event.link),
+                    Pair("editDate", event.datetime),
+                    //TODO
+                    Pair("url", event.attachment?.url)
+                )
                 findNavController().navigate(R.id.action_eventFragment_to_newEventFragment, bundle)
             }
 

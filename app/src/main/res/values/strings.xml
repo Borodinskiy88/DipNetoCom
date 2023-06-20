@@ -32,11 +32,13 @@
     <string name="registration">Registration</string>
     <string name="registration_line"><u>Registration</u></string>
     <string name="sign_in_with_password">Sign in with password</string>
+    <string name="unknown">Unknown</string>
     <!-- fragments -->
     <string name="add_post">Add post</string>
     <string name="create_events">Create event</string>
     <string name="create_posts">Create post</string>
     <string name="create_jobs">Create job</string>
+    <string name="empty_date">You need to select the date</string>
     <string name="empty_datetime">You need to select the date and time</string>
     <string name="events">Events</string>
     <string name="image">Image</string>
@@ -49,11 +51,13 @@
     <string name="video">Video</string>
     <!-- jobs -->
     <string name="add_jobs">Add jobs</string>
+    <string name="company_name">Company name</string>
     <string name="empty_jobs">Empty jobs</string>
     <string name="job_name">Job Name</string>
     <string name="job_position">Job position</string>
     <string name="job_start">Job start</string>
     <string name="job_finish">Job finish</string>
+    <string name="link_to_company">Link to company</string>
     <string name="link_to_job">Link to Job</string>
     <!-- actions -->
     <string name="add_date">Add date</string>

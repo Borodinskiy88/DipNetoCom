@@ -10,21 +10,22 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.dipnetocom.R
 import com.example.dipnetocom.activity.DatePickerFragment
 import com.example.dipnetocom.databinding.FragmentNewJobBinding
 import com.example.dipnetocom.utils.AndroidUtils.hideKeyboard
-import com.example.dipnetocom.utils.StringArg
+import com.example.dipnetocom.utils.ReformatValues.reformatDate
 import com.example.dipnetocom.viewmodel.JobViewModel
+import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
 import java.util.Locale
 
+@AndroidEntryPoint
+@Suppress("UNUSED_EXPRESSION")
 class NewJobFragment : Fragment() {
 
     private val viewModel: JobViewModel by activityViewModels()
-
-    companion object {
-        var Bundle.textArg: String? by StringArg
-    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -34,11 +35,19 @@ class NewJobFragment : Fragment() {
     ): View? {
         val binding = FragmentNewJobBinding.inflate(inflater, container, false)
 
+
         binding.apply {
             editJobName.setText(arguments?.getString("editedName"))
             editJobPosition.setText(arguments?.getString("editedPosition"))
-            editJobStart.setText(arguments?.getString("editedStart"))
-            editJobFinish.setText(arguments?.getString("editedFinish"))
+
+            val start = arguments?.getString("editedStart")
+            editJobStart.text = reformatDate(start.toString())
+
+            val finish = arguments?.getString("editedFinish")
+            if (finish == null) {
+                null
+            } else editJobFinish.text = reformatDate(finish.toString())
+
             editJobLink.setText(arguments?.getString("editedLink"))
         }
 
@@ -46,8 +55,8 @@ class NewJobFragment : Fragment() {
         binding.clearButton.setOnClickListener {
             binding.editJobName.text?.clear()
             binding.editJobPosition.text?.clear()
-            binding.editJobStart.text?.clear()
-            binding.editJobFinish.text?.clear()
+            binding.editJobStart.text = null
+            binding.editJobFinish.text = null
             binding.editJobLink.text?.clear()
         }
 
@@ -86,17 +95,31 @@ class NewJobFragment : Fragment() {
         binding.createButton.setOnClickListener {
             val jobName = binding.editJobName.text.toString()
             val jobPosition = binding.editJobPosition.text.toString()
-//                val jobStart = editJobStart.text.toString()
-//                val jobFinish = editJobFinish.text?.toString()
-            val jobStart = binding.editJobStart.text.toString() + "T00:00:00.000000Z"
+            val jobStart = if (binding.editJobStart.text?.isNotBlank() == true) {
+                binding.editJobStart.text.toString() + "T00:00:00.000000Z"
+            } else {
+                Snackbar.make(
+                    binding.root,
+                    R.string.empty_date,
+                    Snackbar.LENGTH_LONG
+                ).show()
+                return@setOnClickListener
+            }
             val jobFinish = if (binding.editJobFinish.text?.isNotBlank() == true) {
                 binding.editJobFinish.text.toString() + "T00:00:00.000000Z"
             } else null
             val jobLink = binding.editJobLink.text?.toString()
 
-            viewModel.changeContent(jobName, jobPosition, jobStart, jobFinish, jobLink)
+            viewModel.changeContent(
+                jobName.ifEmpty { "Unknown" },
+                jobPosition.ifEmpty { "Unknown" },
+                jobStart,
+                jobFinish,
+                jobLink?.ifEmpty { null })
+
             viewModel.save()
             hideKeyboard(requireView())
+            viewLifecycleOwner
         }
 
 

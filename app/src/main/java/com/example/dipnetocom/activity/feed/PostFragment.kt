@@ -74,13 +74,10 @@ class PostFragment : Fragment() {
 
             override fun onEdit(post: Post) {
                 viewModel.edit(post)
-                val text = post.content
-                val link = post.link
-//                val attachment = post.attachment?.url
-                val bundle = Bundle()
-                bundle.putString("editedText", text)
-                bundle.putString("editedLink", link)
-//                bundle.putString("attachmentUrl", attachment)
+                val bundle = bundleOf(
+                    Pair("editedText", post.content),
+                    Pair("editedLink", post.link)
+                )
                 findNavController().navigate(R.id.action_postFragment_to_newPostFragment, bundle)
             }
 

@@ -8,20 +8,21 @@
     android:background="@drawable/background_line"
     tools:context=".activity.edit.NewJobFragment">
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/job_name_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing_16"
-        app:layout_constraintBottom_toTopOf="@id/job_position_layout">
+        app:endIconDrawable="@drawable/work_24"
+        app:endIconMode="custom"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_job_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/PRIMARY_50"
-            android:hint="@string/job_name"
+            android:hint="@string/company_name"
             android:inputType="textCapSentences" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -29,8 +30,10 @@
         android:id="@+id/job_position_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:endIconDrawable="@drawable/badge_24"
+        app:endIconMode="custom"
         android:layout_margin="@dimen/common_spacing_16"
-        app:layout_constraintBottom_toTopOf="@id/job_start_layout">
+        app:layout_constraintTop_toBottomOf="@id/job_name_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_job_position"
@@ -41,42 +44,30 @@
             android:inputType="textCapSentences" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/job_start_layout"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/edit_job_start"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        app:icon="@drawable/calendar_24"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/common_spacing_16"
-        app:endIconDrawable="@drawable/calendar_24"
-        app:endIconMode="custom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/common_spacing_16"
+        android:hint="@string/job_start"
+        app:layout_constraintStart_toStartOf="@id/job_position_layout"
+        app:layout_constraintTop_toBottomOf="@id/job_position_layout" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_job_start"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/PRIMARY_50"
-            android:hint="@string/job_start"
-            android:inputType="date" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/job_finish_layout"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/edit_job_finish"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        app:icon="@drawable/calendar_24"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/common_spacing_16"
-        app:endIconDrawable="@drawable/calendar_24"
-        app:endIconMode="custom"
-        app:layout_constraintTop_toBottomOf="@id/job_start_layout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_job_finish"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/PRIMARY_50"
-            android:hint="@string/job_finish"
-            android:inputType="date" />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/common_spacing_16"
+        android:background="@color/PRIMARY_50"
+        app:layout_constraintStart_toStartOf="@id/edit_job_start"
+        app:layout_constraintTop_toBottomOf="@id/edit_job_start"
+        android:hint="@string/job_finish" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/job_link_layout"
@@ -85,39 +76,44 @@
         android:layout_margin="@dimen/common_spacing_16"
         app:endIconDrawable="@drawable/add_link_24"
         app:endIconMode="custom"
-        app:layout_constraintTop_toBottomOf="@id/job_finish_layout">
+        app:layout_constraintTop_toBottomOf="@id/edit_job_finish">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_job_link"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/PRIMARY_50"
-            android:hint="@string/link_to_job"
+            android:hint="@string/link_to_company"
             android:inputType="textWebEditText" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/create_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing_16"
         android:text="@string/create"
         app:icon="@drawable/create_24"
-        app:layout_constraintEnd_toEndOf="@id/job_link_layout"
+        android:layout_marginStart="@dimen/checkbox_padding_start_4"
+        android:layout_marginEnd="@dimen/common_spacing_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/clear_button"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/job_link_layout" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/clear_button"
         style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing_16"
         android:text="@string/clear"
         app:icon="@drawable/clear_24"
+        android:layout_marginEnd="@dimen/checkbox_padding_start_4"
+        android:layout_marginStart="@dimen/common_spacing_16"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="@id/job_link_layout"
+        app:layout_constraintEnd_toStartOf="@id/create_button"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/job_link_layout" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
