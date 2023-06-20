@@ -15,16 +15,12 @@ import androidx.paging.LoadState
 import com.example.dipnetocom.R
 import com.example.dipnetocom.activity.MediaLifecycleObserver
 import com.example.dipnetocom.activity.edit.NewPostFragment.Companion.textArg
-import com.example.dipnetocom.activity.wall.UserFragment
 import com.example.dipnetocom.adapter.OnInteractionListenerPost
 import com.example.dipnetocom.adapter.PostAdapter
 import com.example.dipnetocom.databinding.FragmentPostBinding
 import com.example.dipnetocom.dto.Post
 import com.example.dipnetocom.enumeration.AttachmentType
-import com.example.dipnetocom.view.load
-import com.example.dipnetocom.viewmodel.AuthViewModel
 import com.example.dipnetocom.viewmodel.PostViewModel
-import com.example.dipnetocom.viewmodel.UserViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collectLatest
@@ -33,8 +29,6 @@ import kotlinx.coroutines.launch
 class PostFragment : Fragment() {
 
     private val viewModel: PostViewModel by activityViewModels()
-    private val authViewModel: AuthViewModel by activityViewModels()
-    private val userViewModel: UserViewModel by activityViewModels()
 
     private val mediaObserver = MediaLifecycleObserver()
     override fun onCreateView(
@@ -58,7 +52,7 @@ class PostFragment : Fragment() {
                             dialog.cancel()
                         }
                         .setPositiveButton(R.string.login) { _, _ ->
-                            findNavController().navigate(R.id.action_postFragment_to_loginFragment)
+                            findNavController().navigate(R.id.action_feedFragment_to_loginFragment)
                             Snackbar.make(binding.root, R.string.login_exit, Snackbar.LENGTH_LONG)
                                 .show()
                         }
@@ -78,7 +72,7 @@ class PostFragment : Fragment() {
                     Pair("editedText", post.content),
                     Pair("editedLink", post.link)
                 )
-                findNavController().navigate(R.id.action_postFragment_to_newPostFragment, bundle)
+                findNavController().navigate(R.id.action_feedFragment_to_newPostFragment, bundle)
             }
 
             override fun onRemove(post: Post) {
@@ -100,7 +94,7 @@ class PostFragment : Fragment() {
             override fun onImage(post: Post) {
                 if (post.attachment != null) {
                     findNavController().navigate(
-                        R.id.action_postFragment_to_imageFragment,
+                        R.id.action_feedFragment_to_imageFragment,
                         Bundle().apply { textArg = post.attachment.url }
                     )
                 }
@@ -119,7 +113,7 @@ class PostFragment : Fragment() {
             override fun onVideo(post: Post) {
                 if (post.attachment != null) {
                     findNavController().navigate(
-                        R.id.action_postFragment_to_videoFragment,
+                        R.id.action_feedFragment_to_videoFragment,
                         Bundle().apply { textArg = post.attachment.url }
                     )
                 }
@@ -150,59 +144,11 @@ class PostFragment : Fragment() {
             }
         }
 
-        binding.login.setOnClickListener {
-            findNavController().navigate(R.id.action_postFragment_to_loginFragment)
-        }
-
-        //TODO Не подсвечивает кнопку Posts при возвращении назад
-        binding.bottomNavigation.menu.findItem(R.id.posts_menu).isChecked = true
-
-        binding.bottomNavigation.setOnItemSelectedListener { item ->
-
-            when (item.itemId) {
-                R.id.posts_menu -> {
-                    return@setOnItemSelectedListener true
-                }
-
-                R.id.events_menu -> {
-                    findNavController().navigate(R.id.action_postFragment_to_eventFragment)
-                }
-            }
-            return@setOnItemSelectedListener true
-        }
-
         binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_postFragment_to_newPostFragment)
+            findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
         }
 
         binding.swipeRefresh.setOnRefreshListener(adapter::refresh)
-
-        //TODO
-        authViewModel.data.observe(viewLifecycleOwner) { authModel ->
-            binding.apply {
-                if (authViewModel.authorized) {
-                    login.setIconResource(R.drawable.logout_24)
-                    login.setText(R.string.log_out)
-                } else {
-                    login.setIconResource(R.drawable.login_24)
-                    login.setText(R.string.log_in)
-                }
-            }
-            authModel?.let { userViewModel.getUserById(it.id) }
-        }
-
-        userViewModel.user.observe(viewLifecycleOwner) { user ->
-            binding.userName.text = user.name
-            user.avatar?.apply {
-                binding.userAvatar.load(this)
-            } ?: binding.userAvatar.setImageResource(R.drawable.account_circle_24)
-            binding.userAvatar.setOnClickListener {
-                findNavController().navigate(
-                    R.id.action_postFragment_to_userFragment,
-                    bundleOf(UserFragment.USER_ID to user.id)
-                )
-            }
-        }
 
         return binding.root
     }

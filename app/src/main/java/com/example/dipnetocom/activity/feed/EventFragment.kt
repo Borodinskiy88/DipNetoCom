@@ -15,16 +15,12 @@ import androidx.paging.LoadState
 import com.example.dipnetocom.R
 import com.example.dipnetocom.activity.MediaLifecycleObserver
 import com.example.dipnetocom.activity.edit.NewPostFragment.Companion.textArg
-import com.example.dipnetocom.activity.wall.UserFragment
 import com.example.dipnetocom.adapter.EventAdapter
 import com.example.dipnetocom.adapter.OnInteractionListenerEvent
 import com.example.dipnetocom.databinding.FragmentEventBinding
 import com.example.dipnetocom.dto.Event
 import com.example.dipnetocom.enumeration.AttachmentType
-import com.example.dipnetocom.view.load
-import com.example.dipnetocom.viewmodel.AuthViewModel
 import com.example.dipnetocom.viewmodel.EventViewModel
-import com.example.dipnetocom.viewmodel.UserViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collectLatest
@@ -33,8 +29,6 @@ import kotlinx.coroutines.launch
 class EventFragment : Fragment() {
 
     private val viewModel: EventViewModel by activityViewModels()
-    private val authViewModel: AuthViewModel by activityViewModels()
-    private val userViewModel: UserViewModel by activityViewModels()
 
     private val mediaObserver = MediaLifecycleObserver()
     override fun onCreateView(
@@ -57,7 +51,7 @@ class EventFragment : Fragment() {
                             dialog.cancel()
                         }
                         .setPositiveButton(R.string.login) { _, _ ->
-                            findNavController().navigate(R.id.action_eventFragment_to_loginFragment)
+                            findNavController().navigate(R.id.action_feedFragment_to_loginFragment)
                             Snackbar.make(binding.root, R.string.login_exit, Snackbar.LENGTH_LONG)
                                 .show()
                         }
@@ -80,7 +74,7 @@ class EventFragment : Fragment() {
                     //TODO
                     Pair("url", event.attachment?.url)
                 )
-                findNavController().navigate(R.id.action_eventFragment_to_newEventFragment, bundle)
+                findNavController().navigate(R.id.action_feedFragment_to_newEventFragment, bundle)
             }
 
             override fun onRemove(event: Event) {
@@ -103,7 +97,7 @@ class EventFragment : Fragment() {
             override fun onImage(event: Event) {
                 if (event.attachment != null) {
                     findNavController().navigate(
-                        R.id.action_eventFragment_to_imageFragment,
+                        R.id.action_feedFragment_to_imageFragment,
                         Bundle().apply { textArg = event.attachment.url }
                     )
                 }
@@ -122,7 +116,7 @@ class EventFragment : Fragment() {
             override fun onVideo(event: Event) {
                 if (event.attachment != null) {
                     findNavController().navigate(
-                        R.id.action_eventFragment_to_videoFragment,
+                        R.id.action_feedFragment_to_videoFragment,
                         Bundle().apply { textArg = event.attachment.url }
                     )
                 }
@@ -154,60 +148,11 @@ class EventFragment : Fragment() {
             }
         }
 
-
-
-        binding.login.setOnClickListener {
-            findNavController().navigate(R.id.action_eventFragment_to_loginFragment)
-        }
-
-        binding.bottomNavigation.menu.findItem(R.id.events_menu).isChecked = true
-
-        binding.bottomNavigation.setOnItemSelectedListener { item ->
-
-            when (item.itemId) {
-                R.id.posts_menu -> {
-                    findNavController().navigate(R.id.action_eventFragment_to_postFragment)
-                }
-
-                R.id.events_menu -> {
-                    return@setOnItemSelectedListener true
-                }
-            }
-            return@setOnItemSelectedListener true
-        }
-
         binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_eventFragment_to_newEventFragment)
+            findNavController().navigate(R.id.action_feedFragment_to_newEventFragment)
         }
 
         binding.swipeRefresh.setOnRefreshListener(adapter::refresh)
-
-        //TODO
-        authViewModel.data.observe(viewLifecycleOwner) { authModel ->
-            binding.apply {
-                if (authViewModel.authorized) {
-                    login.setIconResource(R.drawable.logout_24)
-                    login.setText(R.string.log_out)
-                } else {
-                    login.setIconResource(R.drawable.login_24)
-                    login.setText(R.string.log_in)
-                }
-            }
-            authModel?.let { userViewModel.getUserById(it.id) }
-        }
-
-        userViewModel.user.observe(viewLifecycleOwner) { user ->
-            binding.userName.text = user.name
-            user.avatar?.apply {
-                binding.userAvatar.load(this)
-            } ?: binding.userAvatar.setImageResource(R.drawable.account_circle_24)
-            binding.userAvatar.setOnClickListener {
-                findNavController().navigate(
-                    R.id.action_eventFragment_to_userFragment,
-                    bundleOf(UserFragment.USER_ID to user.id)
-                )
-            }
-        }
 
         return binding.root
     }

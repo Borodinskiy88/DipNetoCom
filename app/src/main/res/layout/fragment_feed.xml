@@ -4,27 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
     tools:context="activity.feed.FeedFragment">
 
-    <FrameLayout
-        android:id="@+id/container"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_nav" />
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/checkbox_padding_start_8"
+        android:background="@color/PRIMARY_50"
+        tools:context=".activity.feed.PostFragment"
+        tools:targetApi="p">
+
+
+        <ImageView
+            android:id="@+id/user_avatar"
+            android:layout_width="@dimen/posts_avatar_size_48"
+            android:layout_height="@dimen/icon_button_min_size_48"
+            android:layout_marginStart="@dimen/checkbox_padding_start_8"
+            android:layout_marginTop="@dimen/checkbox_padding_start_8"
+            android:background="@drawable/background_line"
+            android:scaleType="fitCenter"
+            android:src="@drawable/account_circle_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_spacing_16"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/anonymous"
+            android:textColor="@color/PRIMARY_900"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/user_avatar"
+            app:layout_constraintStart_toEndOf="@id/user_avatar"
+            app:layout_constraintTop_toTopOf="@id/user_avatar" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login"
+            style="@style/Widget.AppTheme.IconButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/login"
+            android:layout_marginEnd="@dimen/checkbox_padding_start_8"
+            app:icon="@drawable/input_24"
+            app:iconTint="@color/PRIMARY_900"
+            android:textColor="@color/PRIMARY_900"
+            android:text="@string/log_in"
+            app:layout_constraintBottom_toBottomOf="@id/user_avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/user_avatar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
         app:itemIconTint="@drawable/bottom_nav_icon"
         app:itemTextColor="@drawable/bottom_nav_icon"
         android:background="@color/PRIMARY_50"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu"
-        android:scrollIndicators="left" />
+        android:layout_below="@+id/constraint"
+        app:menu="@menu/bottom_navigation_menu" />
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/bottom_nav" />
+
 </RelativeLayout>

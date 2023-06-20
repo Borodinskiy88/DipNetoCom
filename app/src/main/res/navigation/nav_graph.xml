@@ -3,77 +3,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/postFragment">
+    app:startDestination="@id/feedFragment">
 
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.example.dipnetocom.activity.feed.FeedFragment"
+        android:label="@string/app_name">
+        <action
+            android:id="@+id/action_feedFragment_to_eventFragment"
+            app:destination="@id/eventFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_jobsFragment"
+            app:destination="@id/jobsFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_wallFragment"
+            app:destination="@id/wallFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_imageFragment"
+            app:destination="@id/imageFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_videoFragment"
+            app:destination="@id/videoFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_newPostFragment"
+            app:destination="@id/newPostFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_feedFragment_self"
+            app:destination="@id/postFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_postFragment"
+            app:destination="@id/postFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_newEventFragment"
+            app:destination="@id/newEventFragment" />
+    </fragment>
     <fragment
         android:id="@+id/postFragment"
         android:name="com.example.dipnetocom.activity.feed.PostFragment"
         android:label="@string/posts"
-        tools:layout="@layout/fragment_post">
-        <action
-            android:id="@+id/action_postFragment_to_eventFragment"
-            app:destination="@id/eventFragment" />
-        <action
-            android:id="@+id/action_postFragment_to_jobsFragment"
-            app:destination="@id/jobsFragment" />
-        <action
-            android:id="@+id/action_postFragment_to_wallFragment"
-            app:destination="@id/wallFragment" />
-        <action
-            android:id="@+id/action_postFragment_to_imageFragment"
-            app:destination="@id/imageFragment" />
-        <action
-            android:id="@+id/action_postFragment_to_videoFragment"
-            app:destination="@id/videoFragment" />
-        <action
-            android:id="@+id/action_postFragment_to_newPostFragment"
-            app:destination="@id/newPostFragment" />
-        <action
-            android:id="@+id/action_postFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_postFragment_to_registrationFragment"
-            app:destination="@id/registrationFragment" />
-        <action
-            android:id="@+id/action_postFragment_self"
-            app:destination="@id/postFragment" />
-        <action
-            android:id="@+id/action_postFragment_to_userFragment"
-            app:destination="@id/userFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_post"></fragment>
     <fragment
         android:id="@+id/eventFragment"
         android:name="com.example.dipnetocom.activity.feed.EventFragment"
         android:label="@string/events"
-        tools:layout="@layout/fragment_event">
-        <action
-            android:id="@+id/action_eventFragment_to_postFragment"
-            app:destination="@id/postFragment" />
-        <action
-            android:id="@+id/action_eventFragment_to_jobsFragment"
-            app:destination="@id/jobsFragment" />
-        <action
-            android:id="@+id/action_eventFragment_to_wallFragment"
-            app:destination="@id/wallFragment" />
-        <action
-            android:id="@+id/action_eventFragment_to_imageFragment"
-            app:destination="@id/imageFragment" />
-        <action
-            android:id="@+id/action_eventFragment_to_videoFragment"
-            app:destination="@id/videoFragment" />
-        <action
-            android:id="@+id/action_eventFragment_to_newEventFragment"
-            app:destination="@id/newEventFragment" />
-        <action
-            android:id="@+id/action_eventFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_eventFragment_to_registrationFragment"
-            app:destination="@id/registrationFragment" />
-        <action
-            android:id="@+id/action_eventFragment_to_userFragment"
-            app:destination="@id/userFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_event"></fragment>
     <fragment
         android:id="@+id/newPostFragment"
         android:name="com.example.dipnetocom.activity.edit.NewPostFragment"
