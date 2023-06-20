@@ -15,11 +15,9 @@
         android:layout_marginEnd="@dimen/checkbox_padding_start_8"
         android:paddingBottom="?actionBarSize">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_line"
             android:orientation="vertical">
 
             <Button
@@ -59,7 +57,8 @@
                 android:id="@+id/edit_event_type_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/checkbox_padding_start_8"
+                android:layout_marginTop="@dimen/checkbox_padding_start_4"
+                android:layout_marginStart="@dimen/checkbox_padding_start_4"
                 android:checkedButton="@+id/online"
                 android:drawablePadding="@dimen/checkbox_padding_start_8">
 
@@ -76,47 +75,58 @@
                     android:text="@string/offline" />
             </RadioGroup>
 
-            <EditText
-                android:id="@+id/edit_text"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_text_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/common_spacing_16"
-                android:drawablePadding="@dimen/checkbox_padding_start_8"
-                android:gravity="start|top"
-                android:hint="@string/add_note"
-                android:inputType="textMultiLine"
-                app:drawableLeftCompat="@drawable/create_pink_24"
-                app:layout_anchor="@+id/scrollView2"
-                app:layout_anchorGravity="center"
-                tools:text="@tools:sample/lorem[50]" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/checkbox_padding_start_8"
+                app:startIconDrawable="@drawable/create_24"
+                app:startIconTint="@color/SECONDARY_200">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_line"
+                    android:hint="@string/add_event"
+                    android:inputType="textMultiLine"
+                    tools:text="@tools:sample/lorem[50]" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <EditText
-                android:id="@+id/edit_link"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_link_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/common_spacing_16"
-                android:autoLink="web"
-                android:drawableStart="@drawable/link_pink_24"
-                android:drawablePadding="@dimen/checkbox_padding_start_8"
-                android:gravity="start|top"
-                android:hint="@string/add_link"
-                android:inputType="textMultiLine"
-                android:textColorLink="@color/PRIMARY_600"
-                tools:text="@tools:sample/lorem[3]" />
+                android:layout_height="wrap_content"
+                app:startIconDrawable="@drawable/link_24"
+                app:startIconTint="@color/SECONDARY_200"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_line"
+                    android:hint="@string/add_link"
+                    android:layout_marginTop="@dimen/checkbox_padding_start_8"
+                    android:autoLink="web"
+                    android:textColorLink="@color/PRIMARY_600"
+                    android:inputType="textMultiLine"
+                    tools:text="@tools:sample/lorem[10]" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <FrameLayout
                 android:id="@+id/preview_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/common_spacing_16">
+                android:layout_marginTop="@dimen/checkbox_padding_start_8">
 
                 <ImageView
                     android:id="@+id/photo_preview"
                     android:layout_width="360dp"
                     android:layout_height="360dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/checkbox_padding_start_8"
                     android:adjustViewBounds="true"
                     android:background="@drawable/background_line"
                     tools:srcCompat="@tools:sample/avatars[3]" />

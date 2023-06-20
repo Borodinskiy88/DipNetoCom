@@ -41,7 +41,9 @@ class NewJobFragment : Fragment() {
             editJobPosition.setText(arguments?.getString("editedPosition"))
 
             val start = arguments?.getString("editedStart")
-            editJobStart.text = reformatDate(start.toString())
+            if (start == null) {
+                null
+            } else editJobStart.text = reformatDate(start.toString())
 
             val finish = arguments?.getString("editedFinish")
             if (finish == null) {
