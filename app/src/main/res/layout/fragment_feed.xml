@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,6 +10,7 @@
         android:id="@+id/constraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="top"
         android:paddingBottom="@dimen/checkbox_padding_start_8"
         android:background="@color/PRIMARY_50"
         tools:context=".activity.feed.PostFragment"
@@ -67,6 +68,7 @@
         app:itemIconTint="@drawable/bottom_nav_icon"
         app:itemTextColor="@drawable/bottom_nav_icon"
         android:background="@color/PRIMARY_50"
+        android:layout_gravity="bottom"
         app:layout_constraintHorizontal_bias="0.5"
         android:layout_below="@+id/constraint"
         app:menu="@menu/bottom_navigation_menu" />
@@ -77,4 +79,4 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/bottom_nav" />
 
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

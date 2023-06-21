@@ -32,12 +32,9 @@ class FeedFragment : Fragment() {
     ): View {
         val binding = FragmentFeedBinding.inflate(inflater, container, false)
 
-        //TODO всегда null
-        val save = savedInstanceState
-        if (savedInstanceState == null) {
+        if (childFragmentManager.findFragmentById(R.id.container) == null) {
             loadFragment(POSTS_TAG) { PostFragment() }
         }
-        binding.bottomNav.menu.findItem(R.id.posts_menu).isChecked = true
 
         binding.bottomNav.setOnItemSelectedListener {
             when (it.itemId) {

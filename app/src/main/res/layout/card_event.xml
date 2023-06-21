@@ -213,7 +213,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoLink="web"
-            android:textColorLink="@color/PRIMARY_600"
+            android:textColorLink="@color/PRIMARY_900"
             android:visibility="visible"
             android:drawablePadding="@dimen/checkbox_padding_start_8"
             app:drawableStartCompat="@drawable/link_pink_24"

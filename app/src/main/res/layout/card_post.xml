@@ -18,10 +18,10 @@
             android:layout_width="@dimen/posts_avatar_size_48"
             android:layout_height="@dimen/posts_avatar_size_48"
             android:layout_marginBottom="@dimen/common_spacing_16"
-            android:scaleType="fitCenter"
-            android:src="@drawable/account_circle_24"
             android:background="@drawable/background_line"
             android:contentDescription="@string/avatar"
+            android:scaleType="fitCenter"
+            android:src="@drawable/account_circle_24"
             app:layout_constraintBottom_toBottomOf="@id/header1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,8 +31,8 @@
             style="@style/Widget.AppTheme.PlayPauseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="visible"
             android:checkable="true"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/footer" />
 
@@ -103,28 +103,28 @@
                 android:layout_marginEnd="@dimen/common_spacing_16"
                 android:ellipsize="end"
                 android:singleLine="true"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/avatar"
                 app:layout_constraintTop_toTopOf="@id/avatar"
                 app:layout_constraintVertical_chainStyle="packed"
-                android:textStyle="bold"
                 tools:text="@tools:sample/full_names" />
 
             <TextView
                 android:id="@+id/job"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_spacing_16"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:layout_marginStart="@dimen/common_spacing_16"
                 tools:text="@tools:sample/lorem" />
 
             <TextView
                 android:id="@+id/published"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_spacing_16"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:layout_marginStart="@dimen/common_spacing_16"
                 android:textStyle="italic"
                 tools:text="@tools:sample/date/ddmmyy" />
 
@@ -136,8 +136,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/common_spacing_16"
-            app:icon="@drawable/menu_vert_24"
             android:contentDescription="@string/menu"
+            app:icon="@drawable/menu_vert_24"
             app:iconGravity="end"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -169,12 +169,12 @@
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:drawablePadding="@dimen/checkbox_padding_start_8"
-            android:textColorLink="@color/PRIMARY_600"
+            android:textColorLink="@color/PRIMARY_900"
             android:visibility="gone"
+            app:drawableStartCompat="@drawable/link_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/content"
-            tools:text="@tools:sample/date/ddmmyy"
-            app:drawableStartCompat="@drawable/link_24" />
+            tools:text="@tools:sample/date/ddmmyy" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/footer"
@@ -192,9 +192,9 @@
             android:checkable="true"
             android:contentDescription="@string/like"
             app:icon="@drawable/sl_like_24"
-            tools:text="@tools:sample/us_zipcodes"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_attachment" />
+            app:layout_constraintTop_toBottomOf="@id/image_attachment"
+            tools:text="@tools:sample/us_zipcodes" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/share"
@@ -213,8 +213,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/checkbox_padding_start_8"
-            android:visibility="gone"
             android:contentDescription="@string/coordinates"
+            android:visibility="gone"
             app:icon="@drawable/locate_24"
             app:layout_constraintStart_toEndOf="@id/share"
             app:layout_constraintTop_toBottomOf="@id/image_attachment" />
@@ -224,9 +224,9 @@
             style="@style/Widget.AppTheme.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
             android:layout_marginTop="@dimen/checkbox_padding_start_8"
             android:contentDescription="@string/viewing"
+            android:visibility="invisible"
             app:icon="@drawable/visibility_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_attachment" />
