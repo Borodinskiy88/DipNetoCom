@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/user_wall_avatar"
-        android:layout_width="@dimen/icon_button_min_size_48"
-        android:layout_height="@dimen/icon_button_min_size_48"
+        android:layout_width="@dimen/posts_avatar_size_48"
+        android:layout_height="@dimen/posts_avatar_size_48"
         android:layout_marginStart="@dimen/checkbox_padding_start_8"
         android:background="@drawable/background_line"
         android:layout_marginTop="@dimen/checkbox_padding_start_8"

@@ -8,6 +8,7 @@ import com.example.dipnetocom.dto.PushToken
 import com.example.dipnetocom.dto.User
 import com.example.dipnetocom.model.AuthModel
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -39,6 +40,15 @@ interface ApiService {
         @Field("login") login: String,
         @Field("password") password: String,
         @Field("name") name: String
+    ): Response<AuthModel>
+
+    @Multipart
+    @POST("users/registration")
+    suspend fun registerWithPhoto(
+        @Part("login") login: RequestBody,
+        @Part("password") password: RequestBody,
+        @Part("name") name: RequestBody,
+        @Part media: MultipartBody.Part,
     ): Response<AuthModel>
 
     //Jobs

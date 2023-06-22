@@ -10,7 +10,9 @@
     <string name="share">Share</string>
     <string name="viewing">Viewing</string>
     <!-- login/reg -->
+    <string name="add_avatar">Add avatar</string>
     <string name="anonymous">Anonymous</string>
+    <string name="clear_avatar">Clear avatar</string>
     <string name="continue_as_a_guest">Continue as a guest</string>
     <string name="empty_field">It is necessary to fill in all fields</string>
     <string name="enter_the_password">Enter the password</string>
@@ -20,13 +22,16 @@
     <string name="login">Login</string>
     <string name="log_in">Log in</string>
     <string name="log_out">Log out</string>
+    <string name="logged_out_of_your_account">You have logged out of your account</string>
     <string name="login_exit">You are login exit</string>
     <string name="login_line">Already registered? <u>Log in</u></string>
     <string name="log_in_with_a_password">Log in with a password</string>
     <string name="log_in_to_account">Log in to account</string>
+    <string name="log_out_of_your_account">Log out of your account?</string>
     <string name="name">Name</string>
     <string name="match_passwords">Passwords must match</string>
     <string name="password">Password</string>
+    <string name="please_choose_avatar">Please choose avatar</string>
     <string name="please_log_in_to_your_account">Please log in to your account</string>
     <string name="repeat_password">Repeat password</string>
     <string name="registration">Registration</string>
@@ -35,15 +40,18 @@
     <string name="unknown">Unknown</string>
     <!-- fragments -->
     <string name="add_post">Add post</string>
+    <string name="camera">Camera</string>
     <string name="create_events">Create event</string>
     <string name="create_posts">Create post</string>
     <string name="create_jobs">Create job</string>
     <string name="empty_date">You need to select the date</string>
     <string name="empty_datetime">You need to select the date and time</string>
     <string name="events">Events</string>
+    <string name="gallery">Gallery</string>
     <string name="image">Image</string>
     <string name="jobs">Jobs</string>
     <string name="my_wall">My Wall</string>
+    <string name="photo">Photo</string>
     <string name="photo_error">Photo error</string>
     <string name="posts">Posts</string>
     <string name="type_event">Type event</string>
@@ -69,6 +77,8 @@
     <string name="create">Create</string>
     <string name="clear">Clear</string>
     <string name="edit">Edit</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string name="online">Online</string>
     <string name="offline">Offline</string>
     <string name="remove">Remove</string>

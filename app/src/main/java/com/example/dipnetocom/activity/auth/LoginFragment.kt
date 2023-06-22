@@ -44,6 +44,7 @@ class LoginFragment : Fragment() {
         }
 
         viewModel.state.observe(viewLifecycleOwner) { state ->
+
             binding.loginButton.isEnabled = !state.loading
 
             if (state.successfulEntry) {
@@ -67,8 +68,6 @@ class LoginFragment : Fragment() {
             }
 
         }
-
-
 
         return binding.root
     }

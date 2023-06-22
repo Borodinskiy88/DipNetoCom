@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing_16"
-        app:layout_constraintBottom_toTopOf="@id/password_log_layout">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_log"
@@ -29,8 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing_16"
         app:endIconMode="password_toggle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/login_log_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_log"
@@ -70,12 +69,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing_16"
+        android:autoLink="all"
+        android:text="@string/registration_line"
         android:textColor="@color/PRIMARY_600"
         android:textSize="16sp"
-        android:autoLink="all"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/clear"
-        android:text="@string/registration_line" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clear" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

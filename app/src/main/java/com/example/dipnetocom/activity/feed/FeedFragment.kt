@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -11,15 +13,23 @@ import androidx.fragment.app.commit
 import androidx.navigation.fragment.findNavController
 import com.example.dipnetocom.R
 import com.example.dipnetocom.activity.wall.UserFragment
+import com.example.dipnetocom.auth.AppAuth
 import com.example.dipnetocom.databinding.FragmentFeedBinding
 import com.example.dipnetocom.view.load
 import com.example.dipnetocom.viewmodel.AuthViewModel
 import com.example.dipnetocom.viewmodel.UserViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class FeedFragment : Fragment() {
 
     private val authViewModel: AuthViewModel by activityViewModels()
     private val userViewModel: UserViewModel by activityViewModels()
+
+    @Inject
+    lateinit var appAuth: AppAuth
 
     private companion object {
         const val POSTS_TAG = "POSTS_TAG"
@@ -52,22 +62,51 @@ class FeedFragment : Fragment() {
             }
         }
 
-        binding.login.setOnClickListener {
-            findNavController().navigate(R.id.action_feedFragment_to_loginFragment)
+        binding.menuAuth.setOnClickListener {
+            PopupMenu(it.context, it).apply {
+                inflate(R.menu.menu_auth)
+                setOnMenuItemClickListener { item ->
+                    when (item.itemId) {
+                        R.id.login -> {
+                            findNavController().navigate(R.id.action_feedFragment_to_loginFragment)
+                            true
+                        }
+
+                        R.id.registration -> {
+                            findNavController().navigate(R.id.action_feedFragment_to_registrationFragment)
+                            true
+                        }
+
+                        R.id.logout -> {
+                            MaterialAlertDialogBuilder(requireContext())
+                                .setTitle(R.string.log_out)
+                                .setMessage(R.string.log_out_of_your_account)
+                                .setNegativeButton(R.string.no) { dialog, _ ->
+                                    dialog.cancel()
+                                }
+                                .setPositiveButton(R.string.yes) { _, _ ->
+                                    appAuth.removeAuth()
+                                    authViewModel.data.observe(viewLifecycleOwner) { !authViewModel.authorized }
+                                    binding.userName.setText(R.string.anonymous)
+                                    Toast.makeText(
+                                        requireContext(),
+                                        R.string.logged_out_of_your_account,
+                                        Toast.LENGTH_LONG
+                                    )
+                                        .show()
+                                }
+                                .show()
+                            true
+                        }
+
+                        else -> false
+                    }
+                }
+            }.show()
         }
 
         authViewModel.data.observe(viewLifecycleOwner) { authModel ->
-            binding.apply {
-                if (authViewModel.authorized) {
-                    login.setIconResource(R.drawable.logout_24)
-                    login.setText(R.string.log_out)
-                } else {
-                    login.setIconResource(R.drawable.login_24)
-                    login.setText(R.string.log_in)
-                }
-            }
             authModel?.let { userViewModel.getUserById(it.id) }
-
         }
 
         userViewModel.user.observe(viewLifecycleOwner) { user ->
