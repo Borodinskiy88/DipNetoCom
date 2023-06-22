@@ -170,10 +170,6 @@ class EventFragment : Fragment() {
             }
         }
 
-        binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_feedFragment_to_newEventFragment)
-        }
-
         binding.swipeRefresh.setOnRefreshListener(adapter::refresh)
 
         return binding.root

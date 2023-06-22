@@ -2,7 +2,7 @@
     <item
         android:id="@+id/posts_list"
         android:enabled="true"
-        android:icon="@drawable/posts_24"
+        android:icon="@drawable/edit_post_24"
         android:title="@string/posts" />
     <item
         android:id="@+id/events_list"

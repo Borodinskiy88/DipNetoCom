@@ -2,7 +2,7 @@
     <item
         android:id="@+id/posts_menu"
         android:enabled="true"
-        android:icon="@drawable/posts_24"
+        android:icon="@drawable/post_24"
         android:title="@string/posts" />
     <item
         android:id="@+id/events_menu"

@@ -144,10 +144,6 @@ class PostFragment : Fragment() {
             }
         }
 
-        binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
-        }
-
         binding.swipeRefresh.setOnRefreshListener(adapter::refresh)
 
         return binding.root

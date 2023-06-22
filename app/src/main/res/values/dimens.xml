@@ -9,6 +9,7 @@
     <dimen name="posts_avatar_size_48">48dp</dimen>
     <dimen name="icon_button_min_size_48">48dp</dimen>
     <dimen name="add_avatar_64">64dp</dimen>
+    <dimen name="margin_fab_70">70dp</dimen>
     <dimen name="toggle_button_190">190dp</dimen>
     <dimen name="attachment_size_200">200dp</dimen>
     <dimen name="design_bottom_navigation_text_size" tools:override="true">30sp</dimen>

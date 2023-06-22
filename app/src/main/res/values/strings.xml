@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">DipNetoCom</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- icon -->
     <string name="attachment">Attachment</string>
     <string name="avatar">Avatar</string>
@@ -55,6 +54,7 @@
     <string name="photo_error">Photo error</string>
     <string name="posts">Posts</string>
     <string name="type_event">Type event</string>
+    <string name="user_avatar">User avatar</string>
     <string name="users_wall">Wall of User</string>
     <string name="video">Video</string>
     <!-- jobs -->
@@ -90,5 +90,15 @@
     <string name="dash">-</string>
     <string name="sample_date">01.01.2000</string>
     <string name="sample_time">00:00</string>
+    <string name="float_action_button">Float action button</string>
+    <!-- map -->
+    <string name="latitude">latitude:</string>
+    <string name="latitude_and_longitude">latitude: %s\nlongitude: %s</string>
+    <string name="longitude">longitude:</string>
+    <string name="permission_request">Location permission required</string>
+    <string name="place_pin">Place pin</string>
+    <string name="user_location">User location</string>
+    <string name="zoom_in">Zoom in</string>
+    <string name="zoom_out">Zoom out</string>
 
 </resources>

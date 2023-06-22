@@ -36,6 +36,8 @@ class FeedFragment : Fragment() {
         const val EVENTS_TAG = "EVENTS_TAG"
     }
 
+    private var fabVisible = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,12 +54,10 @@ class FeedFragment : Fragment() {
                     loadFragment(POSTS_TAG) { PostFragment() }
                     true
                 }
-
                 R.id.events_menu -> {
                     loadFragment(EVENTS_TAG) { EventFragment() }
                     true
                 }
-
                 else -> false
             }
         }
@@ -65,6 +65,10 @@ class FeedFragment : Fragment() {
         binding.menuAuth.setOnClickListener {
             PopupMenu(it.context, it).apply {
                 inflate(R.menu.menu_auth)
+                menu.let { menu ->
+                    menu.setGroupVisible(R.id.unauth, !authViewModel.authorized)
+                    menu.setGroupVisible(R.id.auth, authViewModel.authorized)
+                }
                 setOnMenuItemClickListener { item ->
                     when (item.itemId) {
                         R.id.login -> {
@@ -98,7 +102,6 @@ class FeedFragment : Fragment() {
                                 .show()
                             true
                         }
-
                         else -> false
                     }
                 }
@@ -106,6 +109,13 @@ class FeedFragment : Fragment() {
         }
 
         authViewModel.data.observe(viewLifecycleOwner) { authModel ->
+            binding.apply {
+                if (authViewModel.authorized) {
+                    fab.visibility = View.VISIBLE
+                } else {
+                    fab.visibility = View.INVISIBLE
+                }
+            }
             authModel?.let { userViewModel.getUserById(it.id) }
         }
 
@@ -114,12 +124,49 @@ class FeedFragment : Fragment() {
             user.avatar?.apply {
                 binding.userAvatar.load(this)
             } ?: binding.userAvatar.setImageResource(R.drawable.account_circle_24)
-            binding.userAvatar.setOnClickListener {
+
+            fabVisible = false
+            binding.fab.setOnClickListener {
+                if (!fabVisible) {
+                    binding.apply {
+                        fabPost.show()
+                        fabPost.visibility = View.VISIBLE
+                        fabEvent.show()
+                        fabEvent.visibility = View.VISIBLE
+                        fabMyWall.show()
+                        fabMyWall.visibility = View.VISIBLE
+                        fab.setImageResource(R.drawable.clear_24)
+                        fabVisible = true
+                    }
+                } else {
+                    binding.apply {
+                        fabPost.hide()
+                        fabPost.visibility = View.INVISIBLE
+                        fabEvent.hide()
+                        fabEvent.visibility = View.INVISIBLE
+                        fabMyWall.hide()
+                        fabMyWall.visibility = View.INVISIBLE
+                        fab.setImageResource(R.drawable.plus_24)
+                        fabVisible = false
+                    }
+                }
+            }
+
+            binding.fabPost.setOnClickListener {
+                findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
+            }
+
+            binding.fabEvent.setOnClickListener {
+                findNavController().navigate(R.id.action_feedFragment_to_newEventFragment)
+            }
+
+            binding.fabMyWall.setOnClickListener {
                 findNavController().navigate(
                     R.id.action_feedFragment_to_userFragment,
                     bundleOf(UserFragment.USER_ID to user.id)
                 )
             }
+
         }
 
         return binding.root
