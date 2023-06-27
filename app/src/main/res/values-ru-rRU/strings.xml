@@ -92,6 +92,7 @@
     <string name="sample_time">00:00</string>
     <string name="float_action_button">Плавающая кнопка действия</string>
     <!-- map -->
+    <string name="clear_place">Очистить</string>
     <string name="latitude">широта:</string>
     <string name="latitude_and_longitude">широта: %s\nдолгота: %s</string>
     <string name="longitude">долгота:</string>
@@ -100,5 +101,4 @@
     <string name="user_location">Местоположение пользователя</string>
     <string name="zoom_in">Увеличить</string>
     <string name="zoom_out">Уменьшить</string>
-
 </resources>

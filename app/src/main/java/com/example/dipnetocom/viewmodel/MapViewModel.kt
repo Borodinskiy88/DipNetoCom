@@ -17,11 +17,12 @@ class MapViewModel : ViewModel() {
         _coordinates.value = coordinates
     }
 
+    fun clearCoordinates(coordinates: Coordinates) {
+        _coordinates.value = null
+    }
+
     fun setPlace(coordinates: Coordinates) {
         _place.value = coordinates
     }
 
-    fun clearPlace() {
-        _place.value = null
-    }
 }

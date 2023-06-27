@@ -58,6 +58,7 @@ class MapFragment : Fragment() {
 
     private lateinit var userLocationLayer: UserLocationLayer
 
+    //выбрать точку
     private val mapTapListener = object : InputListener {
         override fun onMapTap(map: Map, point: Point) = Unit
 
@@ -103,6 +104,7 @@ class MapFragment : Fragment() {
         }
     }
 
+    //согласие пользователя
     private val permissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
             when {
@@ -158,6 +160,7 @@ class MapFragment : Fragment() {
 
             map.addInputListener(mapTapListener)
 
+            //Todo отрисовка маркера
             val collection = map.mapObjects.addCollection()
             viewLifecycleOwner.lifecycleScope.launch {
                 repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -174,12 +177,13 @@ class MapFragment : Fragment() {
                 }
             }
 
+
+            // Переход к точке на карте после клика на списке
             val arguments = arguments
             if (arguments != null &&
                 arguments.containsKey(LAT_KEY) &&
                 arguments.containsKey(LONG_KEY)
             ) {
-                mapViewModel.clearPlace()
                 map.removeInputListener(mapTapListener)
                 val latitude = arguments.getDouble(LAT_KEY)
                 val longitude = arguments.getDouble(LONG_KEY)
@@ -187,7 +191,7 @@ class MapFragment : Fragment() {
                 val cameraPosition = map.cameraPosition
                 map.move(
                     CameraPosition(
-                        Point(latitude, longitude),
+                        Point(arguments.getDouble(LAT_KEY), arguments.getDouble(LONG_KEY)),
                         10F,
                         cameraPosition.azimuth,
                         cameraPosition.tilt,
@@ -196,7 +200,6 @@ class MapFragment : Fragment() {
                 arguments.remove(LAT_KEY)
                 arguments.remove(LONG_KEY)
             } else {
-                mapViewModel.clearPlace()
                 userLocationLayer.setObjectListener(locationObjectListener)
             }
         }
@@ -241,6 +244,7 @@ class MapFragment : Fragment() {
                             }
                         }
                         findNavController().navigateUp()
+                        mapViewModel.clearCoordinates(coords)
                     }
                 }
             }
@@ -259,5 +263,10 @@ class MapFragment : Fragment() {
         mapView?.onStop()
         MapKitFactory.getInstance().onStop()
         super.onStop()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mapView = null
     }
 }

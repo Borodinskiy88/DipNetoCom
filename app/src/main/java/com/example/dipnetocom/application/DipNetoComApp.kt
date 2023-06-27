@@ -13,4 +13,5 @@ class DipNetoComApp : Application() {
         super.onCreate()
         MapKitFactory.setApiKey(MAPKIT_API_KEY)
     }
+
 }

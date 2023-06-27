@@ -63,7 +63,6 @@ class PostAdapter(
     }
 }
 
-
 class PostViewHolder(
     private val binding: CardPostBinding,
     private val onInteractionListener: OnInteractionListenerPost,
@@ -138,7 +137,7 @@ class PostViewHolder(
                 coordinates.setOnClickListener {
                     onInteractionListener.onCoordinates(
                         coords.lat.toDouble(),
-                        coords.lat.toDouble()
+                        coords.long.toDouble()
                     )
                 }
             }
@@ -167,7 +166,6 @@ class PostViewHolder(
         }
     }
 }
-
 
 
 class PostDiffCallback : DiffUtil.ItemCallback<FeedItem>() {

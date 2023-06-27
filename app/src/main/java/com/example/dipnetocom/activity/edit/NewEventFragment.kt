@@ -40,13 +40,16 @@ class NewEventFragment : Fragment() {
 
     private val viewModel: EventViewModel by activityViewModels()
 
+    private var _binding: FragmentNewEventBinding? = null
+    private val binding get() = _binding!!
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentNewEventBinding.inflate(
+        _binding = FragmentNewEventBinding.inflate(
             inflater,
             container,
             false
@@ -154,19 +157,32 @@ class NewEventFragment : Fragment() {
                 .createIntent(photoLauncher::launch)
         }
 
-        binding.addPlaceButton.setOnClickListener {
+        binding.coordinatesLat.setOnClickListener {
             findNavController().navigate(
                 R.id.action_newEventFragment_to_mapFragment,
                 bundleOf(
-                    Pair(MapFragment.ITEM_TYPE, MapFragment.Companion.ItemType.POST.name)
+                    Pair(MapFragment.ITEM_TYPE, MapFragment.Companion.ItemType.EVENT.name)
                 )
             )
         }
 
-//TODO
-//        binding.clearCoordinates.setOnClickListener {
-//            viewModel.clearCoordinates()
-//        }
+        binding.coordinatesLong.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_newEventFragment_to_mapFragment,
+                bundleOf(
+                    Pair(MapFragment.ITEM_TYPE, MapFragment.Companion.ItemType.EVENT.name)
+                )
+            )
+        }
+
+        viewModel.editedEvent.observe(viewLifecycleOwner) {
+            binding.coordinatesLat.text = it.coords?.lat ?: ""
+            binding.coordinatesLong.text = it.coords?.long ?: ""
+        }
+
+        binding.clearPlaceButton.setOnClickListener {
+            viewModel.clearEventCoordinates()
+        }
 
         viewModel.media.observe(viewLifecycleOwner) { media ->
             if (media == null) {
@@ -187,5 +203,10 @@ class NewEventFragment : Fragment() {
                 Toast.makeText(context, R.string.error_loading, Toast.LENGTH_LONG).show()
         }
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

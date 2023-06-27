@@ -71,7 +71,9 @@ class EventViewModel @Inject constructor(
                 }
         }.flowOn(Dispatchers.Default)
 
-    private val editedEvent = MutableLiveData(empty)
+    private val _editedEvent = MutableLiveData(empty)
+    val editedEvent: LiveData<Event>
+        get() = _editedEvent
 
     private val _eventCreated = SingleLiveEvent<Unit>()
     val eventCreated: LiveData<Unit>
@@ -116,7 +118,7 @@ class EventViewModel @Inject constructor(
                         }
                     }
                     _eventCreated.value = Unit
-                    editedEvent.value = empty
+                    _editedEvent.value = empty
                     clearEventPhoto()
                     _stateEvent.value = FeedModelState()
                 } catch (e: Exception) {
@@ -127,12 +129,12 @@ class EventViewModel @Inject constructor(
     }
 
     fun editEvent(event: Event) {
-        editedEvent.value = event
+        _editedEvent.value = event
     }
 
     fun changeEventContent(datetime: String, type: EventType, content: String, link: String?) {
         val text = content.trim()
-        editedEvent.value =
+        _editedEvent.value =
             editedEvent.value?.copy(datetime = datetime, type = type, content = text, link = link)
     }
 
@@ -193,13 +195,13 @@ class EventViewModel @Inject constructor(
 
     fun addEventCoordinates(coords: Coordinates) {
         viewModelScope.launch {
-            editedEvent.value = editedEvent.value?.copy(coords = coords)
+            _editedEvent.value = editedEvent.value?.copy(coords = coords)
         }
     }
 
     fun clearEventCoordinates() {
         viewModelScope.launch {
-            editedEvent.value = editedEvent.value?.copy(coords = null)
+            _editedEvent.value = editedEvent.value?.copy(coords = null)
         }
     }
 }

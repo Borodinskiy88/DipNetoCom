@@ -32,7 +32,7 @@ android {
         debug {
             manifestPlaceholders.usesCleartextTraffic = true
             buildConfigField "String", "BASE_URL", '"https://netomedia.ru"'
-            buildConfigField("String", "API_KEY", "\"" + localProperties['MAPKIT_API_KEY'] + "\"")
+            buildConfigField("String", "API_KEY", "\"" + localProperties['API_KEY'] + "\"")
         }
     }
     compileOptions {

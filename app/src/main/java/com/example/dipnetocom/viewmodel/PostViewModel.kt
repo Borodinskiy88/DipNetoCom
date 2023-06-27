@@ -73,7 +73,9 @@ class PostViewModel @Inject constructor(
         }.flowOn(Dispatchers.Default)
 
 
-    private val edited = MutableLiveData(empty)
+    private val _edited = MutableLiveData(empty)
+    val edited: LiveData<Post>
+        get() = _edited
 
     private val _postCreated = SingleLiveEvent<Unit>()
     val postCreated: LiveData<Unit>
@@ -131,7 +133,7 @@ class PostViewModel @Inject constructor(
                         }
                     }
                     _postCreated.value = Unit
-                    edited.value = empty
+                    _edited.value = empty
                     clearPhoto()
                     _state.value = FeedModelState()
                 } catch (e: Exception) {
@@ -142,12 +144,12 @@ class PostViewModel @Inject constructor(
     }
 
     fun edit(post: Post) {
-        edited.value = post
+        _edited.value = post
     }
 
     fun changeContent(content: String, link: String?) {
         val text = content.trim()
-        edited.value = edited.value?.copy(content = text, link = link)
+        _edited.value = edited.value?.copy(content = text, link = link)
     }
 
     fun likeById(id: Int) {
@@ -185,13 +187,13 @@ class PostViewModel @Inject constructor(
 
     fun addCoordinates(coords: Coordinates) {
         viewModelScope.launch {
-            edited.value = edited.value?.copy(coords = coords)
+            _edited.value = edited.value?.copy(coords = coords)
         }
     }
 
     fun clearCoordinates() {
         viewModelScope.launch {
-            edited.value = edited.value?.copy(coords = null)
+            _edited.value = edited.value?.copy(coords = null)
         }
     }
 }

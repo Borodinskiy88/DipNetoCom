@@ -33,12 +33,15 @@ class NewPostFragment : Fragment() {
 
     private val viewModel: PostViewModel by activityViewModels()
 
+    private var _binding: FragmentNewPostBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentNewPostBinding.inflate(
+        _binding = FragmentNewPostBinding.inflate(
             inflater,
             container,
             false
@@ -74,7 +77,7 @@ class NewPostFragment : Fragment() {
             viewLifecycleOwner
         }
 
-        binding.addPlaceButton.setOnClickListener {
+        binding.coordinatesLat.setOnClickListener {
             findNavController().navigate(
                 R.id.action_newPostFragment_to_mapFragment,
                 bundleOf(
@@ -83,10 +86,23 @@ class NewPostFragment : Fragment() {
             )
         }
 
-//TODO
-//        binding.clearCoordinates.setOnClickListener {
-//            viewModel.clearCoordinates()
-//        }
+        binding.coordinatesLong.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_newPostFragment_to_mapFragment,
+                bundleOf(
+                    Pair(MapFragment.ITEM_TYPE, MapFragment.Companion.ItemType.POST.name)
+                )
+            )
+        }
+
+        viewModel.edited.observe(viewLifecycleOwner) {
+            binding.coordinatesLat.text = it.coords?.lat ?: ""
+            binding.coordinatesLong.text = it.coords?.long ?: ""
+        }
+
+        binding.clearPlaceButton.setOnClickListener {
+            viewModel.clearCoordinates()
+        }
 
         binding.clear.setOnClickListener {
             viewModel.clearPhoto()
@@ -127,5 +143,10 @@ class NewPostFragment : Fragment() {
                 Toast.makeText(context, R.string.error_loading, Toast.LENGTH_LONG).show()
         }
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

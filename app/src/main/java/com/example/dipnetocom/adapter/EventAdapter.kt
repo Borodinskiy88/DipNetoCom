@@ -149,7 +149,7 @@ class EventViewHolder(
                 coordinates.setOnClickListener {
                     onInteractionListener.onCoordinates(
                         coords.lat.toDouble(),
-                        coords.lat.toDouble()
+                        coords.long.toDouble()
                     )
                 }
             }

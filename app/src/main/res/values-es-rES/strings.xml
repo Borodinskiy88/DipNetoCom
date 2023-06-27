@@ -1,0 +1,104 @@
+<resources>
+    <string name="app_name">DipNetoCom</string>
+    <!-- icon -->
+    <string name="attachment">Adjuntos</string>
+    <string name="avatar">Avatar</string>
+    <string name="coordinates">Coordenadas</string>
+    <string name="like">Gusta</string>
+    <string name="menu">Menú</string>
+    <string name="share">Compartir</string>
+    <string name="viewing">Vista</string>
+    <!-- login/reg -->
+    <string name="add_avatar">Agregar avatar</string>
+    <string name="anonymous">Anónimo</string>
+    <string name="clear_avatar">Borrar avatar</string>
+    <string name="continue_as_a_guest">Continuar como invitado</string>
+    <string name="empty_field">Es necesario llenar todos los campos</string>
+    <string name="enter_the_password">Introduzca la contraseña</string>
+    <string name="error_loading">Algo salió mal. Inténtelo de nuevo más tarde</string>
+    <string name="invalid_login_or_password">El usuario o la contraseña son incorrectos</string>
+    <string name="is_blank">El usuario o la contraseña no han sido especificados</string>
+    <string name="login">Inicio de sesión</string>
+    <string name="log_in">Iniciar sesión</string>
+    <string name="log_out">Cerrar sesión</string>
+    <string name="logged_out_of_your_account">Saliste de tu cuenta</string>
+    <string name="login_exit">Estás desconectado</string>
+    <string name="login_line">¿Ya registrado?<u>Log in</u></string>
+    <string name="log_in_with_a_password">Entrar usando la contraseña</string>
+    <string name="log_in_to_account">Iniciar sesión</string>
+    <string name="log_out_of_your_account">¿Desea cerrar sesión en su cuenta?</string>
+    <string name="name">Nombre</string>
+    <string name="match_passwords">Las contraseñas deben coincidir</string>
+    <string name="password">Contraseña</string>
+    <string name="please_choose_avatar">Por favor elige un avatar</string>
+    <string name="please_log_in_to_your_account">Por favor inicie sesión en su cuenta</string>
+    <string name="repeat_password">Repita la contraseña</string>
+    <string name="registration">Registro</string>
+    <string name="registration_line"><u>Registro</u></string>
+    <string name="sign_in_with_password">Iniciar sesión usando la contraseña</string>
+    <string name="unknown">Desconocido</string>
+    <!-- fragments -->
+    <string name="add_post">Agregar publicación</string>
+    <string name="camera">Cámara</string>
+    <string name="create_events">Crear evento</string>
+    <string name="create_posts">Crear publicación</string>
+    <string name="create_jobs">Crear trabajo</string>
+    <string name="empty_date">Debe seleccionar una fecha</string>
+    <string name="empty_datetime">Debe seleccionar una fecha y hora</string>
+    <string name="events">Eventos</string>
+    <string name="gallery">Galería</string>
+    <string name="image">Imagen</string>
+    <string name="jobs">Trabajo</string>
+    <string name="my_wall">Mi fuente</string>
+    <string name="photo">Foto</string>
+    <string name="photo_error">Ocurrió un error</string>
+    <string name="posts">Publicaciones</string>
+    <string name="type_event">Tipo de evento</string>
+    <string name="user_avatar">Avatar de usuario</string>
+    <string name="users_wall">Feed de usuario</string>
+    <string name="video">Video</string>
+    <!-- jobs -->
+    <string name="add_jobs">Agregar trabajo</string>
+    <string name="company_name">Nombre de la compañía</string>
+    <string name="empty_jobs">Desconocido</string>
+    <string name="job_name">Nombre de la compañía</string>
+    <string name="job_position">Puesto de trabajo</string>
+    <string name="job_start">Inicio</string>
+    <string name="job_finish">Fin</string>
+    <string name="link_to_company">Enlace al sitio web de la compañía</string>
+    <string name="link_to_job">Enlace al sitio web de la compañía</string>
+    <!-- actions -->
+    <string name="add_date">Agregar fecha</string>
+    <string name="add_event">Agregar evento</string>
+    <string name="add_link">Agregar enlace</string>
+    <string name="add_note">Agregar nota</string>
+    <string name="back">Atrás</string>
+    <string name="chooser_share_post">Compartir publicación</string>
+    <string name="create">Crear</string>
+    <string name="clear">Borrar</string>
+    <string name="edit">Editar</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="online">En línea</string>
+    <string name="offline">Fuera de línea</string>
+    <string name="remove">Eliminar</string>
+    <string name="retry_loading">Reintentar</string>
+    <!-- adapter -->
+    <string name="unknown_item_type">Tipo de elemento desconocido</string>
+    <string name="unknown_view_type">Tipo de vista desconocido</string>
+    <!-- other -->
+    <string name="dash">-</string>
+    <string name="sample_date">01.01.2000</string>
+    <string name="sample_time">00:00</string>
+    <string name="float_action_button">Botón de acción flotante</string>
+    <!-- map -->
+    <string name="clear_place">Borrar</string>
+    <string name="latitude">latitud:</string>
+    <string name="latitude_and_longitude">latitud: %s\nlongitud: %s</string>
+    <string name="longitude">longitud:</string>
+    <string name="permission_request">Permiso requerido</string>
+    <string name="place_pin">Colocar punto</string>
+    <string name="user_location">Ubicación del usuario</string>
+    <string name="zoom_in">Acercar</string>
+    <string name="zoom_out">Alejar</string>
+</resources>
