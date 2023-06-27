@@ -5,12 +5,14 @@ import android.view.*
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toFile
+import androidx.core.os.bundleOf
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.dipnetocom.R
+import com.example.dipnetocom.activity.assist.MapFragment
 import com.example.dipnetocom.databinding.FragmentNewPostBinding
 import com.example.dipnetocom.enumeration.AttachmentType
 import com.example.dipnetocom.utils.AndroidUtils
@@ -56,16 +58,10 @@ class NewPostFragment : Fragment() {
                 }
             }
 
-//TODO
         binding.apply {
             editText.setText(arguments?.getString("editedText"))
             editLink.setText(arguments?.getString("editedLink"))
-//            val urlImages = arguments?.textArg.toString()
-//            binding.photoPreview.load(urlImages)
-//            arguments?.getString("attachmentUrl")?.let { photoPreview.load(it) }
         }
-
-//        val imageUrl = arguments?.getString("attachmentUrl")
 
         binding.fab.setOnClickListener {
             val link = reformatWebLink(binding.editLink.text.toString())
@@ -77,6 +73,20 @@ class NewPostFragment : Fragment() {
             AndroidUtils.hideKeyboard(requireView())
             viewLifecycleOwner
         }
+
+        binding.addPlaceButton.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_newPostFragment_to_mapFragment,
+                bundleOf(
+                    Pair(MapFragment.ITEM_TYPE, MapFragment.Companion.ItemType.POST.name)
+                )
+            )
+        }
+
+//TODO
+//        binding.clearCoordinates.setOnClickListener {
+//            viewModel.clearCoordinates()
+//        }
 
         binding.clear.setOnClickListener {
             viewModel.clearPhoto()
@@ -99,18 +109,12 @@ class NewPostFragment : Fragment() {
         }
 
         viewModel.media.observe(viewLifecycleOwner) { media ->
-//            val urlImages = arguments?.textArg.toString()
-//            if (urlImages.isNotBlank()) {
-//                binding.previewContainer.isVisible = true
-//                binding.photoPreview.load(urlImages)
-//            }
             if (media == null) {
                 binding.previewContainer.isGone = true
                 return@observe
             }
             binding.previewContainer.isVisible = true
             binding.photoPreview.setImageURI(media.uri)
-            //           binding.photoPreview.setImageURI(imageUrl?.toUri())
         }
 
         viewModel.postCreated.observe(viewLifecycleOwner) {

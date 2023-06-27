@@ -16,7 +16,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.dipnetocom.R
-import com.example.dipnetocom.activity.MediaLifecycleObserver
+import com.example.dipnetocom.activity.assist.MapFragment
+import com.example.dipnetocom.activity.assist.MediaLifecycleObserver
 import com.example.dipnetocom.activity.edit.NewPostFragment.Companion.textArg
 import com.example.dipnetocom.activity.feed.JobFragment
 import com.example.dipnetocom.adapter.OnInteractionListenerPost
@@ -33,6 +34,10 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class UserFragment : Fragment() {
+
+    companion object {
+        const val USER_ID = "USER_ID"
+    }
 
     private val userViewModel by activityViewModels<UserViewModel>()
     private val postViewModel by activityViewModels<PostViewModel>()
@@ -122,7 +127,13 @@ class UserFragment : Fragment() {
             }
 
             override fun onCoordinates(lat: Double, long: Double) {
-                TODO("Not yet implemented")
+                findNavController().navigate(
+                    R.id.action_userFragment_to_mapFragment,
+                    bundleOf(
+                        Pair(MapFragment.LAT_KEY, lat),
+                        Pair(MapFragment.LONG_KEY, long)
+                    )
+                )
             }
 
             override fun onAudio(post: Post) {
@@ -139,9 +150,8 @@ class UserFragment : Fragment() {
                     )
                 }
             }
-
-
         })
+
         binding.listContainer.adapter = adapter
 
         binding.fab.setOnClickListener {
@@ -180,9 +190,5 @@ class UserFragment : Fragment() {
         }
 
         return binding.root
-    }
-
-    companion object {
-        const val USER_ID = "USER_ID"
     }
 }

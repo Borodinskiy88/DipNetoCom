@@ -169,7 +169,7 @@
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:drawablePadding="@dimen/checkbox_padding_start_8"
-            android:textColorLink="@color/PRIMARY_900"
+            android:textColorLink="?attr/colorPrimaryVariant"
             android:visibility="gone"
             app:drawableStartCompat="@drawable/link_24"
             app:layout_constraintStart_toStartOf="parent"

@@ -41,7 +41,7 @@
             android:id="@+id/name_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/PRIMARY_50"
+            android:background="?attr/colorPrimarySurface"
             android:hint="@string/name"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -55,7 +55,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_reg"
-            android:background="@color/PRIMARY_50"
+            android:background="?attr/colorPrimarySurface"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/login"
@@ -75,7 +75,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_reg"
             android:layout_width="match_parent"
-            android:background="@color/PRIMARY_50"
+            android:background="?attr/colorPrimarySurface"
             android:layout_height="wrap_content"
             android:hint="@string/password"
             android:inputType="textPassword" />
@@ -92,7 +92,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/repeat_password_reg"
             android:layout_width="match_parent"
-            android:background="@color/PRIMARY_50"
+            android:background="?attr/colorPrimarySurface"
             android:layout_height="wrap_content"
             android:hint="@string/repeat_password"
             android:inputType="textPassword" />
@@ -127,7 +127,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing_16"
-        android:textColor="@color/PRIMARY_600"
+        android:textColor="?attr/colorPrimary"
         android:textSize="18sp"
         android:autoLink="all"
         app:layout_constraintStart_toStartOf="parent"

@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/PRIMARY_50"
+    android:background="?attr/colorPrimarySurface"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -15,7 +15,7 @@
         android:layout_marginTop="@dimen/checkbox_padding_start_8"
         android:scaleType="centerCrop"
         android:src="@drawable/account_circle_24"
-        app:iconTint="@color/PRIMARY_900"
+        app:iconTint="?attr/colorPrimaryVariant"
         android:contentDescription="@string/avatar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing_16"
-        android:textColor="@color/PRIMARY_900"
+        android:textColor="?attr/colorPrimaryVariant"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/user_wall_avatar"
@@ -45,15 +45,15 @@
         android:layout_marginEnd="@dimen/checkbox_padding_start_8"
         android:padding="@dimen/checkbox_padding_start_8"
         android:text="@string/jobs"
-        app:iconTint="@color/PRIMARY_900"
-        android:textColor="@color/PRIMARY_900"
+        app:iconTint="?attr/colorPrimaryVariant"
+        android:textColor="?attr/colorPrimaryVariant"
         app:icon="@drawable/work_history_24" />
 
     <TextView
         android:id="@+id/user_company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/PRIMARY_900"
+        android:textColor="?attr/colorPrimaryVariant"
         app:layout_constraintStart_toStartOf="@id/user_wall_name"
         app:layout_constraintTop_toBottomOf="@id/user_wall_name"
         tools:text="Apple" />

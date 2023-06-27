@@ -48,14 +48,25 @@
                     android:id="@+id/edit_link"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background_line"
-                    android:hint="@string/add_link"
                     android:layout_marginTop="@dimen/checkbox_padding_start_8"
                     android:autoLink="web"
-                    android:textColorLink="@color/PRIMARY_600"
+                    android:background="@drawable/background_line"
+                    android:hint="@string/add_link"
                     android:inputType="textMultiLine"
+                    android:textColorLink="?attr/colorPrimary"
                     tools:text="@tools:sample/lorem[10]" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/add_place_button"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/checkbox_padding_start_8"
+                android:hint="@string/add_place"
+                android:textColor="@color/black"
+                app:icon="@drawable/locate_24"
+                app:layout_constraintStart_toEndOf="parent" />
 
             <FrameLayout
                 android:id="@+id/preview_container"
@@ -67,8 +78,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:adjustViewBounds="true"
                     android:layout_marginTop="@dimen/checkbox_padding_start_8"
+                    android:adjustViewBounds="true"
                     android:background="@drawable/background_line"
                     tools:srcCompat="@tools:sample/avatars[3]" />
 
@@ -88,26 +99,26 @@
         android:id="@+id/bottomAppBar"
         style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/icon_button_min_size_48"
         android:layout_gravity="bottom"
-        android:background="@color/PRIMARY_50">
+        android:background="?attr/colorPrimarySurface">
 
-        <ImageView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/gallery"
+            style="@style/Widget.AppTheme.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/common_spacing_16"
-            android:layout_marginTop="@dimen/common_spacing_16"
-            app:srcCompat="@drawable/image_24" />
+            android:layout_marginStart="@dimen/checkbox_padding_start_8"
+            app:icon="@drawable/image_24"
+            app:iconTint="?attr/colorPrimaryVariant" />
 
-        <ImageView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/photo"
+            style="@style/Widget.AppTheme.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/common_spacing_16"
-            android:layout_marginTop="@dimen/common_spacing_16"
-            app:srcCompat="@drawable/photo_24" />
-
+            app:icon="@drawable/photo_24"
+            app:iconTint="?attr/colorPrimaryVariant" />
 
     </LinearLayout>
 

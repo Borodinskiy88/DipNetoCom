@@ -100,5 +100,8 @@
     <string name="user_location">User location</string>
     <string name="zoom_in">Zoom in</string>
     <string name="zoom_out">Zoom out</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_place">Add place</string>
 
 </resources>

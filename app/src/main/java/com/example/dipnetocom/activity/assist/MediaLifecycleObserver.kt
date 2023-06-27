@@ -1,4 +1,4 @@
-package com.example.dipnetocom.activity
+package com.example.dipnetocom.activity.assist
 
 import android.media.AudioAttributes
 import android.media.MediaPlayer

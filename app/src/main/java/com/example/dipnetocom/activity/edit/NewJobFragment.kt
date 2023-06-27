@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.dipnetocom.R
-import com.example.dipnetocom.activity.DatePickerFragment
+import com.example.dipnetocom.activity.assist.DatePickerFragment
 import com.example.dipnetocom.databinding.FragmentNewJobBinding
 import com.example.dipnetocom.utils.AndroidUtils.hideKeyboard
 import com.example.dipnetocom.utils.ReformatValues.reformatDate

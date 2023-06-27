@@ -9,14 +9,16 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.net.toFile
+import androidx.core.os.bundleOf
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.dipnetocom.R
-import com.example.dipnetocom.activity.DatePickerFragment
-import com.example.dipnetocom.activity.TimePickerFragment
+import com.example.dipnetocom.activity.assist.DatePickerFragment
+import com.example.dipnetocom.activity.assist.MapFragment
+import com.example.dipnetocom.activity.assist.TimePickerFragment
 import com.example.dipnetocom.databinding.FragmentNewEventBinding
 import com.example.dipnetocom.enumeration.AttachmentType
 import com.example.dipnetocom.enumeration.EventType
@@ -152,10 +154,21 @@ class NewEventFragment : Fragment() {
                 .createIntent(photoLauncher::launch)
         }
 
+        binding.addPlaceButton.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_newEventFragment_to_mapFragment,
+                bundleOf(
+                    Pair(MapFragment.ITEM_TYPE, MapFragment.Companion.ItemType.POST.name)
+                )
+            )
+        }
+
+//TODO
+//        binding.clearCoordinates.setOnClickListener {
+//            viewModel.clearCoordinates()
+//        }
+
         viewModel.media.observe(viewLifecycleOwner) { media ->
-            //TODO
-//            binding.previewContainer.isVisible = true
-//            binding.photoPreview.setImageURI(image?.toUri())
             if (media == null) {
                 binding.previewContainer.isGone = true
                 return@observe

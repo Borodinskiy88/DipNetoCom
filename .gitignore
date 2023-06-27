@@ -1,7 +1,9 @@
+reserve.md
 HELP.md
 .gradle
 build/
 google-services.json
+maps.properties
 
 ### STS ###
 .apt_generated

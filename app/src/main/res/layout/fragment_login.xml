@@ -18,7 +18,7 @@
             android:id="@+id/login_log"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/PRIMARY_50"
+            android:background="?attr/colorPrimarySurface"
             android:hint="@string/login"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -35,15 +35,14 @@
             android:id="@+id/password_log"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/PRIMARY_50"
+            android:background="?attr/colorPrimarySurface"
             android:hint="@string/password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing_16"
         android:text="@string/log_in_to_account"
@@ -55,7 +54,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/clear"
         style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing_16"
         android:layout_marginTop="@dimen/common_spacing_16"
@@ -71,7 +70,7 @@
         android:layout_marginTop="@dimen/common_spacing_16"
         android:autoLink="all"
         android:text="@string/registration_line"
-        android:textColor="@color/PRIMARY_600"
+        android:textColor="?attr/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

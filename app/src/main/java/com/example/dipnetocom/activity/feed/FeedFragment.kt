@@ -119,46 +119,46 @@ class FeedFragment : Fragment() {
             authModel?.let { userViewModel.getUserById(it.id) }
         }
 
+        fabVisible = false
+        binding.fab.setOnClickListener {
+            if (!fabVisible) {
+                binding.apply {
+                    fabPost.show()
+                    fabPost.visibility = View.VISIBLE
+                    fabEvent.show()
+                    fabEvent.visibility = View.VISIBLE
+                    fabMyWall.show()
+                    fabMyWall.visibility = View.VISIBLE
+                    fab.setImageResource(R.drawable.clear_24)
+                    fabVisible = true
+                }
+            } else {
+                binding.apply {
+                    fabPost.hide()
+                    fabPost.visibility = View.INVISIBLE
+                    fabEvent.hide()
+                    fabEvent.visibility = View.INVISIBLE
+                    fabMyWall.hide()
+                    fabMyWall.visibility = View.INVISIBLE
+                    fab.setImageResource(R.drawable.plus_24)
+                    fabVisible = false
+                }
+            }
+        }
+
+        binding.fabPost.setOnClickListener {
+            findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
+        }
+
+        binding.fabEvent.setOnClickListener {
+            findNavController().navigate(R.id.action_feedFragment_to_newEventFragment)
+        }
+
         userViewModel.user.observe(viewLifecycleOwner) { user ->
             binding.userName.text = user.name
             user.avatar?.apply {
                 binding.userAvatar.load(this)
             } ?: binding.userAvatar.setImageResource(R.drawable.account_circle_24)
-
-            fabVisible = false
-            binding.fab.setOnClickListener {
-                if (!fabVisible) {
-                    binding.apply {
-                        fabPost.show()
-                        fabPost.visibility = View.VISIBLE
-                        fabEvent.show()
-                        fabEvent.visibility = View.VISIBLE
-                        fabMyWall.show()
-                        fabMyWall.visibility = View.VISIBLE
-                        fab.setImageResource(R.drawable.clear_24)
-                        fabVisible = true
-                    }
-                } else {
-                    binding.apply {
-                        fabPost.hide()
-                        fabPost.visibility = View.INVISIBLE
-                        fabEvent.hide()
-                        fabEvent.visibility = View.INVISIBLE
-                        fabMyWall.hide()
-                        fabMyWall.visibility = View.INVISIBLE
-                        fab.setImageResource(R.drawable.plus_24)
-                        fabVisible = false
-                    }
-                }
-            }
-
-            binding.fabPost.setOnClickListener {
-                findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
-            }
-
-            binding.fabEvent.setOnClickListener {
-                findNavController().navigate(R.id.action_feedFragment_to_newEventFragment)
-            }
 
             binding.fabMyWall.setOnClickListener {
                 findNavController().navigate(
@@ -166,7 +166,6 @@ class FeedFragment : Fragment() {
                     bundleOf(UserFragment.USER_ID to user.id)
                 )
             }
-
         }
 
         return binding.root

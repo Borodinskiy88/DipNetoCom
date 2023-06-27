@@ -4,7 +4,7 @@
     <group android:id="@+id/unauth">
         <item
             android:id="@+id/login"
-            android:title="@string/login" />
+            android:title="@string/log_in" />
 
         <item
             android:id="@+id/registration"

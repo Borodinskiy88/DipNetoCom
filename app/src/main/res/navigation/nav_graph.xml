@@ -45,6 +45,9 @@
         <action
             android:id="@+id/action_feedFragment_to_newEventFragment"
             app:destination="@id/newEventFragment" />
+        <action
+            android:id="@+id/action_feedFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
     </fragment>
     <fragment
         android:id="@+id/postFragment"
@@ -60,7 +63,11 @@
         android:id="@+id/newPostFragment"
         android:name="com.example.dipnetocom.activity.edit.NewPostFragment"
         android:label="@string/create_posts"
-        tools:layout="@layout/fragment_new_post" />
+        tools:layout="@layout/fragment_new_post">
+        <action
+            android:id="@+id/action_newPostFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
     <fragment
         android:id="@+id/registrationFragment"
         android:name="com.example.dipnetocom.activity.auth.RegistrationFragment"
@@ -107,7 +114,11 @@
         android:id="@+id/newEventFragment"
         android:name="com.example.dipnetocom.activity.edit.NewEventFragment"
         android:label="@string/create_events"
-        tools:layout="@layout/fragment_new_event" />
+        tools:layout="@layout/fragment_new_event">
+        <action
+            android:id="@+id/action_newEventFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
     <fragment
         android:id="@+id/newJobFragment"
         android:name="com.example.dipnetocom.activity.edit.NewJobFragment"
@@ -131,5 +142,12 @@
         <action
             android:id="@+id/action_userFragment_to_imageFragment"
             app:destination="@id/imageFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.dipnetocom.activity.assist.MapFragment"
+        android:label="MapFragment" />
 </navigation>

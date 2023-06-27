@@ -13,7 +13,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.dipnetocom.R
-import com.example.dipnetocom.activity.MediaLifecycleObserver
+import com.example.dipnetocom.activity.assist.MapFragment
+import com.example.dipnetocom.activity.assist.MediaLifecycleObserver
 import com.example.dipnetocom.activity.edit.NewPostFragment.Companion.textArg
 import com.example.dipnetocom.adapter.EventAdapter
 import com.example.dipnetocom.adapter.OnInteractionListenerEvent
@@ -104,7 +105,13 @@ class EventFragment : Fragment() {
             }
 
             override fun onCoordinates(lat: Double, long: Double) {
-                TODO("Not yet implemented")
+                findNavController().navigate(
+                    R.id.action_feedFragment_to_mapFragment,
+                    bundleOf(
+                        Pair(MapFragment.LAT_KEY, lat),
+                        Pair(MapFragment.LONG_KEY, long)
+                    )
+                )
             }
 
             override fun onAudio(event: Event) {

@@ -1,4 +1,4 @@
-package com.example.dipnetocom.activity
+package com.example.dipnetocom.activity.assist
 
 import android.app.DatePickerDialog
 import android.app.Dialog

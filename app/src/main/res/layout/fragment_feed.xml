@@ -17,7 +17,7 @@
             android:id="@+id/constraint_head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/PRIMARY_50"
+            android:background="?attr/colorPrimarySurface"
             android:paddingBottom="@dimen/checkbox_padding_start_8"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -42,7 +42,7 @@
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:text="@string/anonymous"
-                android:textColor="@color/PRIMARY_900"
+                android:textColor="?attr/colorPrimaryVariant"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/user_avatar"
@@ -57,7 +57,7 @@
                 android:layout_marginEnd="@dimen/checkbox_padding_start_8"
                 android:contentDescription="@string/login"
                 app:icon="@drawable/menu_24"
-                app:iconTint="@color/PRIMARY_900"
+                app:iconTint="?attr/colorPrimaryVariant"
                 app:layout_constraintBottom_toBottomOf="@id/user_avatar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/user_avatar" />
@@ -78,7 +78,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/PRIMARY_50"
+        android:background="?attr/colorPrimarySurface"
         app:itemIconTint="@drawable/bottom_nav_icon"
         app:itemTextColor="@drawable/bottom_nav_icon"
         app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"

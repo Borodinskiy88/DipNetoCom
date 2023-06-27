@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/PRIMARY_50"
+        android:background="?attr/colorPrimarySurface"
         tools:context=".activity.feed.PostFragment"
         tools:targetApi="p">
 

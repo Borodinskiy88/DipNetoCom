@@ -29,8 +29,8 @@ class JobFragment : Fragment() {
         const val USER_ID = "USER_ID"
     }
 
-    private val jobViewModel by activityViewModels<JobViewModel>()
-    private val authViewModel by activityViewModels<AuthViewModel>()
+    private val jobViewModel: JobViewModel by activityViewModels()
+    private val authViewModel: AuthViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

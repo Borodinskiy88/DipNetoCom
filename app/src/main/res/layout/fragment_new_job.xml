@@ -21,7 +21,7 @@
             android:id="@+id/edit_job_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/PRIMARY_50"
+            android:background="?attr/colorPrimarySurface"
             android:hint="@string/company_name"
             android:inputType="textCapSentences" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -39,7 +39,7 @@
             android:id="@+id/edit_job_position"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/PRIMARY_50"
+            android:background="?attr/colorPrimarySurface"
             android:hint="@string/job_position"
             android:inputType="textCapSentences" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:layout_marginTop="@dimen/common_spacing_16"
-        android:background="@color/PRIMARY_50"
+        android:background="?attr/colorPrimarySurface"
         app:layout_constraintStart_toStartOf="@id/edit_job_start"
         app:layout_constraintTop_toBottomOf="@id/edit_job_start"
         android:hint="@string/job_finish" />
@@ -82,9 +82,9 @@
             android:id="@+id/edit_job_link"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/PRIMARY_50"
+            android:background="?attr/colorPrimarySurface"
             android:autoLink="web"
-            android:textColorLink="@color/PRIMARY_600"
+            android:textColorLink="?attr/colorPrimary"
             android:hint="@string/link_to_company"
             android:inputType="textWebEditText" />
     </com.google.android.material.textfield.TextInputLayout>

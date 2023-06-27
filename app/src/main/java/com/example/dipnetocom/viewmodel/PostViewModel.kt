@@ -183,7 +183,6 @@ class PostViewModel @Inject constructor(
         }
     }
 
-    //TODO
     fun addCoordinates(coords: Coordinates) {
         viewModelScope.launch {
             edited.value = edited.value?.copy(coords = coords)
