@@ -22,9 +22,8 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentLoginBinding.inflate(inflater, container, false)
-
 
         binding.apply {
             registrationLink.setOnClickListener {

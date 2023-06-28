@@ -32,9 +32,8 @@ class NewJobFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentNewJobBinding.inflate(inflater, container, false)
-
 
         binding.apply {
             editJobName.setText(arguments?.getString("editedName"))
@@ -52,7 +51,6 @@ class NewJobFragment : Fragment() {
 
             editJobLink.setText(arguments?.getString("editedLink"))
         }
-
 
         binding.clearButton.setOnClickListener {
             binding.editJobName.text?.clear()
@@ -123,7 +121,6 @@ class NewJobFragment : Fragment() {
             hideKeyboard(requireView())
             viewLifecycleOwner
         }
-
 
         viewModel.jobCreated.observe(viewLifecycleOwner) {
             findNavController().navigateUp()

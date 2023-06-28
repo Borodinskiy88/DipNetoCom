@@ -1,4 +1,4 @@
-package com.example.dipnetocom.activity.assist
+package com.example.dipnetocom.activity.map
 
 import android.Manifest
 import android.content.pm.PackageManager

@@ -25,7 +25,6 @@ class ImageFragment : Fragment() {
         val urlAttachment = arguments?.textArg.toString()
         binding.fullscreenImage.load(urlAttachment)
 
-
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             findNavController().navigateUp()
         }

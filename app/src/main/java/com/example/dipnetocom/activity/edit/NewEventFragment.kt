@@ -17,8 +17,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.dipnetocom.R
 import com.example.dipnetocom.activity.assist.DatePickerFragment
-import com.example.dipnetocom.activity.assist.MapFragment
 import com.example.dipnetocom.activity.assist.TimePickerFragment
+import com.example.dipnetocom.activity.map.MapFragment
 import com.example.dipnetocom.databinding.FragmentNewEventBinding
 import com.example.dipnetocom.enumeration.AttachmentType
 import com.example.dipnetocom.enumeration.EventType
@@ -79,8 +79,6 @@ class NewEventFragment : Fragment() {
             } else null
         }
 
-//        val image = arguments?.getString("url")
-
         binding.editEventDate.setOnClickListener {
             val datePickerFragment =
                 DatePickerFragment { day, month, year ->
@@ -113,6 +111,17 @@ class NewEventFragment : Fragment() {
             } else {
                 EventType.OFFLINE
             }
+            val editText =
+                if (binding.editText.text!!.isNotBlank()) {
+                    binding.editText.text.toString()
+                } else {
+                    Snackbar.make(
+                        binding.root,
+                        R.string.empty_field,
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                    return@setOnClickListener
+                }
             val datetime =
                 if (binding.editEventDate.text.isNotBlank() && binding.editEventTime.text.isNotBlank()) {
                     binding.editEventDate.text.toString() + "T" + binding.editEventTime.text.toString() + ":00.000000Z"
@@ -125,11 +134,10 @@ class NewEventFragment : Fragment() {
                     return@setOnClickListener
                 }
 
-
             viewModel.changeEventContent(
                 datetime,
                 type,
-                binding.editText.text.toString(),
+                editText,
                 link?.ifEmpty { null }
             )
             viewModel.saveEvent()

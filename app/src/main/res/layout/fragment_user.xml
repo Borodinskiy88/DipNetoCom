@@ -2,23 +2,23 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="?attr/colorPrimarySurface"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimarySurface">
 
     <ImageView
         android:id="@+id/user_wall_avatar"
         android:layout_width="@dimen/posts_avatar_size_48"
         android:layout_height="@dimen/posts_avatar_size_48"
         android:layout_marginStart="@dimen/checkbox_padding_start_8"
-        android:background="@drawable/background_line"
         android:layout_marginTop="@dimen/checkbox_padding_start_8"
+        android:background="@drawable/background_line"
+        android:contentDescription="@string/avatar"
         android:scaleType="centerCrop"
         android:src="@drawable/account_circle_24"
-        app:iconTint="?attr/colorPrimaryVariant"
-        android:contentDescription="@string/avatar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/colorPrimaryVariant" />
 
     <TextView
         android:id="@+id/user_wall_name"
@@ -29,9 +29,9 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/user_wall_avatar"
+        app:layout_constraintBottom_toTopOf="@id/user_company"
         app:layout_constraintStart_toEndOf="@id/user_wall_avatar"
         app:layout_constraintTop_toTopOf="@id/user_wall_avatar"
-        app:layout_constraintBottom_toTopOf="@id/user_company"
         tools:text="@string/name" />
 
     <com.google.android.material.button.MaterialButton
@@ -39,15 +39,15 @@
         style="@style/Widget.AppTheme.IconButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/user_wall_avatar"
-        app:layout_constraintBottom_toBottomOf="@id/user_wall_avatar"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="@dimen/checkbox_padding_start_8"
         android:padding="@dimen/checkbox_padding_start_8"
         android:text="@string/jobs"
-        app:iconTint="?attr/colorPrimaryVariant"
         android:textColor="?attr/colorPrimaryVariant"
-        app:icon="@drawable/work_history_24" />
+        app:icon="@drawable/work_history_24"
+        app:iconTint="?attr/colorPrimaryVariant"
+        app:layout_constraintBottom_toBottomOf="@id/user_wall_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/user_wall_avatar" />
 
     <TextView
         android:id="@+id/user_company"
@@ -68,9 +68,9 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
-        android:background="@color/white"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/checkbox_padding_start_8"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/user_wall_avatar">
 
@@ -89,11 +89,11 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="@dimen/common_spacing_16"
         android:layout_marginBottom="@dimen/common_spacing_16"
         android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/create_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

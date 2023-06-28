@@ -16,10 +16,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.dipnetocom.R
-import com.example.dipnetocom.activity.assist.MapFragment
 import com.example.dipnetocom.activity.assist.MediaLifecycleObserver
 import com.example.dipnetocom.activity.edit.NewPostFragment.Companion.textArg
 import com.example.dipnetocom.activity.feed.JobFragment
+import com.example.dipnetocom.activity.map.MapFragment
 import com.example.dipnetocom.adapter.OnInteractionListenerPost
 import com.example.dipnetocom.adapter.PostAdapter
 import com.example.dipnetocom.databinding.FragmentUserBinding

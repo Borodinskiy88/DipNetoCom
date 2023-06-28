@@ -36,9 +36,8 @@ class JobFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentJobsBinding.inflate(inflater, container, false)
-
 
         val adapter = JobAdapter(object : OnInteractionListenerJob {
 

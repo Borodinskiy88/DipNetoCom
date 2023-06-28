@@ -134,9 +134,9 @@
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
                     android:layout_marginTop="@dimen/checkbox_padding_start_8"
                     android:hint="@string/longitude"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toEndOf="@id/coordinates_lat" />
 
                 <Button
@@ -166,6 +166,7 @@
                     android:layout_height="360dp"
                     android:layout_gravity="center"
                     android:adjustViewBounds="true"
+                    android:contentDescription="@string/image"
                     tools:srcCompat="@tools:sample/avatars[3]" />
 
                 <Button
@@ -193,6 +194,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/checkbox_padding_start_8"
+            android:contentDescription="@string/gallery"
             app:icon="@drawable/image_24"
             app:iconTint="?attr/colorPrimaryVariant" />
 
@@ -201,6 +203,7 @@
             style="@style/Widget.AppTheme.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/photo"
             app:icon="@drawable/photo_24"
             app:iconTint="?attr/colorPrimaryVariant" />
 
@@ -211,8 +214,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin_24"
-        android:layout_marginBottom="@dimen/fab_margin_24"
+        android:layout_marginEnd="@dimen/common_spacing_16"
+        android:layout_marginBottom="@dimen/margin_fab_70"
         android:importantForAccessibility="no"
         app:srcCompat="@drawable/check_24" />
 

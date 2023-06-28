@@ -30,9 +30,9 @@
         android:id="@+id/job_position_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_spacing_16"
         app:endIconDrawable="@drawable/badge_24"
         app:endIconMode="custom"
-        android:layout_margin="@dimen/common_spacing_16"
         app:layout_constraintTop_toBottomOf="@id/job_name_layout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -47,27 +47,27 @@
     <Button
         android:id="@+id/edit_job_start"
         style="@style/Widget.MaterialComponents.Button.TextButton"
-        app:icon="@drawable/calendar_24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_marginTop="@dimen/common_spacing_16"
         android:hint="@string/job_start"
+        android:textColor="@color/black"
+        app:icon="@drawable/calendar_24"
         app:layout_constraintStart_toStartOf="@id/job_position_layout"
         app:layout_constraintTop_toBottomOf="@id/job_position_layout" />
 
     <Button
         android:id="@+id/edit_job_finish"
         style="@style/Widget.MaterialComponents.Button.TextButton"
-        app:icon="@drawable/calendar_24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_marginTop="@dimen/common_spacing_16"
         android:background="?attr/colorPrimarySurface"
+        android:hint="@string/job_finish"
+        android:textColor="@color/black"
+        app:icon="@drawable/calendar_24"
         app:layout_constraintStart_toStartOf="@id/edit_job_start"
-        app:layout_constraintTop_toBottomOf="@id/edit_job_start"
-        android:hint="@string/job_finish" />
+        app:layout_constraintTop_toBottomOf="@id/edit_job_start" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/job_link_layout"
@@ -82,25 +82,25 @@
             android:id="@+id/edit_job_link"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimarySurface"
             android:autoLink="web"
-            android:textColorLink="?attr/colorPrimary"
+            android:background="?attr/colorPrimarySurface"
             android:hint="@string/link_to_company"
-            android:inputType="textWebEditText" />
+            android:inputType="textWebEditText"
+            android:textColorLink="?attr/colorPrimary" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/create_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/checkbox_padding_start_4"
         android:layout_marginTop="@dimen/common_spacing_16"
+        android:layout_marginEnd="@dimen/common_spacing_16"
         android:text="@string/create"
         app:icon="@drawable/create_24"
-        android:layout_marginStart="@dimen/checkbox_padding_start_4"
-        android:layout_marginEnd="@dimen/common_spacing_16"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/clear_button"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@id/clear_button"
         app:layout_constraintTop_toBottomOf="@id/job_link_layout" />
 
     <com.google.android.material.button.MaterialButton
@@ -108,13 +108,13 @@
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing_16"
         android:layout_marginTop="@dimen/common_spacing_16"
+        android:layout_marginEnd="@dimen/checkbox_padding_start_4"
         android:text="@string/clear"
         app:icon="@drawable/clear_24"
-        android:layout_marginEnd="@dimen/checkbox_padding_start_4"
-        android:layout_marginStart="@dimen/common_spacing_16"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintEnd_toStartOf="@id/create_button"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/job_link_layout" />
 

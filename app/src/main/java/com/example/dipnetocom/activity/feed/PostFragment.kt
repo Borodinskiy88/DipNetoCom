@@ -13,9 +13,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.dipnetocom.R
-import com.example.dipnetocom.activity.assist.MapFragment
 import com.example.dipnetocom.activity.assist.MediaLifecycleObserver
 import com.example.dipnetocom.activity.edit.NewPostFragment.Companion.textArg
+import com.example.dipnetocom.activity.map.MapFragment
 import com.example.dipnetocom.adapter.OnInteractionListenerPost
 import com.example.dipnetocom.adapter.PostAdapter
 import com.example.dipnetocom.databinding.FragmentPostBinding
@@ -36,7 +36,7 @@ class PostFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentPostBinding.inflate(inflater, container, false)
 
         val token = context?.getSharedPreferences("auth", Context.MODE_PRIVATE)
@@ -113,7 +113,7 @@ class PostFragment : Fragment() {
 
             override fun onAudio(post: Post) {
                 if (post.attachment?.type == AttachmentType.AUDIO) {
-                    post.attachment?.url?.let { mediaObserver.playPause(it) }
+                    post.attachment.url.let { mediaObserver.playPause(it) }
                 }
             }
 
@@ -125,7 +125,6 @@ class PostFragment : Fragment() {
                     )
                 }
             }
-
         })
 
         binding.listPosts.adapter = adapter

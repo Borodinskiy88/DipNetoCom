@@ -140,6 +140,6 @@
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.example.dipnetocom.activity.assist.MapFragment"
+        android:name="com.example.dipnetocom.activity.map.MapFragment"
         android:label="Map" />
 </navigation>

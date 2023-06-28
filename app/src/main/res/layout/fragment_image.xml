@@ -12,9 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:contentDescription="@string/image"
         android:scaleType="center"
-        tools:src="@tools:sample/avatars[11]"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars[11]" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

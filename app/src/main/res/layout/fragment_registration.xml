@@ -10,25 +10,26 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/clear_avatar_button"
         style="?attr/materialButtonOutlinedStyle"
-        app:icon="@drawable/delete_24"
-        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@id/register_avatar"
-        app:layout_constraintStart_toStartOf="@id/register_avatar"
+        android:text="@string/clear_avatar"
+        android:visibility="invisible"
+        app:icon="@drawable/delete_24"
         app:layout_constraintBottom_toTopOf="@id/register_avatar"
-        android:text="@string/clear_avatar" />
+        app:layout_constraintEnd_toEndOf="@id/register_avatar"
+        app:layout_constraintStart_toStartOf="@id/register_avatar" />
 
     <ImageView
         android:id="@+id/register_avatar"
-        android:src="@drawable/add_avatar_24"
         android:layout_width="@dimen/add_avatar_64"
         android:layout_height="@dimen/add_avatar_64"
         android:layout_marginBottom="@dimen/common_spacing_16"
-        app:layout_constraintEnd_toEndOf="@id/name_reg_layout"
-        app:layout_constraintStart_toStartOf="@id/name_reg_layout"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/avatar"
+        android:src="@drawable/add_avatar_24"
         app:layout_constraintBottom_toTopOf="@id/name_reg_layout"
-        android:adjustViewBounds="true" />
+        app:layout_constraintEnd_toEndOf="@id/name_reg_layout"
+        app:layout_constraintStart_toStartOf="@id/name_reg_layout" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/name_reg_layout"
@@ -55,9 +56,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_reg"
-            android:background="?attr/colorPrimarySurface"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/colorPrimarySurface"
             android:hint="@string/login"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -75,8 +76,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_reg"
             android:layout_width="match_parent"
-            android:background="?attr/colorPrimarySurface"
             android:layout_height="wrap_content"
+            android:background="?attr/colorPrimarySurface"
             android:hint="@string/password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -92,8 +93,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/repeat_password_reg"
             android:layout_width="match_parent"
-            android:background="?attr/colorPrimarySurface"
             android:layout_height="wrap_content"
+            android:background="?attr/colorPrimarySurface"
             android:hint="@string/repeat_password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -106,18 +107,18 @@
         android:layout_margin="@dimen/common_spacing_16"
         android:text="@string/clear"
         app:icon="@drawable/clear_24"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/registration_button"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/repeat_password_reg_layout" />
 
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/registration_button"
         android:layout_width="0dp"
-        android:layout_marginTop="@dimen/common_spacing_16"
         android:layout_height="wrap_content"
-        app:icon="@drawable/registration_24"
+        android:layout_marginTop="@dimen/common_spacing_16"
         android:text="@string/registration"
+        app:icon="@drawable/registration_24"
         app:layout_constraintEnd_toEndOf="@id/repeat_password_reg_layout"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/repeat_password_reg_layout" />
@@ -127,12 +128,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing_16"
+        android:autoLink="all"
+        android:text="@string/login_line"
         android:textColor="?attr/colorPrimary"
         android:textSize="18sp"
-        android:autoLink="all"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/clear"
-        android:text="@string/login_line" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clear" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

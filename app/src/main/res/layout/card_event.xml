@@ -17,11 +17,11 @@
             android:id="@+id/avatar"
             android:layout_width="@dimen/posts_avatar_size_48"
             android:layout_height="@dimen/posts_avatar_size_48"
-            android:src="@drawable/account_circle_24"
-            android:background="@drawable/background_line"
             android:layout_marginBottom="@dimen/common_spacing_16"
-            android:scaleType="fitCenter"
             android:contentDescription="@string/avatar"
+            android:scaleType="fitCenter"
+            android:background="@drawable/background_line"
+            android:src="@drawable/account_circle_24"
             app:layout_constraintBottom_toBottomOf="@id/header1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,8 +31,8 @@
             style="@style/Widget.AppTheme.PlayPauseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="visible"
             android:checkable="true"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/footer" />
 
@@ -63,6 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:accessibilityTraversalAfter="@id/video_attachment"
+            android:contentDescription="@string/video"
             android:src="@drawable/play_48"
             app:layout_constraintBottom_toBottomOf="@id/video_attachment"
             app:layout_constraintEnd_toEndOf="@id/video_attachment"
@@ -103,28 +104,28 @@
                 android:layout_marginEnd="@dimen/common_spacing_16"
                 android:ellipsize="end"
                 android:singleLine="true"
+                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/avatar"
                 app:layout_constraintTop_toTopOf="@id/avatar"
                 app:layout_constraintVertical_chainStyle="packed"
-                android:textStyle="bold"
                 tools:text="@tools:sample/full_names" />
 
             <TextView
                 android:id="@+id/job"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_spacing_16"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:layout_marginStart="@dimen/common_spacing_16"
                 tools:text="@tools:sample/lorem" />
 
             <TextView
                 android:id="@+id/published"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_spacing_16"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:layout_marginStart="@dimen/common_spacing_16"
                 android:textStyle="italic"
                 tools:text="@tools:sample/date/ddmmyy" />
 
@@ -136,8 +137,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/common_spacing_16"
-            app:icon="@drawable/menu_vert_24"
             android:contentDescription="@string/menu"
+            app:icon="@drawable/menu_vert_24"
             app:iconGravity="end"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -153,28 +154,30 @@
             android:id="@+id/event_calendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/header1"
+            android:layout_marginTop="@dimen/common_spacing_16"
+            android:contentDescription="@string/calendar"
             android:src="@drawable/calendar_pink_24"
-            android:layout_marginTop="@dimen/common_spacing_16" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header1" />
 
         <TextView
             android:id="@+id/event_calendar_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/header1"
-            tools:text="@tools:sample/date/ddmmyy"
-            app:layout_constraintTop_toTopOf="@id/event_calendar"
             android:layout_marginStart="@dimen/common_spacing_16"
-            app:layout_constraintStart_toEndOf="@id/event_calendar" />
+            app:layout_constraintStart_toEndOf="@id/event_calendar"
+            app:layout_constraintTop_toBottomOf="@id/header1"
+            app:layout_constraintTop_toTopOf="@id/event_calendar"
+            tools:text="@tools:sample/date/ddmmyy" />
 
         <ImageView
             android:id="@+id/event_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/gps_fixed_pink_24"
             android:layout_marginTop="@dimen/common_spacing_16"
+            android:contentDescription="@string/type_event"
             android:paddingBottom="@dimen/common_spacing_16"
+            android:src="@drawable/gps_fixed_pink_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/event_calendar" />
 
@@ -182,10 +185,10 @@
             android:id="@+id/event_type_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/event_type"
-            tools:text="@tools:sample/lorem"
             android:layout_marginStart="@dimen/common_spacing_16"
-            app:layout_constraintStart_toEndOf="@id/event_type" />
+            app:layout_constraintStart_toEndOf="@id/event_type"
+            app:layout_constraintTop_toTopOf="@id/event_type"
+            tools:text="@tools:sample/lorem" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/header2"
@@ -206,20 +209,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/header2"
-            tools:text="@tools:sample/lorem[50]/random" />
+            tools:text="@tools:sample/lorem[30]/random" />
 
         <TextView
             android:id="@+id/link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoLink="web"
+            android:drawablePadding="@dimen/checkbox_padding_start_8"
+            android:text="@string/login_line"
             android:textColorLink="?attr/colorPrimaryVariant"
             android:visibility="visible"
-            android:drawablePadding="@dimen/checkbox_padding_start_8"
             app:drawableStartCompat="@drawable/link_pink_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/content"
-            android:text="@string/login_line" />
+            app:layout_constraintTop_toBottomOf="@id/content" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/footer"
@@ -269,14 +272,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/checkbox_padding_start_8"
-            android:contentDescription="@string/viewing"
-            android:checkable="true"
             android:layout_marginEnd="@dimen/checkbox_padding_start_8"
+            android:checkable="true"
+            android:contentDescription="@string/viewing"
             app:icon="@drawable/sl_participates_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/like"
             app:layout_constraintBottom_toBottomOf="@id/like"
-            app:layout_constraintTop_toBottomOf="@id/image_attachment" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_attachment"
+            app:layout_constraintTop_toTopOf="@id/like" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

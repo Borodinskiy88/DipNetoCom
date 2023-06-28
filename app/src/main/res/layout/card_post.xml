@@ -63,6 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:accessibilityTraversalAfter="@id/video_attachment"
+            android:contentDescription="@string/video"
             android:src="@drawable/play_48"
             app:layout_constraintBottom_toBottomOf="@id/video_attachment"
             app:layout_constraintEnd_toEndOf="@id/video_attachment"

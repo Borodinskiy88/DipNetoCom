@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.dipnetocom.R
-import com.example.dipnetocom.activity.assist.MapFragment
+import com.example.dipnetocom.activity.map.MapFragment
 import com.example.dipnetocom.databinding.FragmentNewPostBinding
 import com.example.dipnetocom.enumeration.AttachmentType
 import com.example.dipnetocom.utils.AndroidUtils
@@ -68,8 +68,20 @@ class NewPostFragment : Fragment() {
 
         binding.fab.setOnClickListener {
             val link = reformatWebLink(binding.editLink.text.toString())
+            val editText =
+                if (binding.editText.text!!.isNotBlank()) {
+                    binding.editText.text.toString()
+                } else {
+                    Snackbar.make(
+                        binding.root,
+                        R.string.empty_field,
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                    return@setOnClickListener
+                }
+
             viewModel.changeContent(
-                binding.editText.text.toString(),
+                editText,
                 link?.ifEmpty { null }
             )
             viewModel.save()
