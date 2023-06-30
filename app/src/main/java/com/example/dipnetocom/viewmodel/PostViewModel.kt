@@ -18,6 +18,7 @@ import com.example.dipnetocom.repository.PostRepository
 import com.example.dipnetocom.utils.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOn
@@ -49,7 +50,7 @@ private val empty = Post(
 @HiltViewModel
 class PostViewModel @Inject constructor(
     private val repository: PostRepository,
-    private val appAuth: AppAuth
+    appAuth: AppAuth
 ) : ViewModel() {
 
     private val _state = MutableLiveData(FeedModelState())
@@ -58,6 +59,7 @@ class PostViewModel @Inject constructor(
 
     fun wallData(userId: Int): Flow<PagingData<FeedItem>> = repository.userWall(userId)
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     val data: Flow<PagingData<FeedItem>> = appAuth.authState
         .flatMapLatest { authState ->
             repository.data
@@ -108,19 +110,6 @@ class PostViewModel @Inject constructor(
             }
         }
     }
-
-    fun refreshPosts() {
-        viewModelScope.launch {
-            try {
-                _state.value = (FeedModelState(refreshing = true))
-                repository.getAll()
-                _state.value = FeedModelState()
-            } catch (e: Exception) {
-                _state.value = FeedModelState(error = true)
-            }
-        }
-    }
-
 
     fun save() {
         edited.value?.let {

@@ -79,7 +79,7 @@ class PostViewHolder(
             musicGroup.visibility = View.GONE
             videoGroup.visibility = View.GONE
             if (post.attachment != null) {
-                when (post.attachment?.type) {
+                when (post.attachment.type) {
                     AttachmentType.AUDIO -> {
                         musicGroup.visibility = View.VISIBLE
                         playMusic.setOnClickListener { onInteractionListener.onAudio(post) }
@@ -88,16 +88,15 @@ class PostViewHolder(
 
                     AttachmentType.IMAGE -> {
                         imageAttachment.visibility = View.VISIBLE
-                        post.attachment?.url?.let { url ->
+                        post.attachment.url.let { url ->
                             imageAttachment.load(url)
                             imageAttachment.setOnClickListener { onInteractionListener.onImage(post) }
                         }
-
                     }
 
                     AttachmentType.VIDEO -> {
                         videoGroup.visibility = View.VISIBLE
-                        post.attachment?.url?.let { url ->
+                        post.attachment.url.let { url ->
                             videoAttachment.setOnClickListener { onInteractionListener.onVideo(post) }
                             val uri = Uri.parse(url)
                             videoAttachment.setVideoURI(uri)
@@ -108,8 +107,6 @@ class PostViewHolder(
                             }
                         }
                     }
-
-                    else -> Unit
                 }
             }
 

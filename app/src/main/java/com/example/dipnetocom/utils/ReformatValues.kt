@@ -28,7 +28,7 @@ object ReformatValues {
         return formatCount
     }
 
-    fun reformatWebLink(url: String): String? {
+    fun reformatWebLink(url: String): String {
         val removeHttps = url.substringAfterLast("https://")
         return removeHttps.substringBeforeLast("/")
     }

@@ -17,5 +17,5 @@ interface PostRepository {
     suspend fun dislikeById(id: Int)
     suspend fun removeById(id: Int)
     suspend fun saveWithAttachment(post: Post, media: MediaModel)
-    suspend fun wallRemoveById(id: Int)
+
 }

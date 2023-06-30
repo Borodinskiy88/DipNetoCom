@@ -9,13 +9,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.feed.PostFragment">
+        android:background="?attr/colorOnPrimary"
+        tools:context=".activity.feed.EventFragment">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/white"
             android:paddingTop="@dimen/checkbox_padding_start_8"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

@@ -11,14 +11,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(
-    private val appAuth: AppAuth
+    appAuth: AppAuth
 ) : ViewModel() {
 
     val data: LiveData<AuthModel?> = appAuth
         .authState
         .asLiveData(Dispatchers.Default)
 
-    //TODO
     val authorized: Boolean
         get() = data.value != null
 

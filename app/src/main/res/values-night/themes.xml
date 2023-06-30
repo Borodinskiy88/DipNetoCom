@@ -1,16 +1,24 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.DipNetoCom." parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Base.Theme.DipNetoCom" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/PRIMARY_50</item>
         <item name="colorPrimaryVariant">@color/PRIMARY_600</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimarySurface">@color/gray</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/SECONDARY_50</item>
+        <item name="colorSecondary">@color/SECONDARY_400</item>
         <item name="colorSecondaryVariant">@color/SECONDARY_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/PRIMARY_50</item>
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">@color/black</item>
+        <!-- SplashScreen -->
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/PRIMARY_50
+        </item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">
+            @drawable/ic_launcher_foreground
+        </item>
+        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">200</item>
     </style>
+
 </resources>

@@ -188,9 +188,4 @@ class PostRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun wallRemoveById(id: Int) {
-        TODO("Not yet implemented")
-    }
-
-
 }

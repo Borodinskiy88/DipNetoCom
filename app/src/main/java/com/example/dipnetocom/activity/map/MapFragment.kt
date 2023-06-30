@@ -58,7 +58,6 @@ class MapFragment : Fragment() {
 
     private lateinit var userLocationLayer: UserLocationLayer
 
-    //выбрать точку
     private val mapTapListener = object : InputListener {
         override fun onMapTap(map: Map, point: Point) = Unit
 
@@ -104,7 +103,6 @@ class MapFragment : Fragment() {
         }
     }
 
-    //согласие пользователя
     private val permissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
             when {
@@ -160,7 +158,6 @@ class MapFragment : Fragment() {
 
             map.addInputListener(mapTapListener)
 
-            //Todo отрисовка маркера
             val collection = map.mapObjects.addCollection()
             viewLifecycleOwner.lifecycleScope.launch {
                 repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -177,8 +174,6 @@ class MapFragment : Fragment() {
                 }
             }
 
-
-            // Переход к точке на карте после клика на списке
             val arguments = arguments
             if (arguments != null &&
                 arguments.containsKey(LAT_KEY) &&

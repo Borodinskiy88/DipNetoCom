@@ -138,7 +138,7 @@ class UserFragment : Fragment() {
 
             override fun onAudio(post: Post) {
                 if (post.attachment?.type == AttachmentType.AUDIO) {
-                    post.attachment?.url?.let { mediaObserver.playPause(it) }
+                    post.attachment.url.let { mediaObserver.playPause(it) }
                 }
             }
 

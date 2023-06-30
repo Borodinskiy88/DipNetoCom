@@ -19,6 +19,7 @@ import com.example.dipnetocom.repository.EventRepository
 import com.example.dipnetocom.utils.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOn
@@ -50,13 +51,14 @@ private val empty = Event(
 @HiltViewModel
 class EventViewModel @Inject constructor(
     private val repository: EventRepository,
-    private val appAuth: AppAuth
+    appAuth: AppAuth
 ) : ViewModel() {
 
     private val _stateEvent = MutableLiveData(FeedModelState())
     val stateEvent: LiveData<FeedModelState>
         get() = _stateEvent
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     val dataEvent: Flow<PagingData<FeedItem>> = appAuth.authState
         .flatMapLatest { authState ->
             repository.data

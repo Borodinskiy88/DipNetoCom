@@ -81,7 +81,7 @@ class EventViewHolder(
             musicGroup.visibility = View.GONE
             videoGroup.visibility = View.GONE
             if (event.attachment != null) {
-                when (event.attachment?.type) {
+                when (event.attachment.type) {
                     AttachmentType.AUDIO -> {
                         musicGroup.visibility = View.VISIBLE
                         playMusic.setOnClickListener { onInteractionListener.onAudio(event) }
@@ -90,7 +90,7 @@ class EventViewHolder(
 
                     AttachmentType.IMAGE -> {
                         imageAttachment.visibility = View.VISIBLE
-                        event.attachment?.url?.let { url ->
+                        event.attachment.url.let { url ->
                             imageAttachment.load(url)
                             imageAttachment.setOnClickListener { onInteractionListener.onImage(event) }
                         }
@@ -99,7 +99,7 @@ class EventViewHolder(
 
                     AttachmentType.VIDEO -> {
                         videoGroup.visibility = View.VISIBLE
-                        event.attachment?.url?.let { url ->
+                        event.attachment.url.let { url ->
                             videoAttachment.setOnClickListener { onInteractionListener.onVideo(event) }
                             val uri = Uri.parse(url)
                             videoAttachment.setVideoURI(uri)
@@ -110,8 +110,6 @@ class EventViewHolder(
                             }
                         }
                     }
-
-                    else -> Unit
                 }
             }
 

@@ -33,7 +33,6 @@ class JobAdapter(
     override fun onBindViewHolder(holder: JobViewHolder, position: Int) {
         getItem(position)?.let { holder.bind(it) }
     }
-
 }
 
 class JobViewHolder(

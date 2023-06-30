@@ -36,7 +36,7 @@ private val empty = Job(
 @HiltViewModel
 class JobViewModel @Inject constructor(
     private val repository: JobRepository,
-    private val appAuth: AppAuth
+    appAuth: AppAuth
 ) : ViewModel() {
 
     @OptIn(ExperimentalCoroutinesApi::class)

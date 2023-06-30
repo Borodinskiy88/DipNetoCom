@@ -8,8 +8,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface EventRepository {
     val data: Flow<PagingData<FeedItem>>
-
-    //TODO    fun userWall(id: Int): Flow<PagingData<FeedItem>>
     suspend fun getAll()
     suspend fun getById(id: Int): Event?
     suspend fun save(event: Event)
@@ -19,5 +17,4 @@ interface EventRepository {
     suspend fun saveWithAttachment(event: Event, media: MediaModel)
     suspend fun joinById(id: Int)
     suspend fun retireById(id: Int)
-//TODO    suspend fun wallRemoveById(id: Int)
 }
