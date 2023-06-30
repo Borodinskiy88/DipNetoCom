@@ -72,7 +72,6 @@ class EventFragment : Fragment() {
                     Pair("editedText", event.content),
                     Pair("editedLink", event.link),
                     Pair("editDate", event.datetime),
-                    //TODO
                     Pair("url", event.attachment?.url)
                 )
                 findNavController().navigate(R.id.action_feedFragment_to_newEventFragment, bundle)
