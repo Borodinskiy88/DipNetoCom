@@ -239,7 +239,7 @@ class MapFragment : Fragment() {
                             }
                         }
                         findNavController().navigateUp()
-                        mapViewModel.clearCoordinates(coords)
+                        mapViewModel.clearCoordinates()
                     }
                 }
             }

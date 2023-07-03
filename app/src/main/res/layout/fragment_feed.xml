@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/checkbox_padding_start_8"
                 android:contentDescription="@string/login"
-                app:icon="@drawable/menu_24"
+                app:icon="@drawable/login_24"
                 app:iconTint="?attr/colorPrimaryVariant"
                 app:layout_constraintBottom_toBottomOf="@id/user_avatar"
                 app:layout_constraintEnd_toEndOf="parent"

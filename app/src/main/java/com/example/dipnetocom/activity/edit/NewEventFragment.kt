@@ -1,13 +1,11 @@
 package com.example.dipnetocom.activity.edit
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
 import androidx.core.net.toFile
 import androidx.core.os.bundleOf
 import androidx.core.view.isGone
@@ -35,15 +33,19 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
 
 @AndroidEntryPoint
-@Suppress("UNUSED_EXPRESSION")
 class NewEventFragment : Fragment() {
+
+    companion object {
+        const val EDITED_TEXT_KEY = "editedText"
+        const val EDITED_LINK_KEY = "editedLink"
+        const val EDITED_DATE_KEY = "editedDate"
+    }
 
     private val viewModel: EventViewModel by activityViewModels()
 
     private var _binding: FragmentNewEventBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = requireNotNull(_binding)
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -70,13 +72,13 @@ class NewEventFragment : Fragment() {
             }
 
         binding.apply {
-            editText.setText(arguments?.getString("editedText"))
-            editLink.setText(arguments?.getString("editedLink"))
-            val dataTime = arguments?.getString("editDate")
+            editText.setText(arguments?.getString(EDITED_TEXT_KEY))
+            editLink.setText(arguments?.getString(EDITED_LINK_KEY))
+            val dataTime = arguments?.getString(EDITED_DATE_KEY)
             if (dataTime != null) {
                 editEventDate.text = reformatDate(dataTime.toString())
                 editEventTime.text = reformatTime(dataTime.toString())
-            } else null
+            }
         }
 
         binding.editEventDate.setOnClickListener {
@@ -112,7 +114,7 @@ class NewEventFragment : Fragment() {
                 EventType.OFFLINE
             }
             val editText =
-                if (binding.editText.text!!.isNotBlank()) {
+                if (binding.editText.text?.isNotBlank() == true) {
                     binding.editText.text.toString()
                 } else {
                     Snackbar.make(
@@ -138,7 +140,7 @@ class NewEventFragment : Fragment() {
                 datetime,
                 type,
                 editText,
-                link?.ifEmpty { null }
+                link.ifEmpty { null }
             )
             viewModel.saveEvent()
             AndroidUtils.hideKeyboard(requireView())

@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.example.dipnetocom.activity.edit.NewPostFragment.Companion.textArg
 import com.example.dipnetocom.databinding.FragmentImageBinding
 import com.example.dipnetocom.view.load
@@ -24,10 +22,6 @@ class ImageFragment : Fragment() {
 
         val urlAttachment = arguments?.textArg.toString()
         binding.fullscreenImage.load(urlAttachment)
-
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            findNavController().navigateUp()
-        }
 
         return binding.root
     }

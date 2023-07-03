@@ -7,6 +7,7 @@ import com.example.dipnetocom.model.MediaModel
 import kotlinx.coroutines.flow.Flow
 
 interface EventRepository {
+
     val data: Flow<PagingData<FeedItem>>
     suspend fun getAll()
     suspend fun getById(id: Int): Event?

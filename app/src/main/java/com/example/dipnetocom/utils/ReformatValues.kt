@@ -1,7 +1,5 @@
 package com.example.dipnetocom.utils
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDateTime
@@ -33,21 +31,18 @@ object ReformatValues {
         return removeHttps.substringBeforeLast("/")
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun reformatDateTime(date: String): String {
         val parsedDate = LocalDateTime.parse(date, DateTimeFormatter.ISO_DATE_TIME)
         val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")
         return parsedDate.format(formatter)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun reformatDate(date: String): String {
         val parsedDate = LocalDateTime.parse(date, DateTimeFormatter.ISO_DATE_TIME)
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
         return parsedDate.format(formatter)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun reformatTime(date: String): String {
         val parsedDate = LocalDateTime.parse(date, DateTimeFormatter.ISO_DATE_TIME)
         val formatter = DateTimeFormatter.ofPattern("HH:mm")
@@ -62,7 +57,6 @@ object ReformatValues {
         return SimpleDateFormat("HH:mm", Locale.ROOT).format(date)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun lastDate(datetime: String) = Instant.parse(datetime).toEpochMilli()
 
 }

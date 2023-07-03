@@ -94,6 +94,7 @@ class PostRepositoryImpl @Inject constructor(
 
             val body = response.body() ?: throw ApiError(response.code(), response.message())
             postDao.insert(PostEntity.fromDto(body))
+
         } catch (e: IOException) {
             throw NetworkError
         } catch (e: Exception) {
@@ -162,6 +163,7 @@ class PostRepositoryImpl @Inject constructor(
 
             val body = response.body() ?: throw ApiError(response.code(), response.message())
             postDao.insert(PostEntity.fromDto(body))
+
         } catch (e: IOException) {
             throw NetworkError
         } catch (e: Exception) {

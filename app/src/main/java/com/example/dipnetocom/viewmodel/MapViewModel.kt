@@ -17,7 +17,7 @@ class MapViewModel : ViewModel() {
         _coordinates.value = coordinates
     }
 
-    fun clearCoordinates(coordinates: Coordinates) {
+    fun clearCoordinates() {
         _coordinates.value = null
     }
 

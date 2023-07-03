@@ -1,9 +1,7 @@
 package com.example.dipnetocom.adapter
 
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
@@ -29,7 +27,6 @@ class JobAdapter(
         return JobViewHolder(binding, onInteractionListener)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: JobViewHolder, position: Int) {
         getItem(position)?.let { holder.bind(it) }
     }
@@ -40,7 +37,6 @@ class JobViewHolder(
     private val onInteractionListenerJob: OnInteractionListenerJob
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun bind(job: Job) {
         with(binding) {
             jobName.text = job.name

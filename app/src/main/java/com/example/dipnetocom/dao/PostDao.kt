@@ -29,22 +29,6 @@ interface PostDao {
     @Upsert
     suspend fun save(post: PostEntity)
 
-//TODO
-
-//    suspend fun likedById(id: Int, userId: Int) {
-//        val post = getPostById(id)
-//        val likeUser = post.likeOwnerIds.toMutableList()
-//        likeUser.add(userId)
-//        save(post.copy(likedByMe = true, likeOwnerIds = likeUser))
-//    }
-//
-//    suspend fun dislikedById(id: Int, userId: Int) {
-//        val post = getPostById(id)
-//        val likeUser = post.likeOwnerIds.toMutableList()
-//        likeUser.remove(userId)
-//        save(post.copy(likedByMe = false, likeOwnerIds = likeUser))
-//    }
-
     @Query("DELETE FROM PostEntity WHERE id = :id")
     suspend fun removeById(id: Int)
 

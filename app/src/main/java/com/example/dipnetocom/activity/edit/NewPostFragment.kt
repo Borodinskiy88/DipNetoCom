@@ -1,7 +1,9 @@
 package com.example.dipnetocom.activity.edit
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toFile
@@ -24,17 +26,18 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-@Suppress("UNUSED_EXPRESSION")
 class NewPostFragment : Fragment() {
 
     companion object {
         var Bundle.textArg: String? by StringArg
+        const val EDITED_TEXT_KEY = "editedText"
+        const val EDITED_LINK_KEY = "editedLink"
     }
 
     private val viewModel: PostViewModel by activityViewModels()
 
     private var _binding: FragmentNewPostBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = requireNotNull(_binding)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,14 +65,14 @@ class NewPostFragment : Fragment() {
             }
 
         binding.apply {
-            editText.setText(arguments?.getString("editedText"))
-            editLink.setText(arguments?.getString("editedLink"))
+            editText.setText(arguments?.getString(EDITED_TEXT_KEY))
+            editLink.setText(arguments?.getString(EDITED_LINK_KEY))
         }
 
         binding.fab.setOnClickListener {
             val link = reformatWebLink(binding.editLink.text.toString())
             val editText =
-                if (binding.editText.text!!.isNotBlank()) {
+                if (binding.editText.text?.isNotBlank() == true) {
                     binding.editText.text.toString()
                 } else {
                     Snackbar.make(
@@ -82,7 +85,7 @@ class NewPostFragment : Fragment() {
 
             viewModel.changeContent(
                 editText,
-                link?.ifEmpty { null }
+                link.ifEmpty { null }
             )
             viewModel.save()
             AndroidUtils.hideKeyboard(requireView())

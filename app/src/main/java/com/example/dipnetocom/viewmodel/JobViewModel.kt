@@ -1,7 +1,5 @@
 package com.example.dipnetocom.viewmodel
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -43,8 +41,8 @@ class JobViewModel @Inject constructor(
     val data: Flow<List<Job>> = appAuth.authState
         .flatMapLatest { authState ->
             repository.data
-                .map { job ->
-                    job.map { job ->
+                .map { jobs ->
+                    jobs.map { job ->
                         job.copy(ownedByMe = authState?.id == userId)
                     }
                 }
@@ -120,7 +118,6 @@ class JobViewModel @Inject constructor(
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun lastJob(list: List<Job>) =
         list.maxBy { lastDate(it.start) }
 }

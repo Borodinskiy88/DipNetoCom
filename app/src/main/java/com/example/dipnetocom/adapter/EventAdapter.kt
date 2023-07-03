@@ -1,11 +1,9 @@
 package com.example.dipnetocom.adapter
 
 import android.net.Uri
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.isVisible
 import androidx.paging.PagingDataAdapter
@@ -55,7 +53,6 @@ class EventAdapter(
             else -> error("${R.string.unknown_view_type}: $viewType")
         }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (val item = getItem(position)) {
             is Event -> (holder as? EventViewHolder)?.bind(item)
@@ -70,7 +67,6 @@ class EventViewHolder(
     private val onInteractionListener: OnInteractionListenerEvent,
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun bind(event: Event) {
         binding.apply {
 

@@ -29,6 +29,10 @@ import kotlinx.coroutines.launch
 
 class PostFragment : Fragment() {
 
+    companion object {
+        const val TOKEN_KEY = "TOKEN_KEY"
+    }
+
     private val viewModel: PostViewModel by activityViewModels()
 
     private val mediaObserver = MediaLifecycleObserver()
@@ -40,13 +44,13 @@ class PostFragment : Fragment() {
         val binding = FragmentPostBinding.inflate(inflater, container, false)
 
         val token = context?.getSharedPreferences("auth", Context.MODE_PRIVATE)
-            ?.getString("TOKEN_KEY", null)
+            ?.getString(TOKEN_KEY, null)
 
 
         val adapter = PostAdapter(object : OnInteractionListenerPost {
             override fun onLike(post: Post) {
                 if (token == null) {
-                    MaterialAlertDialogBuilder(context!!)
+                    MaterialAlertDialogBuilder(requireContext())
                         .setTitle(R.string.log_in_to_account)
                         .setMessage(R.string.please_log_in_to_your_account)
                         .setNegativeButton(R.string.continue_as_a_guest) { dialog, _ ->

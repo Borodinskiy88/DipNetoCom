@@ -6,7 +6,6 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.example.dipnetocom.R
 
-
 fun ImageView.loadCircleCrop(url: String, vararg transforms: BitmapTransformation = emptyArray()) =
     load(url, CircleCrop(), *transforms)
 

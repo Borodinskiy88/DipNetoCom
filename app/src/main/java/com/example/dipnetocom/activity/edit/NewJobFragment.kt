@@ -1,12 +1,10 @@
 package com.example.dipnetocom.activity.edit
 
 import android.icu.text.SimpleDateFormat
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -22,12 +20,18 @@ import java.util.Calendar
 import java.util.Locale
 
 @AndroidEntryPoint
-@Suppress("UNUSED_EXPRESSION")
 class NewJobFragment : Fragment() {
+
+    companion object {
+        const val EDITED_NAME_KEY = "editedName"
+        const val EDITED_POSITION_KEY = "editedPosition"
+        const val EDITED_START_KEY = "editedStart"
+        const val EDITED_FINISH_KEY = "editedFinish"
+        const val EDITED_LINK_KEY = "editedLink"
+    }
 
     private val viewModel: JobViewModel by activityViewModels()
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,20 +40,20 @@ class NewJobFragment : Fragment() {
         val binding = FragmentNewJobBinding.inflate(inflater, container, false)
 
         binding.apply {
-            editJobName.setText(arguments?.getString("editedName"))
-            editJobPosition.setText(arguments?.getString("editedPosition"))
+            editJobName.setText(arguments?.getString(EDITED_NAME_KEY))
+            editJobPosition.setText(arguments?.getString(EDITED_POSITION_KEY))
 
-            val start = arguments?.getString("editedStart")
-            if (start == null) {
-                null
-            } else editJobStart.text = reformatDate(start.toString())
+            val start = arguments?.getString(EDITED_START_KEY)
+            if (start != null) {
+                editJobStart.text = reformatDate(start.toString())
+            }
 
-            val finish = arguments?.getString("editedFinish")
-            if (finish == null) {
-                null
-            } else editJobFinish.text = reformatDate(finish.toString())
+            val finish = arguments?.getString(EDITED_FINISH_KEY)
+            if (finish != null) {
+                editJobFinish.text = reformatDate(finish.toString())
+            }
 
-            editJobLink.setText(arguments?.getString("editedLink"))
+            editJobLink.setText(arguments?.getString(EDITED_LINK_KEY))
         }
 
         binding.clearButton.setOnClickListener {

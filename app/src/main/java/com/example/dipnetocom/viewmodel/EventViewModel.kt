@@ -62,8 +62,8 @@ class EventViewModel @Inject constructor(
     val dataEvent: Flow<PagingData<FeedItem>> = appAuth.authState
         .flatMapLatest { authState ->
             repository.data
-                .map { event ->
-                    event.map { event ->
+                .map { events ->
+                    events.map { event ->
                         if (event is Event) {
                             event.copy(ownedByMe = authState?.id == event.authorId)
                         } else {

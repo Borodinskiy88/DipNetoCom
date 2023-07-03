@@ -26,7 +26,7 @@ class AuthRepositoryImpl @Inject constructor(
 
             val body = response.body() ?: throw ApiError(response.code(), response.message())
             return AuthModel(body.id, body.token)
-            //TODO
+
         } catch (e: ApiError) {
             throw ApiError(e.status, e.code)
         } catch (e: IOException) {

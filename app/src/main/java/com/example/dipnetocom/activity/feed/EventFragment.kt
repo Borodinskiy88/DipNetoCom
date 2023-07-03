@@ -29,6 +29,10 @@ import kotlinx.coroutines.launch
 
 class EventFragment : Fragment() {
 
+    companion object {
+        const val TOKEN_KEY = "TOKEN_KEY"
+    }
+
     private val viewModel: EventViewModel by activityViewModels()
 
     private val mediaObserver = MediaLifecycleObserver()
@@ -40,12 +44,12 @@ class EventFragment : Fragment() {
         val binding = FragmentEventBinding.inflate(inflater, container, false)
 
         val token = context?.getSharedPreferences("auth", Context.MODE_PRIVATE)
-            ?.getString("TOKEN_KEY", null)
+            ?.getString(TOKEN_KEY, null)
 
         val adapter = EventAdapter(object : OnInteractionListenerEvent {
             override fun onLike(event: Event) {
                 if (token == null) {
-                    MaterialAlertDialogBuilder(context!!)
+                    MaterialAlertDialogBuilder(requireContext())
                         .setTitle(R.string.log_in_to_account)
                         .setMessage(R.string.please_log_in_to_your_account)
                         .setNegativeButton(R.string.continue_as_a_guest) { dialog, _ ->
@@ -71,7 +75,7 @@ class EventFragment : Fragment() {
                 val bundle = bundleOf(
                     Pair("editedText", event.content),
                     Pair("editedLink", event.link),
-                    Pair("editDate", event.datetime),
+                    Pair("editedDate", event.datetime),
                     Pair("url", event.attachment?.url)
                 )
                 findNavController().navigate(R.id.action_feedFragment_to_newEventFragment, bundle)
@@ -129,7 +133,7 @@ class EventFragment : Fragment() {
 
             override fun onJoin(event: Event) {
                 if (token == null) {
-                    MaterialAlertDialogBuilder(context!!)
+                    MaterialAlertDialogBuilder(requireContext())
                         .setTitle(R.string.log_in_to_account)
                         .setMessage(R.string.please_log_in_to_your_account)
                         .setNegativeButton(R.string.continue_as_a_guest) { dialog, _ ->

@@ -155,6 +155,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autoLink="web"
+            android:textColorLink="?attr/colorPrimaryVariant"
             android:lineSpacingMultiplier="1.5"
             android:paddingTop="@dimen/common_spacing_16"
             android:paddingBottom="@dimen/common_spacing_16"

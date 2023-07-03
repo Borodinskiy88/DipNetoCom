@@ -62,6 +62,7 @@ class FeedFragment : Fragment() {
             }
         }
 
+
         binding.menuAuth.setOnClickListener {
             PopupMenu(it.context, it).apply {
                 inflate(R.menu.menu_auth)
@@ -112,8 +113,10 @@ class FeedFragment : Fragment() {
             binding.apply {
                 if (authViewModel.authorized) {
                     fab.visibility = View.VISIBLE
+                    binding.menuAuth.setIconResource(R.drawable.logout_24)
                 } else {
                     fab.visibility = View.INVISIBLE
+                    binding.menuAuth.setIconResource(R.drawable.login_24)
                 }
             }
             authModel?.let { userViewModel.getUserById(it.id) }
