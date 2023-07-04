@@ -1,6 +1,6 @@
 package com.example.dipnetocom.activity.edit
 
-import android.icu.text.SimpleDateFormat
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,15 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.dipnetocom.R
-import com.example.dipnetocom.activity.assist.DatePickerFragment
 import com.example.dipnetocom.databinding.FragmentNewJobBinding
 import com.example.dipnetocom.utils.AndroidUtils.hideKeyboard
 import com.example.dipnetocom.utils.ReformatValues.reformatDate
+import com.example.dipnetocom.utils.ReformatValues.reformatDatePicker
 import com.example.dipnetocom.viewmodel.JobViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
-import java.util.Locale
 
 @AndroidEntryPoint
 class NewJobFragment : Fragment() {
@@ -65,35 +64,41 @@ class NewJobFragment : Fragment() {
         }
 
         binding.editJobStart.setOnClickListener {
-            val datePickerFragment =
-                DatePickerFragment { day, month, year ->
-                    val selectedDate = Calendar.getInstance()
-                    selectedDate.set(Calendar.YEAR, year)
-                    selectedDate.set(Calendar.MONTH, month - 1)
-                    selectedDate.set(Calendar.DAY_OF_MONTH, day)
-                    val date = SimpleDateFormat(
-                        "yyyy-MM-dd",
-                        Locale.getDefault()
-                    ).format(selectedDate.time)
-                    binding.editJobStart.text = date
-                }
-            datePickerFragment.show(childFragmentManager, "datePicker")
+            val calendar = Calendar.getInstance()
+            val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, month - 1)
+                calendar.set(Calendar.DAY_OF_MONTH, day)
+                val date = reformatDatePicker(calendar.time)
+                binding.editJobStart.text = date
+            }
+            DatePickerDialog(
+                requireContext(),
+                dateSetListener,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+                .show()
         }
 
         binding.editJobFinish.setOnClickListener {
-            val datePickerFragment =
-                DatePickerFragment { day, month, year ->
-                    val selectedDate = Calendar.getInstance()
-                    selectedDate.set(Calendar.YEAR, year)
-                    selectedDate.set(Calendar.MONTH, month - 1)
-                    selectedDate.set(Calendar.DAY_OF_MONTH, day)
-                    val date = SimpleDateFormat(
-                        "yyyy-MM-dd",
-                        Locale.getDefault()
-                    ).format(selectedDate.time)
-                    binding.editJobFinish.text = date
-                }
-            datePickerFragment.show(childFragmentManager, "datePicker")
+            val calendar = Calendar.getInstance()
+            val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, month - 1)
+                calendar.set(Calendar.DAY_OF_MONTH, day)
+                val date = reformatDatePicker(calendar.time)
+                binding.editJobFinish.text = date
+            }
+            DatePickerDialog(
+                requireContext(),
+                dateSetListener,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+                .show()
         }
 
         binding.createButton.setOnClickListener {

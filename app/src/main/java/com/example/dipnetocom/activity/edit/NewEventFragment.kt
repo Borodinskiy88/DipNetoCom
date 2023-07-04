@@ -1,5 +1,7 @@
 package com.example.dipnetocom.activity.edit
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,8 +16,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.dipnetocom.R
-import com.example.dipnetocom.activity.assist.DatePickerFragment
-import com.example.dipnetocom.activity.assist.TimePickerFragment
 import com.example.dipnetocom.activity.map.MapFragment
 import com.example.dipnetocom.databinding.FragmentNewEventBinding
 import com.example.dipnetocom.enumeration.AttachmentType
@@ -82,28 +82,40 @@ class NewEventFragment : Fragment() {
         }
 
         binding.editEventDate.setOnClickListener {
-            val datePickerFragment =
-                DatePickerFragment { day, month, year ->
-                    val selectedDate = Calendar.getInstance()
-                    selectedDate.set(Calendar.YEAR, year)
-                    selectedDate.set(Calendar.MONTH, month - 1)
-                    selectedDate.set(Calendar.DAY_OF_MONTH, day)
-                    val date = reformatDatePicker(selectedDate.time)
-                    binding.editEventDate.text = date
-                }
-            datePickerFragment.show(childFragmentManager, "datePicker")
+            val calendar = Calendar.getInstance()
+            val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, month - 1)
+                calendar.set(Calendar.DAY_OF_MONTH, day)
+                val date = reformatDatePicker(calendar.time)
+                binding.editEventDate.text = date
+            }
+            DatePickerDialog(
+                requireContext(),
+                dateSetListener,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+                .show()
         }
 
         binding.editEventTime.setOnClickListener {
-            val timePickerFragment =
-                TimePickerFragment { hour, minute ->
-                    val selectedTime = Calendar.getInstance()
-                    selectedTime.set(Calendar.HOUR_OF_DAY, hour)
-                    selectedTime.set(Calendar.MINUTE, minute)
-                    val time = reformatTimePicker(selectedTime.time)
-                    binding.editEventTime.text = time
-                }
-            timePickerFragment.show(childFragmentManager, "timePicker")
+            val calendar = Calendar.getInstance()
+            val timeSetListener = TimePickerDialog.OnTimeSetListener { _, hour, minute ->
+                calendar.set(Calendar.HOUR_OF_DAY, hour)
+                calendar.set(Calendar.MINUTE, minute)
+                val time = reformatTimePicker(calendar.time)
+                binding.editEventTime.text = time
+            }
+            TimePickerDialog(
+                context,
+                timeSetListener,
+                calendar.get(Calendar.HOUR_OF_DAY),
+                calendar.get(Calendar.MINUTE),
+                true
+            )
+                .show()
         }
 
         binding.fab.setOnClickListener {
