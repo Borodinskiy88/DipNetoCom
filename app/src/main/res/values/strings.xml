@@ -14,7 +14,6 @@
     <string name="clear_avatar">Clear avatar</string>
     <string name="continue_as_a_guest">Continue as a guest</string>
     <string name="empty_field">It is necessary to fill in all fields</string>
-    <string name="enter_the_password">Enter the password</string>
     <string name="error_loading">Something went wrong. Try again later</string>
     <string name="invalid_login_or_password">Invalid login or password</string>
     <string name="is_blank">Login or password is blank</string>
@@ -24,7 +23,6 @@
     <string name="logged_out_of_your_account">You have logged out of your account</string>
     <string name="login_exit">You are login exit</string>
     <string name="login_line">Already registered? <u>Log in</u></string>
-    <string name="log_in_with_a_password">Log in with a password</string>
     <string name="log_in_to_account">Log in to account</string>
     <string name="log_out_of_your_account">Log out of your account?</string>
     <string name="name">Name</string>
@@ -35,8 +33,6 @@
     <string name="repeat_password">Repeat password</string>
     <string name="registration">Registration</string>
     <string name="registration_line"><u>Registration</u></string>
-    <string name="sign_in_with_password">Sign in with password</string>
-    <string name="unknown">Unknown</string>
     <!-- fragments -->
     <string name="add_post">Add post</string>
     <string name="camera">Camera</string>
@@ -55,24 +51,16 @@
     <string name="posts">Posts</string>
     <string name="type_event">Type event</string>
     <string name="user_avatar">User avatar</string>
-    <string name="users_wall">Wall of User</string>
     <string name="video">Video</string>
     <!-- jobs -->
-    <string name="add_jobs">Add jobs</string>
     <string name="company_name">Company name</string>
-    <string name="empty_jobs">Empty jobs</string>
-    <string name="job_name">Job Name</string>
     <string name="job_position">Job position</string>
     <string name="job_start">Job start</string>
     <string name="job_finish">Job finish</string>
     <string name="link_to_company">Link to company</string>
-    <string name="link_to_job">Link to Job</string>
     <!-- actions -->
-    <string name="add_date">Add date</string>
     <string name="add_event">Add event</string>
     <string name="add_link">Add link</string>
-    <string name="add_note">Add note</string>
-    <string name="back">Back</string>
     <string name="calendar">Calendar</string>
     <string name="chooser_share_post">Share post</string>
     <string name="create">Create</string>

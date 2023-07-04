@@ -14,7 +14,6 @@
     <string name="clear_avatar">Borrar avatar</string>
     <string name="continue_as_a_guest">Continuar como invitado</string>
     <string name="empty_field">Es necesario llenar todos los campos</string>
-    <string name="enter_the_password">Introduzca la contraseña</string>
     <string name="error_loading">Algo salió mal. Inténtelo de nuevo más tarde</string>
     <string name="invalid_login_or_password">El usuario o la contraseña son incorrectos</string>
     <string name="is_blank">El usuario o la contraseña no han sido especificados</string>
@@ -24,7 +23,6 @@
     <string name="logged_out_of_your_account">Saliste de tu cuenta</string>
     <string name="login_exit">Estás desconectado</string>
     <string name="login_line">¿Ya registrado?<u>Log in</u></string>
-    <string name="log_in_with_a_password">Entrar usando la contraseña</string>
     <string name="log_in_to_account">Iniciar sesión</string>
     <string name="log_out_of_your_account">¿Desea cerrar sesión en su cuenta?</string>
     <string name="name">Nombre</string>
@@ -35,8 +33,6 @@
     <string name="repeat_password">Repita la contraseña</string>
     <string name="registration">Registro</string>
     <string name="registration_line"><u>Registro</u></string>
-    <string name="sign_in_with_password">Iniciar sesión usando la contraseña</string>
-    <string name="unknown">Desconocido</string>
     <!-- fragments -->
     <string name="add_post">Agregar publicación</string>
     <string name="camera">Cámara</string>
@@ -55,24 +51,16 @@
     <string name="posts">Publicaciones</string>
     <string name="type_event">Tipo de evento</string>
     <string name="user_avatar">Avatar de usuario</string>
-    <string name="users_wall">Feed de usuario</string>
     <string name="video">Video</string>
     <!-- jobs -->
-    <string name="add_jobs">Agregar trabajo</string>
     <string name="company_name">Nombre de la compañía</string>
-    <string name="empty_jobs">Desconocido</string>
-    <string name="job_name">Nombre de la compañía</string>
     <string name="job_position">Puesto de trabajo</string>
     <string name="job_start">Inicio</string>
     <string name="job_finish">Fin</string>
     <string name="link_to_company">Enlace al sitio web de la compañía</string>
-    <string name="link_to_job">Enlace al sitio web de la compañía</string>
     <!-- actions -->
-    <string name="add_date">Agregar fecha</string>
     <string name="add_event">Agregar evento</string>
     <string name="add_link">Agregar enlace</string>
-    <string name="add_note">Agregar nota</string>
-    <string name="back">Atrás</string>
     <string name="calendar">Calendario</string>
     <string name="chooser_share_post">Compartir publicación</string>
     <string name="create">Crear</string>

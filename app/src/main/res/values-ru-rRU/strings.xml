@@ -14,7 +14,6 @@
     <string name="clear_avatar">Удалить аватар</string>
     <string name="continue_as_a_guest">Продолжить в качестве гостя</string>
     <string name="empty_field">Необходимо заполнить все поля</string>
-    <string name="enter_the_password">Введите пароль</string>
     <string name="error_loading">Что-то пошло не так. Повторите попытку позже</string>
     <string name="invalid_login_or_password">Некорректный логин или пароль</string>
     <string name="is_blank">Логин или пароль не указаны</string>
@@ -24,7 +23,6 @@
     <string name="logged_out_of_your_account">Вы вышли из своей учетной записи</string>
     <string name="login_exit">Вы вышли из системы</string>
     <string name="login_line">Уже зарегистрированы? <u>Войти</u></string>
-    <string name="log_in_with_a_password">Войти с паролем</string>
     <string name="log_in_to_account">Войти</string>
     <string name="log_out_of_your_account">Хотите выйти из своей учетной записи?</string>
     <string name="name">Имя</string>
@@ -35,8 +33,6 @@
     <string name="repeat_password">Повторите пароль</string>
     <string name="registration">Регистрация</string>
     <string name="registration_line"><u>Регистрация</u></string>
-    <string name="sign_in_with_password">Войти с паролем</string>
-    <string name="unknown">Неизвестно</string>
     <!-- fragments -->
     <string name="add_post">Добавить пост</string>
     <string name="camera">Камера</string>
@@ -55,24 +51,16 @@
     <string name="posts">Посты</string>
     <string name="type_event">Вид события</string>
     <string name="user_avatar">Аватар пользователя</string>
-    <string name="users_wall">Лента пользователя</string>
     <string name="video">Видео</string>
     <!-- jobs -->
-    <string name="add_jobs">Добавить место работы</string>
     <string name="company_name">Название компании</string>
-    <string name="empty_jobs">Неизвестно</string>
-    <string name="job_name">Название компании</string>
     <string name="job_position">Должность</string>
     <string name="job_start">Начало</string>
     <string name="job_finish">Конец</string>
     <string name="link_to_company">Ссылка на сайт компании</string>
-    <string name="link_to_job">Ссылка на сайт компании</string>
     <!-- actions -->
-    <string name="add_date">Добавить дату</string>
     <string name="add_event">Добавить событие</string>
     <string name="add_link">Добавить ссылку</string>
-    <string name="add_note">Добавить примечание</string>
-    <string name="back">Назад</string>
     <string name="calendar">Календарь</string>
     <string name="chooser_share_post">Поделиться публикацией</string>
     <string name="create">Создать</string>

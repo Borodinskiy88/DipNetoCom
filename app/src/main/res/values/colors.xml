@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="PRIMARY_50">#d9fffe</color>
-    <color name="PRIMARY_200">#18FFFF</color>
     <color name="PRIMARY_600">#00c7ce</color>
     <color name="PRIMARY_900">#04605d</color>
-    <color name="SECONDARY_50">#fce4ec</color>
-    <color name="SECONDARY_100">#f5b6da</color>
     <color name="SECONDARY_200">#f06292</color>
     <color name="SECONDARY_400">#f186c0</color>
     <color name="SECONDARY_700">#ad1457</color>
