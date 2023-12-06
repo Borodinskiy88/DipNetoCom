@@ -3,18 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/colorPrimarySurface">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/user_wall_avatar"
-        android:layout_width="@dimen/posts_avatar_size_48"
-        android:layout_height="@dimen/posts_avatar_size_48"
-        android:layout_marginStart="@dimen/checkbox_padding_start_8"
-        android:layout_marginTop="@dimen/checkbox_padding_start_8"
-        android:contentDescription="@string/avatar"
-        android:scaleType="centerCrop"
-        android:src="@drawable/account_circle_24"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimarySurface"
+        android:elevation="4dp"
+        app:elevation="4dp"
+        android:paddingBottom="@dimen/checkbox_padding_start_8"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/user_wall_avatar"
+            android:layout_width="@dimen/posts_avatar_size_48"
+            android:layout_height="@dimen/posts_avatar_size_48"
+            android:layout_marginStart="@dimen/checkbox_padding_start_8"
+            android:layout_marginTop="@dimen/checkbox_padding_start_8"
+            android:contentDescription="@string/avatar"
+            android:scaleType="centerCrop"
+            android:src="@drawable/account_circle_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="?attr/colorPrimaryVariant" />
@@ -48,31 +57,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/user_wall_avatar" />
 
-    <TextView
-        android:id="@+id/user_company"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="?attr/colorPrimaryVariant"
-        app:layout_constraintStart_toStartOf="@id/user_wall_name"
-        app:layout_constraintTop_toBottomOf="@id/user_wall_name"
-        tools:text="Apple" />
+        <TextView
+            android:id="@+id/user_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorPrimaryVariant"
+            app:layout_constraintStart_toStartOf="@id/user_wall_name"
+            app:layout_constraintTop_toBottomOf="@id/user_wall_name"
+            tools:text="Apple" />
 
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/work_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="button_job, user_company" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/checkbox_padding_start_8"
         android:background="?attr/colorOnPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/user_wall_avatar">
-
+        app:layout_constraintTop_toBottomOf="@id/constraint_head">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_container"

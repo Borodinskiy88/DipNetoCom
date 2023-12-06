@@ -46,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing_16"
         android:text="@string/log_in_to_account"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/clear"
         app:layout_constraintTop_toBottomOf="@+id/password_log_layout" />
@@ -58,6 +59,7 @@
         android:layout_margin="@dimen/common_spacing_16"
         android:layout_marginTop="@dimen/common_spacing_16"
         android:text="@string/clear"
+        android:textSize="12sp"
         app:strokeColor="?attr/colorPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/login_button"

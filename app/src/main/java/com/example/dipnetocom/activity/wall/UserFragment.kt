@@ -23,7 +23,7 @@ import com.example.dipnetocom.adapter.PostAdapter
 import com.example.dipnetocom.databinding.FragmentUserBinding
 import com.example.dipnetocom.dto.Post
 import com.example.dipnetocom.enumeration.AttachmentType
-import com.example.dipnetocom.view.load
+import com.example.dipnetocom.view.loadCircleCrop
 import com.example.dipnetocom.viewmodel.JobViewModel
 import com.example.dipnetocom.viewmodel.PostViewModel
 import com.example.dipnetocom.viewmodel.UserViewModel
@@ -57,7 +57,7 @@ class UserFragment : Fragment() {
 
         userViewModel.user.observe(viewLifecycleOwner) { user ->
             binding.userWallName.text = user.name
-            user.avatar?.let { binding.userWallAvatar.load(it) }
+            user.avatar?.let { binding.userWallAvatar.loadCircleCrop(it) }
                 ?: binding.userWallAvatar.setImageResource(R.drawable.account_circle_24)
         }
 

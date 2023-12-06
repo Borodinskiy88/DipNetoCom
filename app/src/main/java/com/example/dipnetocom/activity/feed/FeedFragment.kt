@@ -160,8 +160,7 @@ class FeedFragment : Fragment() {
         userViewModel.user.observe(viewLifecycleOwner) { user ->
             binding.userName.text = user.name
             user.avatar?.apply {
-                val avatar = user.avatar
-                binding.userAvatar.loadCircleCrop(avatar)
+                binding.userAvatar.loadCircleCrop(user.avatar)
             } ?: binding.userAvatar.setImageResource(R.drawable.account_circle_24)
 
             binding.fabMyWall.setOnClickListener {
