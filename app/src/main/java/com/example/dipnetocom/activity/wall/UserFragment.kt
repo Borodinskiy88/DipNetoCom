@@ -66,7 +66,12 @@ class UserFragment : Fragment() {
                 jobViewModel.data.collectLatest { jobsList ->
                     if (jobsList.isNotEmpty()) {
                         val job = jobViewModel.lastJob(jobsList)
-                        binding.userCompany.text = job.name
+                        if (job.name.isNotEmpty()) {
+                            binding.userCompany.visibility = View.VISIBLE
+                            binding.userCompany.text = job.name
+                        } else {
+                            binding.userCompany.visibility = View.GONE
+                        }
                     }
                 }
             }
