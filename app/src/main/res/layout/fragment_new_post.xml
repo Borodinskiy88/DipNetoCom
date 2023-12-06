@@ -106,10 +106,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/image"
                     android:layout_marginTop="@dimen/checkbox_padding_start_8"
                     android:adjustViewBounds="true"
                     android:background="@drawable/background_line"
+                    android:contentDescription="@string/image"
                     tools:srcCompat="@tools:sample/avatars[3]" />
 
                 <Button
@@ -130,7 +130,9 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/icon_button_min_size_48"
         android:layout_gravity="bottom"
-        android:background="?attr/colorPrimarySurface">
+        android:background="?attr/colorPrimarySurface"
+        android:elevation="4dp"
+        app:elevation="4dp">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/gallery"
@@ -159,7 +161,9 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/common_spacing_16"
         android:layout_marginBottom="@dimen/margin_fab_70"
+        android:elevation="0dp"
         android:importantForAccessibility="no"
+        app:elevation="0dp"
         app:srcCompat="@drawable/check_24" />
 
 

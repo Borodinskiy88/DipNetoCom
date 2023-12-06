@@ -15,7 +15,7 @@ import com.example.dipnetocom.R
 import com.example.dipnetocom.activity.wall.UserFragment
 import com.example.dipnetocom.auth.AppAuth
 import com.example.dipnetocom.databinding.FragmentFeedBinding
-import com.example.dipnetocom.view.load
+import com.example.dipnetocom.view.loadCircleCrop
 import com.example.dipnetocom.viewmodel.AuthViewModel
 import com.example.dipnetocom.viewmodel.UserViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -160,7 +160,8 @@ class FeedFragment : Fragment() {
         userViewModel.user.observe(viewLifecycleOwner) { user ->
             binding.userName.text = user.name
             user.avatar?.apply {
-                binding.userAvatar.load(this)
+                val avatar = user.avatar
+                binding.userAvatar.loadCircleCrop(avatar)
             } ?: binding.userAvatar.setImageResource(R.drawable.account_circle_24)
 
             binding.fabMyWall.setOnClickListener {

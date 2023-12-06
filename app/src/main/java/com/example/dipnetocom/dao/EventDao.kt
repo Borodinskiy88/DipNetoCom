@@ -29,7 +29,6 @@ interface EventDao {
     @Upsert
     suspend fun save(event: EventEntity)
 
-
     @Query("DELETE FROM EventEntity WHERE id = :id")
     suspend fun removeById(id: Int)
 

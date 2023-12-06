@@ -106,7 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/common_spacing_16"
         android:text="@string/clear"
-        app:icon="@drawable/clear_24"
+        app:strokeColor="?attr/colorPrimary"
         app:layout_constraintEnd_toStartOf="@id/registration_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/repeat_password_reg_layout" />
@@ -118,9 +118,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing_16"
         android:text="@string/registration"
-        app:icon="@drawable/registration_24"
         app:layout_constraintEnd_toEndOf="@id/repeat_password_reg_layout"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@id/clear"
         app:layout_constraintTop_toBottomOf="@id/repeat_password_reg_layout" />
 
     <TextView

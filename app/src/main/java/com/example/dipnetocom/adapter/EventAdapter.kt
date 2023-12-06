@@ -111,7 +111,13 @@ class EventViewHolder(
 
 
             author.text = event.author
-            job.text = event.authorJob
+
+            if (event.authorJob?.isNotEmpty() == true) {
+                job.visibility = View.VISIBLE
+                job.text = event.authorJob
+            } else {
+                job.visibility = View.GONE
+            }
 
             published.text = reformatDateTime(event.published)
             content.text = event.content

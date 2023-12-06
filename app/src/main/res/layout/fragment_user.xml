@@ -12,7 +12,6 @@
         android:layout_height="@dimen/posts_avatar_size_48"
         android:layout_marginStart="@dimen/checkbox_padding_start_8"
         android:layout_marginTop="@dimen/checkbox_padding_start_8"
-        android:background="@drawable/background_line"
         android:contentDescription="@string/avatar"
         android:scaleType="centerCrop"
         android:src="@drawable/account_circle_24"
@@ -92,6 +91,8 @@
         android:layout_marginEnd="@dimen/common_spacing_16"
         android:layout_marginBottom="@dimen/common_spacing_16"
         android:importantForAccessibility="no"
+        android:elevation="0dp"
+        app:elevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/create_24" />

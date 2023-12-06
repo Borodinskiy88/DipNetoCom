@@ -27,7 +27,9 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/common_spacing_16"
         android:layout_marginBottom="@dimen/common_spacing_16"
+        android:elevation="0dp"
         android:importantForAccessibility="no"
+        app:elevation="0dp"
         app:srcCompat="@drawable/create_24" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

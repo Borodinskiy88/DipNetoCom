@@ -51,7 +51,11 @@ class LoginFragment : Fragment() {
             }
 
             if (state.isBlank) {
-                Snackbar.make(binding.root, R.string.is_blank, Snackbar.LENGTH_LONG).show()
+                Snackbar.make(
+                    binding.root,
+                    R.string.is_blank,
+                    Snackbar.LENGTH_LONG
+                ).show()
             }
 
             if (state.invalidLoginOrPassword) {
@@ -63,7 +67,11 @@ class LoginFragment : Fragment() {
             }
 
             if (state.error) {
-                Snackbar.make(binding.root, R.string.error_loading, Snackbar.LENGTH_LONG).show()
+                Snackbar.make(
+                    binding.root,
+                    R.string.error_loading,
+                    Snackbar.LENGTH_LONG
+                ).show()
             }
 
         }

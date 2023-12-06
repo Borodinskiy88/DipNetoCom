@@ -186,6 +186,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:elevation="4dp"
+        app:elevation="4dp"
         android:background="?attr/colorPrimarySurface">
 
         <com.google.android.material.button.MaterialButton
@@ -216,7 +218,9 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/common_spacing_16"
         android:layout_marginBottom="@dimen/margin_fab_70"
+        android:elevation="0dp"
         android:importantForAccessibility="no"
+        app:elevation="0dp"
         app:srcCompat="@drawable/check_24" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -20,7 +20,6 @@
             android:layout_marginBottom="@dimen/common_spacing_16"
             android:contentDescription="@string/avatar"
             android:scaleType="fitCenter"
-            android:background="@drawable/background_line"
             android:src="@drawable/account_circle_24"
             app:layout_constraintBottom_toBottomOf="@id/header1"
             app:layout_constraintStart_toStartOf="parent"
@@ -115,6 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/common_spacing_16"
+                android:visibility="gone"
                 android:ellipsize="end"
                 android:singleLine="true"
                 tools:text="@tools:sample/lorem" />

@@ -93,7 +93,6 @@ class PostViewHolder(
                     AttachmentType.VIDEO -> {
                         videoGroup.visibility = View.VISIBLE
                         post.attachment.url.let { url ->
-                            videoAttachment.setOnClickListener { onInteractionListener.onVideo(post) }
                             val uri = Uri.parse(url)
                             videoAttachment.setVideoURI(uri)
                             videoAttachment.setOnPreparedListener { mp ->
@@ -101,13 +100,20 @@ class PostViewHolder(
                                 mp?.isLooping = true
                                 videoAttachment.start()
                             }
+                            videoAttachment.setOnClickListener { onInteractionListener.onVideo(post) }
                         }
                     }
                 }
             }
 
             author.text = post.author
-            job.text = post.authorJob
+
+            if (post.authorJob?.isNotEmpty() == true) {
+                job.visibility = View.VISIBLE
+                job.text = post.authorJob
+            } else {
+                job.visibility = View.GONE
+            }
 
             published.text = reformatDateTime(post.published)
             content.text = post.content

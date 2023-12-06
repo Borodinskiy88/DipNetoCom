@@ -12,6 +12,8 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/black</item>
+        <!-- Navigation bar color. -->
+        <item name="android:navigationBarColor">@color/black</item>
         <!-- SplashScreen -->
         <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/PRIMARY_50
         </item>

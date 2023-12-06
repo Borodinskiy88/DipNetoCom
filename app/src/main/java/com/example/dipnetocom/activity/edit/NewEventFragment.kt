@@ -120,11 +120,13 @@ class NewEventFragment : Fragment() {
 
         binding.fab.setOnClickListener {
             val link = reformatWebLink(binding.editLink.text.toString())
+
             val type = if (binding.online.isChecked) {
                 EventType.ONLINE
             } else {
                 EventType.OFFLINE
             }
+
             val editText =
                 if (binding.editText.text?.isNotBlank() == true) {
                     binding.editText.text.toString()
@@ -136,6 +138,7 @@ class NewEventFragment : Fragment() {
                     ).show()
                     return@setOnClickListener
                 }
+
             val datetime =
                 if (binding.editEventDate.text.isNotBlank() && binding.editEventTime.text.isNotBlank()) {
                     binding.editEventDate.text.toString() + "T" + binding.editEventTime.text.toString() + ":00.000000Z"

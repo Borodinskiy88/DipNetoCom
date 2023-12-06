@@ -124,7 +124,8 @@ class NewJobFragment : Fragment() {
                 jobPosition.ifEmpty { "Unknown" },
                 jobStart,
                 jobFinish,
-                jobLink?.ifEmpty { null })
+                jobLink?.ifEmpty { null }
+            )
 
             viewModel.save()
             hideKeyboard(requireView())
